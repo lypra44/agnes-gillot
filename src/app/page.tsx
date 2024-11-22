@@ -1,5 +1,6 @@
 import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
+import { SectionIntro } from "@/components/SectionIntro";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
 import { Video } from "@/components/Video";
@@ -7,26 +8,16 @@ import { Testimonials } from "@/components/Testimonials";
 import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
 
-import { benefitOne, benefitTwo } from "@/components/data";
-export default function Home() {
+import { benefitOne, benefitTwo } from "@/components/data"
+
+export default async function Home() {
   return (
     <Container>
       <Hero />
-
-      <SectionTitle
-        preTitle="Introduction"
-        title=" Qu'est-ce que la naturopathie ?"        
-        >
-          
-          La naturopathie est une pratique thérapeutique holistique qui vise à comprendre comment
-fonctionne l’organisme de l’individu. Le suivi du naturopathe tend à renforcer les capacitésd’autorégulation de la personne. Il y a autant de prise en charge qu’il y a d’individu.Son histoire, ses fragilités, ses antécédents familiaux et son mode de vie sont autant d’indices pour que le naturopathe cible au plus précis le traitement et le moyen de retour à l’équilibre
-de santé.Beaucoup de thérapies sont au service de la naturopathie. Le choix des thérapies dépend de la pathologie, de l’histoire de l’individu et de la sensibilité du naturopathe.
       
-      </SectionTitle>
+      <SectionIntro />
 
-
-
-
+      <pourquoiSection />
 
       <Benefits data={benefitOne} />
       <Benefits imgPos="right" data={benefitTwo} />

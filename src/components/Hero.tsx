@@ -7,11 +7,24 @@ import { useEffect, useState } from 'react'
 
 import { groq } from 'next-sanity'
 import { client } from "@/sanity/lib/client";
+import imageUrlBuilder from '@sanity/image-url'
 
-const heroQuery = groq`*[_type == "hero"][0]{title, subtitle, backgroundImage}`
+const builder = imageUrlBuilder(client)
+
+function urlFor(source: any) {
+  return builder.image(source)
+}
+
+const heroQuery = groq`*[_type == "hero"][0]{title, subtitle, image}`
+
+interface HeroData {
+  title: string;
+  subtitle: string;
+  image: any; // or use more specific Sanity image type if available
+}
 
 export function Hero() {
-  const [heroData, setHeroData] = useState(null)
+  const [heroData, setHeroData] = useState<HeroData | null>(null)
 
   useEffect(() => {
     client.fetch(heroQuery).then((data) => {
@@ -19,8 +32,12 @@ export function Hero() {
     })
   }, [])
 
-  console.log(heroData)
+  console.log('heroData:', heroData) // Pour déboguer
 
+  // Modifiez la vérification
+  if (!heroData?.image) {
+    return null;
+  }
 
   return (
       <Container className="flex flex-wrap ">
@@ -55,13 +72,11 @@ export function Hero() {
         </div>
         <div className="flex items-center justify-center w-full lg:w-1/2">
           <div className="">
-            <Image
-              src={heroData?.image}
-              width="616"
-              height="617"
-              className={"object-cover"}
+            <img
+              src={urlFor(heroData.image).url()}
               alt="Hero Illustration"
-              loading="eager"
+              width={500}
+              height={300}
             />
           </div>
         </div>

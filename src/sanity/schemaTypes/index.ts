@@ -5,7 +5,10 @@ import { categoryType } from './categoryType'
 import { postType } from './postType'
 import { authorType } from './authorType'
 import { hero } from './hero'
-import { naturopathieSection } from './sectionLaNaturopathie'
+import { sectionIntro } from './sectionIntro'
+import { pourquoiSection } from './pourquoiSection'
+
+
 
 
 export const schema: { types: SchemaTypeDefinition[] } = {
@@ -15,6 +18,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     postType,
     authorType,
     hero,
-    naturopathieSection,
+    sectionIntro,
+    pourquoiSection
   ],
 }
