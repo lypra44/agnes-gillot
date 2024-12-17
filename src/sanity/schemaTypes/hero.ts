@@ -5,8 +5,13 @@ export const hero = {
   type: 'document',
   fields: [
     {
-      name: 'title',
-      title: 'Title',
+      name: 'titlepart1',
+      title: 'Titlepart1',
+      type: 'string',
+    },
+    {
+      name: 'titlepart2',
+      title: 'Titlepart1',
       type: 'string',
     },
     {

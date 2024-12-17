@@ -3,15 +3,17 @@ import React from "react";
 interface ContainerProps {
   children: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-export function Container(props: Readonly<ContainerProps>) {
+export function Container({ className, children, style }: ContainerProps) {
   return (
     <div
-      className={`container p-8 mx-auto xl:px-0 ${
-        props.className ? props.className : ""
-      }`}>
-      {props.children}
+      className={` ${
+        className ? className : ""
+      }`}
+      style={style}>
+      {children}
     </div>
   );
 }

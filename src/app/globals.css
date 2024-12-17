@@ -1,11 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
 
 :root {
-  --background: #ffffff;
+  --blue-primary: #65B9CB;
+  --green-primary: #00A583; 
+  --dark-green: #428B7C;
+  --light-green: #78aba5;
+  --dark-blue: #345C69;
+   --background: #ffffff;
   --foreground: #171717;
+    font-size: 16px;
+  --line-height-base: 1.5;
+  margin: 0;
+  padding: 0;    
 }
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -17,7 +29,6 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
@@ -26,60 +37,27 @@ body {
   }
 }
 
-/* styles.css */
+h1 {
+  @apply text-2xl leading-snug sm:text-3xl lg:text-4xl xl:text-5xl;
+}
 
-/* Variables CSS pour les couleurs et les polices */
-:root {
-    --primary-color: #3498db;
-    --secondary-color: #2ecc71;
-    --font-family: 'Arial, sans-serif';
-    --font-size-base: 16px;
-    --line-height-base: 1.5;
-  }
-  
-  /* Styles globaux */
-  body {
-    font-family: var(--font-family);
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-base);
-    margin: 0;
-    padding: 0;
-    color: #333;
-  }
-  
-  /* Styles pour les titres */
-  h1 {
-    font-size: 2.5em;
-    color: var(--primary-color);
-    margin-bottom: 0.5em;
-  }
-  
-  h2 {
-    font-size: 2em;
-    color: var(--primary-color);
-    margin-bottom: 0.5em;
-  }
-  
-  h3 {
-    font-size: 1.75em;
-    color: var(--secondary-color);
-    margin-bottom: 0.5em;
-  }
-  
-  h4 {
-    font-size: 1.5em;
-    color: var(--secondary-color);
-    margin-bottom: 0.5em;
-  }
-  
-  h5 {
-    font-size: 1.25em;
-    color: var(--secondary-color);
-    margin-bottom: 0.5em;
-  }
-  
-  h6 {
-    font-size: 1em;
-    color: var(--secondary-color);
-    margin-bottom: 0.5em;
-  }
+h2 {
+  @apply text-xl leading-snug sm:text-2xl lg:text-3xl;
+}
+
+h3 {
+  @apply text-lg leading-snug sm:text-xl;
+}
+
+h4 {
+  @apply text-base leading-snug;
+}
+
+p {
+  @apply text-sm leading-normal sm:text-base;
+}
+
+a {
+  @apply text-base leading-normal font-bold sm:text-lg px-6 py-2.5 text-center bg-white rounded-md w-fit;
+  text-decoration: none;
+}

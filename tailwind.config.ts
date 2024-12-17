@@ -11,7 +11,15 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primaryblue: "var(--blue-primary)",
+        primarygreen: "var(--green-primary)",
+        darkgreen: "var(--dark-green)",
+        lightgreen: "var(--light-green)",
+        darkblue: "var(--dark-blue)",
       },
+    },
+    fontFamily: {
+      serif: ['"Karla", sans-serif'],
     },
   },
   plugins: [],
