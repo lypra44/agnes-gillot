@@ -4,7 +4,6 @@ import "./globals.css";
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { PopupWidget }  from "@/components/PopupWidget";
 
 
 
@@ -25,7 +24,6 @@ export default function RootLayout({
           <Navbar />
           <div>{children}</div>
           <Footer />
-          <PopupWidget />
         </ThemeProvider>
       </body>
     </html>

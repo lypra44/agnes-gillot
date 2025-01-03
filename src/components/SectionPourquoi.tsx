@@ -33,6 +33,7 @@ export const SectionPourquoi = () => {
       const query = groq`*[_type == "pourquoiSection"][0]{
                 title,
                 subtitle,
+                title2,
                 body,
                 image,
                 bulletPoints
@@ -61,15 +62,15 @@ export const SectionPourquoi = () => {
 
         <div className="">
           {pourquoiSectionData.title && (
-            <h2 className="text-primarygreen">{pourquoiSectionData.title}</h2>
+            <p className="text-primarygreen italic text-lg leading-snug sm:text-xl">{pourquoiSectionData.title}</p>
           )}
           {pourquoiSectionData.subtitle && (
-            <h3 className="text-2xl leading-snug tracking-tight text-gray-700 dark:text-gray-300">
+            <h2 className="font-bold text-gray-700">
               {pourquoiSectionData.subtitle}
-            </h3>
+            </h2>
           )}
           {pourquoiSectionData.body && (
-            <p className="mt-6 text-base text-justify leading-normal text-gray-700 dark:text-gray-300">
+            <p className="mt-6 text-base text-left leading-normal text-gray-700 dark:text-gray-300">
               {pourquoiSectionData.body}
             </p>
           )}
@@ -80,7 +81,7 @@ export const SectionPourquoi = () => {
 
       <div className="flex items-center justify-center flex-col gap-12">
 
-      <h2 className="text-primarygreen">{pourquoiSectionData.title2}</h2>
+        <h2 className="text-primarygreen text-center">{pourquoiSectionData.title2}</h2>
 
         {pourquoiSectionData.bulletPoints.map((point, index) => (
           <div key={index} className="flex items-center justify-center flex-col bg-slate-100 rounded-sm h-full w-full p-6">
@@ -88,7 +89,7 @@ export const SectionPourquoi = () => {
             <ul className="">
               {point.liste.map((item, itemIndex) => (
                 <li
-                  className="text-sm leading-5 list-disc text-gray-700"
+                  className="text-sm leading-6 list-disc text-gray-700"
                   key={itemIndex}
                 >
                   {item}

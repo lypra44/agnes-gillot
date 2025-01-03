@@ -12,10 +12,12 @@
   --dark-blue: #345C69;
    --background: #ffffff;
   --foreground: #171717;
-    font-size: 16px;
-  --line-height-base: 1.5;
+}
+
+body{
   margin: 0;
   padding: 0;    
+overflow-x: hidden;
 }
 
 
@@ -54,7 +56,7 @@ h4 {
 }
 
 p {
-  @apply text-sm leading-normal sm:text-base;
+  @apply text-xs leading-normal sm:text-base;
 }
 
 a {

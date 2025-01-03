@@ -66,13 +66,13 @@ export function SectionIntro() {
         )}
 
         {IntroData.title && (
-          <h2 className=" responsive-h2 font-bold leading-snug tracking-tight text-gray-800">
+          <h2 className=" font-bold leading-snug tracking-tight text-gray-800">
             {IntroData.title}
           </h2>
         )}
 
         {IntroData.body && (
-          <div className="responsive-p py-4 text-white">
+          <div className="py-4 text-white">
             {IntroData.body}
           </div>
         )}

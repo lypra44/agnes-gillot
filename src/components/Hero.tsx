@@ -41,9 +41,7 @@ export function Hero() {
   }
 
   return (
-      <Container className="mx-16 flex flex-col items-center justify-center w-11/12 h-screen lg:flex-row">
-
-
+      <Container className="flex flex-col items-center justify-center w-11/12 h-screen lg:flex-row">
 
         <div className="flex items-center justify-center w-5/6 lg:w-1/2 lg:mt-0">
 
