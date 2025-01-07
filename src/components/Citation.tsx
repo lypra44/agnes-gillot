@@ -28,7 +28,7 @@ export default function Citation() {
   }, []);
 
   return (
-    <section className="flex flex-col items-center justify-center text-center bg-darkgreen bg-cover py-12 px-6 text-white md:m-8 md:rounded-md" 
+    <section className="flex flex-col items-center justify-center text-center bg-darkgreen bg-cover py-8 px-6 text-white md:mx-8 md:py-12 md:my-8 md:rounded-md md:w-11/12" 
     style={{ backgroundImage: "url(/img/pattern.svg)"}}>
 
 

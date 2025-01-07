@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
-
-import { Navbar } from "@/components/Navbar";
+import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Manrope } from "next/font/google";
 
-
+const manrope = Manrope({
+  subsets: ['latin']
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
+    <html lang="fr" suppressHydrationWarning>
+      <body className={manrope.className}>
         <ThemeProvider attribute="class">
           <Navbar />
           <div>{children}</div>

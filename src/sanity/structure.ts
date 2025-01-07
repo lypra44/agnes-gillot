@@ -8,10 +8,11 @@ export const structure: StructureResolver = (S) => {
     S.documentTypeListItem('author').title('Authors'),
     S.divider(),
     S.documentTypeListItem('hero').title('hero section'),
-    S.documentTypeListItem('sectionIntro').title('Section Intro'),
+    S.documentTypeListItem('intro').title('intro'),
     S.documentTypeListItem('pourquoiSection').title('Pourquoi section'),
+    S.documentTypeListItem('faq').title('Faq'),
     ...S.documentTypeListItems().filter(
-      (item) => item.getId && !['post', 'category', 'author', 'hero', 'sectionIntro', 'pourquoiSection'].includes(item.getId()!),
+      (item) => item.getId && !['post', 'category', 'author', 'hero', 'intro', 'pourquoiSection', 'faq'].includes(item.getId()!),
     ),
   ];
 

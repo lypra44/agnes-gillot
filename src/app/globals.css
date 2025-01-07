@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
 
 
 :root {
@@ -17,7 +16,7 @@
 body{
   margin: 0;
   padding: 0;    
-overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 
@@ -62,4 +61,31 @@ p {
 a {
   @apply text-base leading-normal font-bold sm:text-lg px-6 py-2.5 text-center bg-white rounded-md w-fit;
   text-decoration: none;
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100px); /* Départ en bas */
+  }
+  100% {
+    transform: translateY(0); /* Position finale */
+  }
+}
+
+.slide-up {
+  animation: slide-up 0.85s cubic-bezier(0.65, 0, 0.35, 1) both; /* Appliquer l'animation */
+}
+
+
+@keyframes opacity {
+  0% {
+    opacity: 0; /* Départ en bas */
+  }
+  100% {
+    opacity: 1; /*  /* Position finale */
+  }
+}
+
+.opacity {
+  animation: opacity 0.85s forwards; /* Appliquer l'animation */
 }

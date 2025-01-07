@@ -48,6 +48,7 @@ export const pourquoiSection = {
               type: 'array',
               of: [{type: 'string'}]
             }
+            
           ]
         }
       ]

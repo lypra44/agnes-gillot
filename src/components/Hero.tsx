@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { Container } from "@/components/Container";
-import heroImg from "../../public/img/hero.png";
 import { useEffect, useState } from 'react'
 
 import { groq } from 'next-sanity'
@@ -21,7 +20,7 @@ interface HeroData {
   titlepart1: string;
   titlepart2: string;
   subtitle: string;
-  image: any; // or use more specific Sanity image type if available
+  image: any; 
 }
 
 export function Hero() {
@@ -33,7 +32,6 @@ export function Hero() {
     })
   }, [])
 
-  console.log('heroData:', heroData) // Pour déboguer
 
   // Modifiez la vérification
   if (!heroData?.image) {
@@ -41,16 +39,16 @@ export function Hero() {
   }
 
   return (
-      <Container className="flex flex-col items-center justify-center w-11/12 h-screen lg:flex-row">
+      <Container className="flex flex-col items-center justify-center w-11/12 h-[calc(100vh-90px)] lg:flex-row">
 
         <div className="flex items-center justify-center w-5/6 lg:w-1/2 lg:mt-0">
 
           <div className="text-center sm:text-left">
-            <h1 className="text-2xl leading-snug tracking-tight text-gray-800 sm:text-3xl lg:text-4xl lg:leading-tight xl:text-5xl xl:leading-tight dark:text-white">
-            {heroData?.titlepart1} <br/> <span className="text-primarygreen font-semibold">{heroData?.titlepart2} </span>
+            <h1 className=" text-gray-800 sm:text-3xl lg:text-4xl lg:leading-tight xl:text-5xl xl:leading-tight dark:text-white slide-up" style={{ animationDelay: '0s' }}>
+              {heroData?.titlepart1} <br/> <span className="text-primarygreen font-semibold">{heroData?.titlepart2} </span>
             </h1>
-            <p className="py-2 text-base leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300">
-            {heroData?.subtitle} 
+            <p className="py-2 text-base leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300 slide-up" style={{ animationDelay: '0.2s' }}>
+              {heroData?.subtitle} 
             </p>
 
             <div className="flex items-center w-full mt-6 text-base flex-col gap-4 sm:space-x-4 sm:space-y-0 sm:flex-row sm:w-2/3 md:justify-left">
@@ -58,7 +56,7 @@ export function Hero() {
                 href="https://web3templates.com/templates/nextly-landing-page-template-for-startups"
                 target="_blank"
                 rel="noopener"
-                className="px-6 py-2.5 font-medium text-center text-white bg-lightgreen rounded-md over:bg-darkgreen">
+                className="px-6 py-2.5 font-medium text-center text-white bg-lightgreen rounded-md over:bg-darkgreen slide-up" style={{ animationDelay: '0.4s' }}>
                 Mes techniques
               </a>  
 
@@ -66,7 +64,7 @@ export function Hero() {
                 href="https://web3templates.com/templates/nextly-landing-page-template-for-startups"
                 target="_blank"
                 rel="noopener"
-                className="px-6 py-2.5 font-medium text-center text-white bg-lightgreen rounded-md over:bg-darkgreen">
+                className="px-6 py-2.5 font-medium text-center text-white bg-lightgreen rounded-md over:bg-darkgreen slide-up" style={{ animationDelay: '0.6s' }}>
                 Me contacter
               </a>
 
@@ -80,7 +78,8 @@ export function Hero() {
               alt="Hero Illustration"
               width={800}
               height={800}
-              className="object-contain"
+              className="object-contain opacity-0 opacity"
+              style={{ animationDelay: '0.8s' }}
             />
         </div>
       </Container>

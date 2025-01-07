@@ -54,30 +54,32 @@ export default function Techniques() {
 
   return (
     <section className="flex flex-col items-center justify-center bg-cover m-8">
-
       <div className="">
         <div>
-          {techniquesData.title && (
-            <h2 className="mt-3 font-bold leading-snug tracking-tight text-darkgreen ">
-              {techniquesData.title}
-            </h2>
-          )}
-          {techniquesData.subtitle && (
-            <h3 className="mt-2 text-gray-700">
-              {techniquesData.subtitle}
-            </h3>
-          )}
-          {techniquesData.body && (
-            <p className=" mt-4 text-gray-700">
-              {techniquesData.body}
-            </p>
-          )}
+          <div className="flex flex-col-reverse">
+            {techniquesData.title && (
+              <h2 className="font-bold leading-snug tracking-tight text-darkgreen md:uppercase">
+                {techniquesData.title}
+              </h2>
+            )}
+            {techniquesData.subtitle && (
+              <h3 className="mt-1 text-gray-700 italic text-lg leading-snug">
+                {techniquesData.subtitle}
+              </h3> 
+            )}
+            
+            </div>
+
+            {techniquesData.body && (
+              <p className=" mt-4 text-gray-700">{techniquesData.body}</p>
+            )}
+          
         </div>
-        <div className="flex flex-col gap-10 ml:grid ml:grid-cols-3 mt-10">
+        <div className="flex flex-col gap-10 md:grid md:grid-cols-2 ml:grid-cols-3 mt-10">
           {blocks.map((block, index) => (
             <div
               key={index}
-              className="block object-left text-left shadow-lg rounded-md bg-white p-6 w-full border-2 border-solid border-darkgreen"
+              className="block object-left text-left shadow-md rounded-md bg-white p-6 w-full border border-solid border-darkgreen"
             >
               {block.image && block.image.asset && (
                 <Image
@@ -86,12 +88,11 @@ export default function Techniques() {
                   height={200}
                   width={100}
                   className="h-20 mb-4"
-          
                 />
               )}
 
-              <h2 className="mb-4 text-darkgreen">{block.title}</h2>
-              <p className="">{block.body}</p>
+              <h3 className="mb-4 text-darkgreen font-bold">{block.title}</h3>
+              <p className="text-grey-800 leading-5 text-sm">{block.body}</p>
             </div>
           ))}
         </div>

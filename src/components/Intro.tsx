@@ -54,9 +54,9 @@ export function SectionIntro() {
   }
 
   return (
-    <Container className="flex flex-col lg:flex-row">
+    <Container className="flex flex-col w-screen md:flex-row">
       <div
-        className="flex flex-col text-left bg-lightgreen p-8"
+        className="flex flex-col text-left bg-lightgreen p-8 md:w-2/3"
         style={{ backgroundImage: "url(/img/pattern.svg)" }}
       >
         {IntroData.subtitle && (
@@ -72,9 +72,7 @@ export function SectionIntro() {
         )}
 
         {IntroData.body && (
-          <div className="py-4 text-white">
-            {IntroData.body}
-          </div>
+          <div className="py-4 text-white">{IntroData.body}</div>
         )}
 
         <a
@@ -87,13 +85,13 @@ export function SectionIntro() {
         </a>
       </div>
 
-      <Image
-        src={urlFor(IntroData.image).url()}
-        alt="image intro"
-        width={1000}
-        height={1000}
-        className="w1/3"
-      />
+      <div
+  className="h-96 md:w-1/3 md:h-auto bg-cover bg-center"
+  style={{
+    backgroundImage: `url(${urlFor(IntroData.image).url()})`,
+  }}
+>
+</div>
     </Container>
   );
 }

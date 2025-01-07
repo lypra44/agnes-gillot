@@ -14,7 +14,7 @@ interface PourquoiSectionData {
   body: string;
   image: any;
   title2: string;
-  bulletPoints: { title: string; liste: string[] }[];
+  bulletPoints: { title: string; liste: string[]; backgroundImage: string; image: string }[];
 }
 
 export const SectionPourquoi = () => {
@@ -57,7 +57,7 @@ export const SectionPourquoi = () => {
           alt={pourquoiSectionData.title}
           width={300}
           height={300}
-          className=" object-contain lg:w-1/3"
+          className=" object-contain lg:w-1/3 md:w-1/2 my-4"
         />
 
         <div className="">
@@ -79,14 +79,18 @@ export const SectionPourquoi = () => {
 
 
 
-      <div className="flex items-center justify-center flex-col gap-12">
+      <div className="flex items-center justify-center flex-col gap-12 mt-6">
 
         <h2 className="text-primarygreen text-center">{pourquoiSectionData.title2}</h2>
 
         {pourquoiSectionData.bulletPoints.map((point, index) => (
-          <div key={index} className="flex items-center justify-center flex-col bg-slate-100 rounded-sm h-full w-full p-6">
+          <div
+            key={index}
+            className="flex items-center justify-center flex-col bg-slate-100 rounded-sm h-1/4 w-full p-6 bg-contain bg-no-repeat bg-right-bottom md:w-3/5"
+            style={{ backgroundImage: `url(/img/plantes-box-${index}.svg)` }}
+          >
             {point.title && <h4 className="font-bold mb-4 text-darkgreen">{point.title}</h4>}
-            <ul className="">
+            <ul className="pl-6">
               {point.liste.map((item, itemIndex) => (
                 <li
                   className="text-sm leading-6 list-disc text-gray-700"
@@ -99,15 +103,6 @@ export const SectionPourquoi = () => {
           </div>
         ))}
       </div>
-
-      <Image
-        src="/img/Consultation-naturopathie-motif.svg"
-        width="140"
-        alt="N"
-        height="200"
-        className="absolute right-40 bottom-3"
-      />
-
 
     </Container>
   );

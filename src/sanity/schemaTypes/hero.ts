@@ -5,6 +5,11 @@ export const hero = {
   type: 'document',
   fields: [
     {
+      name: 'annonce',
+      title: 'barre annonce',
+      type: 'string',
+    },
+    {
       name: 'titlepart1',
       title: 'Titlepart1',
       type: 'string',

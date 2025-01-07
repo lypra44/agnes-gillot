@@ -1,46 +1,18 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image"
-import { Disclosure } from "@headlessui/react";
-import { Bars3Icon, XCircleIcon, XMarkIcon } from "@heroicons/react/24/solid";
-import { useState } from 'react';
+import Image from "next/image";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import { useEffect, useState } from "react";
+import { client } from "@/sanity/lib/client";
+import { groq } from "next-sanity";
 
-const MenuToggle = () => {
+// Interface pour les données de la section Hero
+interface HeroData {
+  annonce: string;
+}
+
+const Navbar = () => {
   const [open, setOpen] = useState(false);
-
-  const navigation = ["Home", "About", "Services", "Contact"];
-
-  return (
-    <div>
-      <div
-        aria-label="Toggle Menu"
-        className="ml-auto px-2 py-1 text-gray-500 rounded-md lg:hidden hover:text-primarygreen focus:text-primarygreen focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700"
-        onClick={() => setOpen(!open)}
-      >
-        {open ? (
-          <XMarkIcon className="h-6 w-6" />
-        ) : (
-          <Bars3Icon className="h-6 w-6" />
-        )}
-      </div>
-      <div className={`${open ? "block" : "hidden"} lg:hidden fixed left-0 top-16 bg-white w-screen border-black border`}>
-        <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
-          {navigation.map((menu, index) => (
-            <li className="mr-3 nav__item" key={index}>
-              <Link href="/" className="inline-block px-2 py-2 text-lg font-medium text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-primarygreen focus:text-primarygreen focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800">
-                {menu}
-              </Link>
-            </li>
-          ))}
-        </ul>
-    </div>
-    </div>
-  );
-};
-
-export const Navbar = () => {
-  const [open, setOpen] = useState(false);
-
   const navigation = [
     "La naturopathie",
     "Pour qui ? Pourquoi ?",
@@ -49,47 +21,79 @@ export const Navbar = () => {
     "Contact",
   ];
 
+  // État pour stocker les données de Hero
+  const [heroData, setHeroData] = useState<HeroData | null>(null);
+
+  // Query pour récupérer les données de Hero depuis Sanity
+  const heroQuery = groq`*[_type == "hero"][0]{ annonce }`;
+
+  // useEffect pour récupérer les données à partir de Sanity
+  useEffect(() => {
+    const fetchHeroData = async () => {
+      try {
+        const data = await client.fetch(heroQuery);
+        setHeroData(data);
+      } catch (error) {
+        console.error(
+          "Erreur lors de la récupération des données Hero :",
+          error
+        );
+      }
+    };
+
+    fetchHeroData();
+  }, []);
+
   return (
-    <div className="w-screen border-b fixed bg-white">
-      <nav className="container relative flex flex-wrap items-center justify-between p-2 mx-auto lg:justify-between xl:px-1">
-        {/* Logo  */}
-              <span>
-                <Image
-                  src="/img/logo.svg"
-                  width="250"
-                  alt="N"
-                  height="200"
-                />
-              </span>
-          
 
-
-        {/* get started  */}
-        <div className="gap-3 nav__item mr-2 lg:flex ml-auto lg:ml-0 lg:order-2">
-            <div className="hidden mr-3 lg:flex nav__item">
-              <Link href="/" className="px-4 py-2 text-white bg-darkgreen rounded-md">
-                Prendre rendez-vous
-              </Link>
-            </div>
-        </div>
-                
-        <MenuToggle />
-        
-        {/* menu  */}
-        <div className="hidden text-center lg:flex lg:items-center">
-          <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
-            {navigation.map((menu, index) => (
-              <li className="mr-3 nav__item" key={index}>
-                <Link href="/" className="inline-block px-2 py-2 text-lg font-medium text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-primarygreen focus:text-primarygreen focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800">
-                    {menu}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-      </nav>
+<>
+ <div className="bg-primarygreen">
+        <p className="text-white py-1 text-center">{heroData?.annonce}</p>
     </div>
-  );
-}
+    
+      <div className="w-screen border-b sticky z-50 bg-white top-0">
 
+        <nav className="flex items-center justify-between p-2 px-4">
+          {/* Logo */}
+          <span>
+            <Image src="/img/logo.svg" width="220" alt="N" height="200" />
+          </span>
+
+          {/* Menu Toggle */}
+          <div
+            aria-label="Toggle Menu"
+            className={`ml-auto px-2 py-1 text-gray-500 rounded-md hover:text-primarygreen focus:text-primarygreen focus:bg-indigo-100 focus:outline-none ${open ? "opacity-100" : "opacity-50"}`}
+            onClick={() => setOpen(!open)}
+          >
+            {open ? (
+              <XMarkIcon className="h-8 w-8" />
+            ) : (
+              <Bars3Icon className="h-8 w-8" />
+            )}
+          </div>
+
+          {/* Menu */}
+          <div
+            className={`fixed left-0 top-16 bg-white w-screen z-50 ${open ? "block" : "hidden"}`}
+          >
+            <ul className="items-center justify-end flex-1 pt-6 list-none">
+              {navigation.map((menu, index) => (
+                <li className="mr-3 nav__item" key={index}>
+                  <Link
+                    href="/"
+                    className="inline-block px-2 py-2 text-lg font-medium text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-primarygreen focus:text-primarygreen focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+                  >
+                    {menu}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      </>
+  );
+};
+
+export default Navbar;

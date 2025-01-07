@@ -43,5 +43,40 @@ export const massage = {
       title: 'Body',
       type: 'text',
     },
+
+    {
+      name: 'bienfaits',
+      title: 'Les bienfaits du massage AMA',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'title',
+              title: 'Titre',
+              type: 'string'
+            },
+
+            {
+              name: 'body',
+              title: 'corps de texte',
+              type: 'string'
+            },
+            {
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+            },
+            {
+              name: 'liste',
+              title: 'Liste',
+              type: 'array',
+              of: [{type: 'string'}]
+            },
+          ],
+        },
+      ],
+    },
   ],
-};
+} 

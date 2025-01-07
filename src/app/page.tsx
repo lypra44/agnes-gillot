@@ -2,7 +2,6 @@ import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
 import { SectionIntro } from "@/components/Intro";
 import { Faq } from "@/components/Faq";
-import { Cta } from "@/components/Cta";
 import { SectionPourquoi } from "@/components/SectionPourquoi";
 import Techniques from "@/components/Techniques";
 import Citation from "@/components/Citation";
@@ -14,23 +13,21 @@ export default async function Home() {
     <>
       <Container className="flex flex-col items-center justify-center">
         <Hero />
-      
+
         <SectionIntro />
 
         <SectionPourquoi />
 
-        <Citation/>
+        <Citation />
 
         <Techniques />
 
         <Massage />
 
-      
-        
-        <Contact/>
+        <Contact />
 
         <Faq />
-
+        
       </Container>
     </>
   );

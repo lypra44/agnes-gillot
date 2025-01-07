@@ -15,7 +15,6 @@ export const faq = {
         type: 'array',
         of: [
           {
-            title: 'Question/Réponse',
             type: 'object',
             fields: [
               {
@@ -30,12 +29,7 @@ export const faq = {
                 type: 'text',
               },
             ],
-            preview: {
-              select: {
-                title: 'question',
-                subtitle: 'answer',
-              },
-            },
+           
           },
         ],
       },
