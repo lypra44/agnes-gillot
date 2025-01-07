@@ -10,7 +10,7 @@ import imageUrlBuilder from '@sanity/image-url'
 
 const builder = imageUrlBuilder(client)
 
-function urlFor(source: any) {
+function urlFor(source: string) {
   return builder.image(source)
 }
 
@@ -20,7 +20,7 @@ interface HeroData {
   titlepart1: string;
   titlepart2: string;
   subtitle: string;
-  image: any; 
+  image: string; 
 }
 
 export function Hero() {

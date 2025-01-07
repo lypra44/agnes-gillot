@@ -4,7 +4,7 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export const sendEmail = async (data) => {
+export const sendEmail = async () => {
     const { error } = await resend.emails.send({
         from: 'test@resend.dev',
         to: ['mel.kitenge@gmail.com'],

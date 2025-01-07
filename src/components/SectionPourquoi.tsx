@@ -12,9 +12,14 @@ interface PourquoiSectionData {
   title: string;
   subtitle: string;
   body: string;
-  image: any;
+  image: string;
   title2: string;
-  bulletPoints: { title: string; liste: string[]; backgroundImage: string; image: string }[];
+  bulletPoints: {
+    title: string;
+    liste: string[];
+    backgroundImage: string;
+    image: string;
+  }[];
 }
 
 export const SectionPourquoi = () => {
@@ -23,7 +28,7 @@ export const SectionPourquoi = () => {
       title: "",
       subtitle: "",
       body: "",
-      image: null,
+      image: "",
       title2: "",
       bulletPoints: [],
     });
@@ -62,7 +67,9 @@ export const SectionPourquoi = () => {
 
         <div className="">
           {pourquoiSectionData.title && (
-            <p className="text-primarygreen italic text-lg leading-snug sm:text-xl">{pourquoiSectionData.title}</p>
+            <p className="text-primarygreen italic text-lg leading-snug sm:text-xl">
+              {pourquoiSectionData.title}
+            </p>
           )}
           {pourquoiSectionData.subtitle && (
             <h2 className="font-bold text-gray-700">
@@ -77,11 +84,10 @@ export const SectionPourquoi = () => {
         </div>
       </div>
 
-
-
       <div className="flex items-center justify-center flex-col gap-12 mt-6">
-
-        <h2 className="text-primarygreen text-center">{pourquoiSectionData.title2}</h2>
+        <h2 className="text-primarygreen text-center">
+          {pourquoiSectionData.title2}
+        </h2>
 
         {pourquoiSectionData.bulletPoints.map((point, index) => (
           <div
@@ -89,7 +95,9 @@ export const SectionPourquoi = () => {
             className="flex items-center justify-center flex-col bg-slate-100 rounded-sm h-1/4 w-full p-6 bg-contain bg-no-repeat bg-right-bottom md:w-3/5"
             style={{ backgroundImage: `url(/img/plantes-box-${index}.svg)` }}
           >
-            {point.title && <h4 className="font-bold mb-4 text-darkgreen">{point.title}</h4>}
+            {point.title && (
+              <h4 className="font-bold mb-4 text-darkgreen">{point.title}</h4>
+            )}
             <ul className="pl-6">
               {point.liste.map((item, itemIndex) => (
                 <li
@@ -103,7 +111,6 @@ export const SectionPourquoi = () => {
           </div>
         ))}
       </div>
-
     </Container>
   );
 };

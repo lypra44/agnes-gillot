@@ -9,21 +9,23 @@ import Image from "next/image";
 
 const builder = imageUrlBuilder(client);
 
-function urlFor(source: any) {
+function urlFor(source: string) {
   return builder.image(source);
 }
 
 // Définissons un type pour nos données
 interface Bienfait {
   title: string;
+  body: string;
+  image: string;
   liste: string[];
 }
 
 interface SectionIntroData {
   title?: string;
   subtitle?: string;
-  image?: any;
-  body?: any[];
+  image: string;
+  body?: string[];
   title1?: string;
   body1?: string;
   title2?: string;
@@ -38,7 +40,6 @@ const IntroQuery = groq`*[_type == "massage"][0]{title, subtitle, image, body, t
 export function Massage() {
   const [MassageData, setSectionMassageData] =
     useState<SectionIntroData | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,8 +49,6 @@ export function Massage() {
         setSectionMassageData(data);
       } catch (error) {
         console.error("Error fetching massage data:", error);
-      } finally {
-        setIsLoading(false);
       }
     };
 

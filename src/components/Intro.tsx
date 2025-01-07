@@ -1,15 +1,13 @@
 "use client";
-
 import { Container } from "@/components/Container";
 import { useEffect, useState } from "react";
 import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
-import Image from "next/image";
 
 const builder = imageUrlBuilder(client);
 
-function urlFor(source: any) {
+function urlFor(source: string) {
   return builder.image(source);
 }
 
@@ -17,8 +15,8 @@ function urlFor(source: any) {
 interface SectionIntroData {
   title?: string;
   subtitle?: string;
-  image?: any;
-  body?: any[];
+  image: string;
+  body?: string[];
 }
 
 const IntroQuery = groq`*[_type == "intro"][0]{title, subtitle, image, body}`;
@@ -86,12 +84,11 @@ export function SectionIntro() {
       </div>
 
       <div
-  className="h-96 md:w-1/3 md:h-auto bg-cover bg-center"
-  style={{
-    backgroundImage: `url(${urlFor(IntroData.image).url()})`,
-  }}
->
-</div>
+        className="h-96 md:w-1/3 md:h-auto bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${urlFor(IntroData.image).url()})`,
+        }}
+      ></div>
     </Container>
   );
 }

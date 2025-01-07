@@ -4,7 +4,6 @@ import { Container } from "@/components/Container";
 
 export function Footer() {
   const navigation = ["Product", "Features", "Pricing", "Company", "Blog"];
-  const legal = ["Terms", "Privacy", "Legal"];
   return (
     <div className="flex items-center justify-center text-center  text-gray-500">
       <Container>
@@ -23,11 +22,8 @@ export function Footer() {
             </div>
           </div>
 
-
           <div>Suivez-moi</div>
           <div className="flex mt-5 space-x-5">
-            
-            
             <a
               href="https://facebook.com/web3templates"
               target="_blank"

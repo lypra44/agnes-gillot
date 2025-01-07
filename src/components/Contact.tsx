@@ -1,5 +1,4 @@
 "use client";
-import { sendEmail } from "@/app/actions/send-email.action";
 import { UserIcon, PhoneIcon, EnvelopeIcon, HomeIcon } from "@heroicons/react/24/outline";
 
 export default function Contact() {
@@ -43,7 +42,7 @@ export default function Contact() {
           </div>
           <div className="relative">
             <div className="relative z-10 bg-white rounded-xl shadow-lg p-6 text-gray-600 md:w-full">
-              <form className="flex flex-col space-y-4" action={sendEmail}>
+              <form className="flex flex-col space-y-4">
                 <div>
                   <label htmlFor="" className="text-sm">
                     Nom et Prénom
