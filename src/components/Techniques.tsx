@@ -53,10 +53,10 @@ export default function Techniques() {
   }, []);
 
   return (
-    <section className="flex flex-col items-center justify-center bg-cover m-8">
-      <div className="">
+    <section className="flex flex-col items-center justify-center bg-cover m-8 mb-16 xl:px-24 xl:py-6">
+      <div id="techniques" className="">
         <div>
-          <div className="flex flex-col-reverse">
+          <div className="flex flex-col-reverse w-full">
             {techniquesData.title && (
               <h2 className="font-bold leading-snug tracking-tight text-darkgreen md:uppercase">
                 {techniquesData.title}
@@ -65,17 +65,17 @@ export default function Techniques() {
             {techniquesData.subtitle && (
               <h3 className="mt-1 text-gray-700 italic text-lg leading-snug">
                 {techniquesData.subtitle}
-              </h3> 
+              </h3>
             )}
-            
-            </div>
+          </div>
 
-            {techniquesData.body && (
-              <p className=" mt-4 text-gray-700">{techniquesData.body}</p>
-            )}
-          
+          {techniquesData.body && (
+            <p className=" mt-4 text-gray-700 lg:w-11/12">
+              {techniquesData.body}
+            </p>
+          )}
         </div>
-        <div className="flex flex-col gap-10 md:grid md:grid-cols-2 ml:grid-cols-3 mt-10">
+        <div className="flex flex-col justify-center gap-10 md:grid md:grid-cols-2 mt-10 lg:w-11/12 xl:w-2/3 xl:gap-16">
           {blocks.map((block, index) => (
             <div
               key={index}

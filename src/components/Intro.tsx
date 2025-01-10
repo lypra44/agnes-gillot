@@ -54,7 +54,8 @@ export function SectionIntro() {
   return (
     <Container className="flex flex-col w-screen md:flex-row">
       <div
-        className="flex flex-col text-left bg-lightgreen p-8 md:w-2/3"
+        id="naturopathie"
+        className="flex flex-col text-left bg-lightgreen p-8 md:w-2/3 xl:p-24"
         style={{ backgroundImage: "url(/img/pattern.svg)" }}
       >
         {IntroData.subtitle && (
@@ -69,9 +70,7 @@ export function SectionIntro() {
           </h2>
         )}
 
-        {IntroData.body && (
-          <div className="py-4 text-white">{IntroData.body}</div>
-        )}
+        {IntroData.body && <p className="py-4 text-white">{IntroData.body}</p>}
 
         <a
           href="https://web3templates.com/templates/nextly-landing-page-template-for-startups"

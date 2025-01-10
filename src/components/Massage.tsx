@@ -61,17 +61,20 @@ export function Massage() {
 
   return (
     <Container>
-      <div className="flex flex-col md:flex-col-reverse lg:flex-row">
+      <div
+        id="massage"
+        className="flex flex-col md:flex-col-reverse lg:flex-row"
+      >
         <Image
           src={urlFor(MassageData.image).url()}
           alt="image massage"
-          width={1000}
-          height={1000}
+          width={700}
+          height={700}
           className="w1/3 md:object-cover md:object-center"
         />
 
         <div
-          className="flex flex-col text-left bg-lightgreen p-8"
+          className="flex flex-col text-left bg-lightgreen p-8 lg:w-11/12 xl:p-24"
           style={{ backgroundImage: "url(/img/pattern.svg)" }}
         >
           <div className="flex flex-col-reverse">
@@ -116,31 +119,39 @@ export function Massage() {
       </div>
 
       {/* Section des bienfaits */}
-      <div className="mt-10 px-8">
+      <div className="my-10 px-12 lg:pb-4 text-sm xl:px-24 xl:py-12">
         {MassageData.bienfaits &&
           MassageData.bienfaits.map((bienfait, index) => (
-            <div key={index} className="flex flex-col  mb-6">
-              <h2 className="text-primarygreen font-bold">{bienfait.title}</h2>
-              <p className="italic mt-1">{bienfait.body}</p>
-              <ul className="list-disc pl-4 mt-2 text-gray-800">
-                {bienfait.liste.map((item, i) => (
-                  <li className="pt-4" key={i}>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-
-              <a href="" className="text-white bg-primarygreen mt-6">
-                Demander un devis
-              </a>
-
-              <div className="flex justify-center">
+            <div
+              key={index}
+              className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6 gap-8"
+            >
+              <div className="flex-1">
+                <h2 className="text-primarygreen font-bold">
+                  {bienfait.title}
+                </h2>
+                <p className="italic mt-1">{bienfait.body}</p>
+                <ul className="list-disc pl-4 mt-2 text-gray-800">
+                  {bienfait.liste.map((item, i) => (
+                    <li className="pt-4" key={i}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href=""
+                  className="text-white bg-primarygreen mt-8 inline-block py-2 px-4 rounded"
+                >
+                  Demander un devis
+                </a>
+              </div>
+              <div className="flex lg:flex-none lg:ml-8">
                 <Image
                   src={urlFor(bienfait.image).url()}
                   alt="image massage"
                   width={1000}
                   height={1000}
-                  className="pt-6  md:w-2/3"
+                  className="md:w-2/3 lg:w-full lg:max-w-sm object-bottom"
                 />
               </div>
             </div>

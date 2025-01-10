@@ -15,10 +15,12 @@ export default function Citation() {
 
   useEffect(() => {
     client
-      .fetch(`*[_type == "citation"][0]{
+      .fetch(
+        `*[_type == "citation"][0]{
         subtitle,
         body
-      }`)
+      }`
+      )
       .then((data) => {
         if (data) {
           setCitationData(data);
@@ -28,21 +30,21 @@ export default function Citation() {
   }, []);
 
   return (
-    <section className="flex flex-col items-center justify-center text-center bg-darkgreen bg-cover py-8 px-6 text-white md:mx-8 md:py-12 md:my-8 md:rounded-md md:w-11/12" 
-    style={{ backgroundImage: "url(/img/pattern.svg)"}}>
+    <section
+      className="flex flex-col items-center justify-center text-center bg-darkgreen bg-cover py-8 px-6 text-white  md:py-20 md:my-8 md:rounded-md w-11/12 xl:py-24"
+      style={{ backgroundImage: "url(/img/pattern.svg)" }}
+    >
+      {citationData.body && (
+        <p className="mt-4  text-base leading-normal lg:text-lg xl:text-xl">
+          {citationData.body}
+        </p>
+      )}
 
-
-          {citationData.body && (
-            <p className="mt-4  text-base leading-normal ">
-              {citationData.body}
-            </p>
-          )}
-
-    {citationData.subtitle && (
-            <p className="mt-2 text-lg font-semibold">
-              {citationData.subtitle}
-            </p>
-          )}
+      {citationData.subtitle && (
+        <p className="mt-2 text-lg lg:text-xl xl:text-2xl font-semibold">
+          {citationData.subtitle}
+        </p>
+      )}
     </section>
   );
 }

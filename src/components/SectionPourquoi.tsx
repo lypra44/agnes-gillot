@@ -56,16 +56,19 @@ export const SectionPourquoi = () => {
 
   return (
     <Container className="p-8 ">
-      <div className=" flex items-center justify-center flex-col-reverse h-fit mb-8 lg:flex-row">
+      <div
+        id="pourquoi"
+        className="w-full flex items-center justify-center flex-col-reverse h-fit mb-8 lg:flex-row-reverse xl:px-24 xl:py-10"
+      >
         <Image
           src={urlFor(pourquoiSectionData.image).url()}
           alt={pourquoiSectionData.title}
-          width={300}
-          height={300}
-          className=" object-contain lg:w-1/3 md:w-1/2 my-4"
+          width={800}
+          height={800}
+          className=" object-contain md:w-1/3 my-4 xl:mx-10"
         />
 
-        <div className="">
+        <div className="lg:w-2/3">
           {pourquoiSectionData.title && (
             <p className="text-primarygreen italic text-lg leading-snug sm:text-xl">
               {pourquoiSectionData.title}
@@ -77,14 +80,14 @@ export const SectionPourquoi = () => {
             </h2>
           )}
           {pourquoiSectionData.body && (
-            <p className="mt-6 text-base text-left leading-normal text-gray-700 dark:text-gray-300">
+            <p className="mt-6 text-left leading-normal text-gray-700 dark:text-gray-300">
               {pourquoiSectionData.body}
             </p>
           )}
         </div>
       </div>
 
-      <div className="flex items-center justify-center flex-col gap-12 mt-6">
+      <div className="flex items-center justify-center flex-col gap-12 mt-12">
         <h2 className="text-primarygreen text-center">
           {pourquoiSectionData.title2}
         </h2>
