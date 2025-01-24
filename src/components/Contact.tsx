@@ -53,14 +53,14 @@ export default function Contact() {
 
               <div className="flex items-center space-x-4 pb-8">
                 <HomeIcon className="h-6 w-6 lg:h-8 lg:w-8" />
-                <p className="lg:text-lg">14 rue de l'Église, 44810 Héric</p>
+                <p className="lg:text-lg">14 rue de l Eglise, 44810 Héric</p>
               </div>
             </div>
           </div>
 
           {/* Section Form */}
           <div className="relative lg:w-1/2">
-            <div className="relative z-10 bg-white rounded-xl shadow-lg p-6 text-gray-600 lg:w-2/3 lg:w-auto">
+            <div className="relative z-10 bg-white rounded-xl shadow-lg p-6 text-gray-600 lg:w-auto">
               <form className="flex flex-col space-y-4">
                 <div>
                   <label htmlFor="name" className="text-sm">

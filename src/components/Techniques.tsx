@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
 import Image from "next/image";
-import { scrollToSection } from "@/utils/scrollToSection";
 
 interface TechniquesData {
   title: string;
