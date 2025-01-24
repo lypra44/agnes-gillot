@@ -12,6 +12,7 @@ export default async function Home() {
   return (
     <>
       <Container className="flex flex-col items-center justify-center">
+        
         <Hero />
 
         <SectionIntro />

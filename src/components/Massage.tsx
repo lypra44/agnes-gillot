@@ -6,6 +6,7 @@ import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
 import Image from "next/image";
+import { scrollToSection } from "@/utils/scrollToSection";
 
 const builder = imageUrlBuilder(client);
 
@@ -70,7 +71,7 @@ export function Massage() {
           alt="image massage"
           width={700}
           height={700}
-          className="w1/3 md:object-cover md:object-center"
+          className="w1/3 md:object-cover md:object-center md:w-full md:h-[500px] lg:h-full"
         />
 
         <div
@@ -139,8 +140,12 @@ export function Massage() {
                   ))}
                 </ul>
                 <a
-                  href=""
-                  className="text-white bg-primarygreen mt-8 inline-block py-2 px-4 rounded"
+                  href="#contact"
+                  className="text-white bg-primarygreen mt-10 inline-block py-2 px-4 rounded transition-all duration-300 ease-in-out hover:translate-y-[-1px] hover:bg-darkgreen"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection("contact");
+                  }}
                 >
                   Demander un devis
                 </a>

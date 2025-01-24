@@ -55,7 +55,7 @@ export const SectionPourquoi = () => {
   }
 
   return (
-    <Container className="p-8 ">
+    <Container className=" p-8 lg:p-0 lg:w-11/12 lg:pb-10 md:pb-14">
       <div
         id="pourquoi"
         className="w-full flex items-center justify-center flex-col-reverse h-fit mb-8 lg:flex-row-reverse xl:px-24 xl:py-10"
@@ -65,7 +65,7 @@ export const SectionPourquoi = () => {
           alt={pourquoiSectionData.title}
           width={800}
           height={800}
-          className=" object-contain md:w-1/3 my-4 xl:mx-10"
+          className=" object-contain md:w-2/5 my-4 xl:mx-10"
         />
 
         <div className="lg:w-2/3">
@@ -86,16 +86,15 @@ export const SectionPourquoi = () => {
           )}
         </div>
       </div>
+      <h2 className="text-primarygreen text-center font-bold">
+        {pourquoiSectionData.title2}
+      </h2>
 
-      <div className="flex items-center justify-center flex-col gap-12 mt-12">
-        <h2 className="text-primarygreen text-center">
-          {pourquoiSectionData.title2}
-        </h2>
-
+      <div className="flex items-center justify-center flex-col gap-12 mt-12 lg:grid lg:grid-cols-3">
         {pourquoiSectionData.bulletPoints.map((point, index) => (
           <div
             key={index}
-            className="flex items-center justify-center flex-col bg-slate-100 rounded-sm h-1/4 w-full p-6 bg-contain bg-no-repeat bg-right-bottom md:w-3/5"
+            className="flex items-center justify-center flex-col bg-slate-100 rounded-sm h-1/4 w-full p-6 bg-contain bg-no-repeat bg-right-bottom md:w-3/5 lg:w-full lg:h-full lg:justify-start"
             style={{ backgroundImage: `url(/img/plantes-box-${index}.svg)` }}
           >
             {point.title && (

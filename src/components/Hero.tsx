@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
+import { scrollToSection } from "@/utils/scrollToSection";
 
 const builder = imageUrlBuilder(client);
 
@@ -59,20 +60,24 @@ export function Hero() {
 
           <div className="flex items-center w-full mt-6 text-base flex-col gap-4 sm:space-x-4 sm:space-y-0 sm:flex-row sm:w-2/3 md:justify-left">
             <a
-              href="https://web3templates.com/templates/nextly-landing-page-template-for-startups"
-              target="_blank"
-              rel="noopener"
-              className="px-4 py-2.5 font-medium text-center text-base text-white bg-lightgreen rounded-md over:bg-darkgreen slide-up"
+              href="#techniques"
+              className="px-4 py-2.5 font-medium text-center text-base text-white bg-lightgreen rounded-md transition-all duration-300 ease-in-out hover:translate-y-[-1px] hover:bg-primarygreen"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("techniques");
+              }}
               style={{ animationDelay: "0.4s" }}
             >
               Mes techniques
             </a>
 
             <a
-              href="https://web3templates.com/templates/nextly-landing-page-template-for-startups"
-              target="_blank"
-              rel="noopener"
-              className="px-4 py-2.5 font-medium text-base text-center text-white bg-lightgreen rounded-md over:bg-darkgreen slide-up"
+              href="#contact"
+              className="px-4 py-2.5 font-medium text-base text-center text-white bg-lightgreen rounded-md transition-all duration-300 ease-in-out hover:translate-y-[-1px] hover:bg-primarygreen"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("contact");
+              }}
               style={{ animationDelay: "0.6s" }}
             >
               Me contacter

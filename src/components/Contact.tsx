@@ -22,9 +22,9 @@ export default function Contact() {
       />
 
       <div className="flex w-full justify-center items-center flex-row">
-        <div className="flex flex-col bg-darkgreen w-full text-white p-8 lg:rounded-lg lg:w-11/12 shadow-lg xl:flex-row xl:space-x-8">
+        <div className="flex flex-col bg-darkgreen w-full text-white p-8 lg:rounded-lg lg:w-11/12 shadow-lg lg:flex-row lg:space-x-8">
           {/* Section Contact Info */}
-          <div className="flex flex-col space-y-8 justify-between text-sm md:flex-1 lg:mx-4 xl:w-1/2 xl:justify-normal">
+          <div className="flex flex-col space-y-8 justify-between text-sm md:flex-1 lg:mx-4 lg:w-1/2 lg:justify-normal">
             <div>
               <h2 className="font-bold leading-snug tracking-tight uppercase">
                 Prendre contact
@@ -35,32 +35,32 @@ export default function Contact() {
                 rendez-vous ou demander un devis.
               </p>
             </div>
-            <div className="flex flex-col space-y-4 xl:space-y-10">
+            <div className="flex flex-col space-y-4 lg:space-y-10">
               <div className="flex items-center space-x-4">
-                <UserIcon className="h-6 w-6 xl:h-8 xl:w-8" />
-                <p className="xl:text-lg">Agnès Gillot - Naturopathe</p>
+                <UserIcon className="h-6 w-6 lg:h-8 lg:w-8" />
+                <p className="lg:text-lg">Agnès Gillot - Naturopathe</p>
               </div>
 
               <div className="flex items-center space-x-4">
-                <PhoneIcon className="h-6 w-6 xl:h-8 xl:w-8" />
-                <p className="xl:text-lg">07 83 26 18 11</p>
+                <PhoneIcon className="h-6 w-6 lg:h-8 lg:w-8" />
+                <p className="lg:text-lg">07 83 26 18 11</p>
               </div>
 
               <div className="flex items-center space-x-4">
-                <EnvelopeIcon className="h-6 w-6 xl:h-8 xl:w-8" />
-                <p className="xl:text-lg">agnesgillot44@gmail.com</p>
+                <EnvelopeIcon className="h-6 w-6 lg:h-8 lg:w-8" />
+                <p className="lg:text-lg">agnesgillot44@gmail.com</p>
               </div>
 
-              <div className="flex items-center space-x-4">
-                <HomeIcon className="h-6 w-6 xl:h-8 xl:w-8" />
-                <p className="xl:text-lg">14 rue de l’Église, 44810 Héric</p>
+              <div className="flex items-center space-x-4 pb-8">
+                <HomeIcon className="h-6 w-6 lg:h-8 lg:w-8" />
+                <p className="lg:text-lg">14 rue de l'Église, 44810 Héric</p>
               </div>
             </div>
           </div>
 
           {/* Section Form */}
-          <div className="relative xl:w-1/2">
-            <div className="relative z-10 bg-white rounded-xl shadow-lg p-6 text-gray-600">
+          <div className="relative lg:w-1/2">
+            <div className="relative z-10 bg-white rounded-xl shadow-lg p-6 text-gray-600 lg:w-2/3 lg:w-auto">
               <form className="flex flex-col space-y-4">
                 <div>
                   <label htmlFor="name" className="text-sm">
@@ -108,12 +108,16 @@ export default function Contact() {
                     className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-green-300"
                   ></textarea>
                 </div>
-                <button
-                  type="submit"
-                  className="text-white bg-primarygreen mt-6 px-4 py-2 rounded-md hover:bg-green-600"
+                <a
+                  href="#"
+                  className="text-white bg-primarygreen mt-8 inline-block py-2 px-4 rounded transition-all duration-300 ease-in-out hover:translate-y-[-1px] hover:bg-darkgreen"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    // Ajoutez ici la logique pour soumettre le formulaire ou rediriger
+                  }}
                 >
                   Envoyer
-                </button>
+                </a>
               </form>
             </div>
           </div>

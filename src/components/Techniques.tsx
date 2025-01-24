@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
 import Image from "next/image";
+import { scrollToSection } from "@/utils/scrollToSection";
 
 interface TechniquesData {
   title: string;
@@ -53,7 +54,7 @@ export default function Techniques() {
   }, []);
 
   return (
-    <section className="flex flex-col items-center justify-center bg-cover m-8 mb-16 xl:px-24 xl:py-6">
+    <section className="flex flex-col items-center justify-center bg-cover m-8 mb-16 md:pt-6 xl:px-24 xl:py-6">
       <div id="techniques" className="">
         <div>
           <div className="flex flex-col-reverse w-full">
@@ -75,11 +76,11 @@ export default function Techniques() {
             </p>
           )}
         </div>
-        <div className="flex flex-col justify-center gap-10 md:grid md:grid-cols-2 mt-10 lg:w-11/12 xl:w-2/3 xl:gap-16">
+        <div className="flex flex-col justify-center gap-10 md:grid md:grid-cols-2 mt-10 xl:gap-16 lg:grid-cols-3">
           {blocks.map((block, index) => (
             <div
               key={index}
-              className="block object-left text-left shadow-md rounded-md bg-white p-6 w-full border border-solid border-darkgreen"
+              className="block object-left text-left shadow-sm rounded-md bg-white p-6 w-full border border-solid border-darkgreen transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg"
             >
               {block.image && block.image.asset && (
                 <Image
@@ -87,12 +88,14 @@ export default function Techniques() {
                   alt={block.title}
                   height={200}
                   width={100}
-                  className="h-20 mb-4"
+                  className="h-16 mb-4"
                 />
               )}
 
               <h3 className="mb-4 text-darkgreen font-bold">{block.title}</h3>
-              <p className="text-grey-800 leading-5 text-sm">{block.body}</p>
+              <p className="text-grey-800 leading-5 text-xs md:text-sm">
+                {block.body}
+              </p>
             </div>
           ))}
         </div>

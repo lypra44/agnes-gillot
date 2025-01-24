@@ -4,6 +4,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
 import { groq } from "next-sanity";
+import { scrollToSection } from "@/utils/scrollToSection";
 
 // Interface pour les données de la section Hero
 interface HeroData {
@@ -46,12 +47,44 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Annonce */}
-      <div className="bg-primarygreen">
+      {/* Fond sombre */}
+      <div
+        className={`fixed inset-0 bg-black transition-opacity duration-300 ease-in-out ${
+          open ? "opacity-50" : "opacity-0 pointer-events-none"
+        } z-40`}
+      />
+
+      {/* Annonce - doit être au-dessus du fond noir */}
+      <div className="bg-primarygreen z-50 relative">
         <p className="text-white py-1 text-center">{heroData?.annonce}</p>
       </div>
 
-      {/* Navbar */}
+      {/* Menu : Mobile */}
+      <div
+        className={`absolute top-12 pl-4 pb-4 rounded-sm mt-8 bg-white w-screen z-50 shadow-lg transition-all duration-300 ease-in-out ${
+          open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+        }`}
+      >
+        <ul className="items-center justify-end flex-1 pt-4 list-none">
+          {navigation.map((menu, index) => (
+            <li className="mr-3 nav__item" key={index}>
+              <a
+                href={`#${menu.id}`}
+                className="inline-block p-2 font-sm no-underline text-gray-800 hover:text-primarygreen font-medium"
+                onClick={(e) => {
+                  e.preventDefault(); // Empêche le comportement par défaut du lien
+                  scrollToSection(menu.id); // Appelle la fonction de défilement
+                  setOpen(false); // Ferme le menu après clic
+                }}
+              >
+                {menu.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Barre de navigation */}
       <div className="w-screen border-b sticky z-50 bg-white top-0 px-4">
         <nav className="relative flex flex-col lg:flex-row items-center justify-between p-2 px-4 z-50">
           {/* Logo */}
@@ -101,29 +134,6 @@ const Navbar = () => {
           >
             Prendre rendez-vous
           </a>
-
-          {/* Menu : Mobile */}
-          <div
-            className={`absolute top-12 pl-4 pb-4 rounded-sm m-4 bg-white w-screen z-50 shadow-lg transition-transform duration-300 ${
-              open
-                ? "translate-y-0 opacity-100"
-                : "-translate-y-5 opacity-0 hidden"
-            }`}
-          >
-            <ul className="items-center justify-end flex-1 pt-4 list-none">
-              {navigation.map((menu, index) => (
-                <li className="mr-3 nav__item" key={index}>
-                  <a
-                    href={`#${menu.id}`}
-                    className="inline-block p-2 font-sm no-underline text-gray-800 hover:text-primarygreen font-medium"
-                    onClick={() => setOpen(false)} // Ferme le menu après clic
-                  >
-                    {menu.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
         </nav>
       </div>
     </>

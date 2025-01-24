@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
+import { scrollToSection } from "@/utils/scrollToSection";
 
 const builder = imageUrlBuilder(client);
 
@@ -73,10 +74,12 @@ export function SectionIntro() {
         {IntroData.body && <p className="py-4 text-white">{IntroData.body}</p>}
 
         <a
-          href="https://web3templates.com/templates/nextly-landing-page-template-for-startups"
-          target="_blank"
-          rel="noopener"
-          className=" text-lightgreen bg-white mt-6"
+          href="#techniques"
+          className="text-lightgreen bg-white mt-6 inline-block py-2 px-4 rounded transition-all duration-300 ease-in-out hover:translate-y-[-1px] hover:bg-gray-800  hover:text-white"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection("techniques");
+          }}
         >
           Découvrir mes techniques
         </a>
