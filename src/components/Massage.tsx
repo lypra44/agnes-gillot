@@ -63,7 +63,7 @@ export function Massage() {
   return (
     <Container>
       <div
-        id="massage"
+        id="massage-entreprise"
         className="flex flex-col md:flex-col-reverse lg:flex-row"
       >
         <Image
@@ -71,7 +71,7 @@ export function Massage() {
           alt="image massage"
           width={700}
           height={700}
-          className="w1/3 md:object-cover md:object-center md:w-full md:h-[500px] lg:h-full"
+          className=" md:object-cover md:object-center md:w-full lg:w-auto"
         />
 
         <div
@@ -156,7 +156,7 @@ export function Massage() {
                   alt="image massage"
                   width={1000}
                   height={1000}
-                  className="md:w-2/3 lg:w-full lg:max-w-sm object-bottom"
+                  className="md:w-2/3 lg:w-full lg:max-w-md object-bottom"
                 />
               </div>
             </div>
