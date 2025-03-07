@@ -5,14 +5,13 @@ import { Faq } from "@/components/Faq";
 import { SectionPourquoi } from "@/components/SectionPourquoi";
 import Techniques from "@/components/Techniques";
 import Citation from "@/components/Citation";
-import { Massage } from "@/components/Massage";
+import { MassageEntreprise } from "@/components/MassageEntreprise";
 import Contact from "@/components/Contact";
 
 export default async function Home() {
   return (
     <>
       <Container className="flex flex-col items-center justify-center">
-        
         <Hero />
 
         <SectionIntro />
@@ -23,7 +22,7 @@ export default async function Home() {
 
         <Techniques />
 
-        <Massage />
+        <MassageEntreprise />
 
         <Contact />
 

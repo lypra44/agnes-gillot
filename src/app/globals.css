@@ -3,64 +3,58 @@
 @tailwind utilities;
 
 :root {
-  --blue-primary: #65b9cb;
-  --green-primary: #00a583;
-  --dark-green: #428b7c;
-  --light-green: #78aba5;
-  --dark-blue: #345c69;
+  --foreground: #333333;
   --background: #ffffff;
-  --foreground: #171717;
+  --blue-primary: #3b82f6;
+  --green-primary: #4a8072;
+  --dark-green: #2c4c43;
+  --light-green: #6baa9a;
+  --dark-blue: #1e3a8a;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Styles globaux */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
+  font-family: 'Manrope', sans-serif;
+  overflow-x: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Typographie améliorée */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 h1 {
-  @apply text-2xl leading-snug sm:text-3xl lg:text-4xl xl:text-5xl;
+  font-size: 2.5rem;
+  font-weight: 700;
 }
 
 h2 {
-  @apply text-xl leading-snug lg:text-2xl;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 h3 {
-  @apply text-lg leading-snug sm:text-xl;
-}
-
-h4 {
-  @apply text-base leading-snug;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 p {
-  @apply leading-normal text-sm xl:text-base;
+  line-height: 1.7;
 }
 
+/* Effets de survol pour les liens */
 a {
-  @apply text-base leading-normal font-bold                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 px-6 py-2.5 text-center bg-white rounded-md w-fit;
-  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
+/* Animations */
 @keyframes slide-up {
   0% {
     transform: translateY(100px); /* Départ en bas */
@@ -85,4 +79,141 @@ a {
 
 .opacity {
   animation: opacity 0.85s forwards; /* Appliquer l'animation */
+}
+
+/* Effets de survol pour les boutons */
+.btn {
+  @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-md transition-all duration-300;
+}
+
+.btn-primary {
+  @apply text-white bg-primarygreen hover:bg-darkgreen hover:shadow-lg hover:translate-y-[-2px];
+}
+
+.btn-secondary {
+  @apply text-primarygreen bg-white hover:bg-gray-100 hover:shadow-lg hover:translate-y-[-2px];
+}
+
+/* Effets de carte */
+.card {
+  @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300;
+}
+
+.card-hover {
+  @apply hover:shadow-xl hover:translate-y-[-5px];
+}
+
+/* Styles pour les sections */
+.section {
+  @apply py-16;
+}
+
+.section-title {
+  @apply text-3xl font-bold text-gray-900 mb-6 relative;
+}
+
+.section-title::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-16 h-1 bg-primarygreen;
+  transform: translateY(0.5rem);
+}
+
+.section-title-center::after {
+  @apply left-1/2;
+  transform: translateX(-50%) translateY(0.5rem);
+}
+
+/* Styles pour les formulaires */
+input, textarea, select {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primarygreen focus:border-transparent transition-all duration-300;
+}
+
+/* Styles pour les listes */
+ul.check-list li {
+  @apply flex items-start mb-3;
+}
+
+ul.check-list li::before {
+  content: '';
+  @apply w-5 h-5 mr-2 bg-primarygreen rounded-full flex-shrink-0;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd' /%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+/* Styles pour les images */
+.img-rounded {
+  @apply rounded-xl overflow-hidden;
+}
+
+.img-shadow {
+  @apply shadow-lg;
+}
+
+/* Styles pour les grilles */
+.grid-auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Styles pour les dividers */
+.divider {
+  @apply w-full h-px bg-gray-200 my-8;
+}
+
+.divider-vertical {
+  @apply w-px h-full bg-gray-200 mx-8;
+}
+
+/* Styles pour les badges */
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-primary {
+  @apply bg-primarygreen bg-opacity-10 text-primarygreen;
+}
+
+.badge-secondary {
+  @apply bg-gray-100 text-gray-800;
+}
+
+/* Styles pour les tooltips */
+.tooltip {
+  @apply relative inline-block;
+}
+
+.tooltip .tooltip-text {
+  @apply invisible absolute z-10 p-2 text-sm text-white bg-gray-900 rounded-md opacity-0 transition-opacity duration-300;
+  width: 120px;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  margin-bottom: 5px;
+}
+
+.tooltip:hover .tooltip-text {
+  @apply visible opacity-100;
+}
+
+/* Styles pour les overlays */
+.overlay {
+  @apply absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300;
+}
+
+/* Styles pour les scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primarygreen rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-darkgreen;
 }
