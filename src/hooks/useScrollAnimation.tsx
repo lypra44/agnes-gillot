@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, ElementType } from "react";
 import { AnimationOptions } from "@/utils/animations";
 
-export function useScrollAnimation(options: AnimationOptions = { type: 'fade-in' }) {
-  const ref = useRef<HTMLDivElement>(null);
+export function useScrollAnimation<T extends ElementType = "div">(
+  options: AnimationOptions = { type: "fade-in" }
+) {
+  const ref = useRef<T>(null);
   const [isVisible, setIsVisible] = useState(false);
   const { threshold = 0.1, once = true } = options;
 
@@ -25,7 +27,7 @@ export function useScrollAnimation(options: AnimationOptions = { type: 'fade-in'
       },
       {
         root: null, // viewport
-        rootMargin: '0px',
+        rootMargin: "0px",
         threshold, // pourcentage de visibilité requis
       }
     );
@@ -46,20 +48,20 @@ export function useScrollAnimation(options: AnimationOptions = { type: 'fade-in'
 }
 
 // Composant d'animation
-interface AnimatedElementProps {
+interface AnimatedElementProps<T extends ElementType = "div"> {
   children: React.ReactNode;
   options?: AnimationOptions;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: T;
 }
 
-export function AnimatedElement({
+export function AnimatedElement<T extends ElementType = "div">({
   children,
-  options = { type: 'fade-in' },
-  className = '',
-  as: Component = 'div',
-}: AnimatedElementProps) {
-  const { ref, isVisible } = useScrollAnimation(options);
+  options = { type: "fade-in" },
+  className = "",
+  as: Component = "div" as T,
+}: AnimatedElementProps<T>) {
+  const { ref, isVisible } = useScrollAnimation<T>(options);
   const { type, duration = 800, delay = 0 } = options;
 
   // Styles d'animation
@@ -74,41 +76,45 @@ export function AnimatedElement({
   }
 
   switch (type) {
-    case 'fade-in':
+    case "fade-in":
       // Déjà géré par opacity
       break;
-    case 'slide-up':
-      animationStyles.transform = isVisible ? 'translateY(0)' : 'translateY(40px)';
+    case "slide-up":
+      animationStyles.transform = isVisible
+        ? "translateY(0)"
+        : "translateY(40px)";
       break;
-    case 'slide-down':
-      animationStyles.transform = isVisible ? 'translateY(0)' : 'translateY(-40px)';
+    case "slide-down":
+      animationStyles.transform = isVisible
+        ? "translateY(0)"
+        : "translateY(-40px)";
       break;
-    case 'slide-left':
-      animationStyles.transform = isVisible ? 'translateX(0)' : 'translateX(40px)';
+    case "slide-left":
+      animationStyles.transform = isVisible
+        ? "translateX(0)"
+        : "translateX(40px)";
       break;
-    case 'slide-right':
-      animationStyles.transform = isVisible ? 'translateX(0)' : 'translateX(-40px)';
+    case "slide-right":
+      animationStyles.transform = isVisible
+        ? "translateX(0)"
+        : "translateX(-40px)";
       break;
-    case 'zoom-in':
-      animationStyles.transform = isVisible ? 'scale(1)' : 'scale(0.95)';
+    case "zoom-in":
+      animationStyles.transform = isVisible ? "scale(1)" : "scale(0.95)";
       break;
-    case 'zoom-out':
-      animationStyles.transform = isVisible ? 'scale(1)' : 'scale(1.05)';
+    case "zoom-out":
+      animationStyles.transform = isVisible ? "scale(1)" : "scale(1.05)";
       break;
-    case 'rotate':
-      animationStyles.transform = isVisible ? 'rotate(0deg)' : 'rotate(10deg)';
+    case "rotate":
+      animationStyles.transform = isVisible ? "rotate(0deg)" : "rotate(10deg)";
       break;
     default:
       break;
   }
 
   return (
-    <Component
-      ref={ref}
-      className={className}
-      style={animationStyles}
-    >
+    <Component ref={ref} className={className} style={animationStyles}>
       {children}
     </Component>
   );
-} 
+}
