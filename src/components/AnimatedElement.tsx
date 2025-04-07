@@ -1,107 +1,111 @@
 "use client";
 
-import { forwardRef, useEffect, useState } from "react";
+import {
+  useEffect,
+  useState,
+  ElementType,
+  ReactNode,
+  CSSProperties,
+  ComponentPropsWithoutRef,
+} from "react";
 import { AnimationOptions } from "@/utils/animations";
 
-interface AnimatedElementProps {
-  children: React.ReactNode;
+interface AnimatedElementBaseProps {
+  children: ReactNode;
   options?: AnimationOptions;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
 }
 
-export const AnimatedElement = forwardRef<any, AnimatedElementProps>(({
+type AnimatedElementProps<T extends ElementType> = AnimatedElementBaseProps & {
+  as?: T;
+} & ComponentPropsWithoutRef<T>;
+
+export const AnimatedElement = <T extends ElementType = "div">({
   children,
-  options = { type: 'fade-in' },
-  className = '',
-  as: Component = 'div',
-}, ref) => {
+  options = { type: "fade-in" },
+  className = "",
+  as,
+  ...rest
+}: AnimatedElementProps<T>) => {
+  const Component = as || "div";
   const [isVisible, setIsVisible] = useState(false);
-  const { type, duration = 800, delay = 0, threshold = 0.1, once = true } = options;
+  const {
+    type,
+    duration = 800,
+    delay = 0,
+    threshold = 0.1,
+    once = true,
+  } = options;
 
   useEffect(() => {
-    const element = ref as React.RefObject<HTMLElement | SVGElement>;
-    if (!element?.current) return;
+    const element = document.querySelector(`.${className}`);
+    if (!element) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Si l'élément est visible
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Si l'animation ne doit être jouée qu'une fois, on déconnecte l'observer
-          if (once && element.current) {
-            observer.unobserve(element.current);
-          }
+          if (once) observer.unobserve(element);
         } else if (!once) {
-          // Si l'élément n'est plus visible et que l'animation peut être rejouée
           setIsVisible(false);
         }
       },
       {
-        root: null, // viewport
-        rootMargin: '0px',
-        threshold, // pourcentage de visibilité requis
+        root: null,
+        rootMargin: "0px",
+        threshold,
       }
     );
 
-    observer.observe(element.current);
+    observer.observe(element);
 
     return () => {
-      if (element.current) {
-        observer.unobserve(element.current);
-      }
+      if (element) observer.unobserve(element);
     };
-  }, [threshold, once, ref]);
+  }, [threshold, once, className]);
 
-  // Styles d'animation
-  const animationStyles: React.CSSProperties = {
-    opacity: 0,
+  const animationStyles: CSSProperties = {
+    opacity: isVisible ? 1 : 0,
     transition: `all ${duration}ms ease-out ${delay}ms`,
   };
 
-  // Styles spécifiques selon le type d'animation
-  if (isVisible) {
-    animationStyles.opacity = 1;
-  }
-
   switch (type) {
-    case 'fade-in':
-      // Déjà géré par opacity
+    case "slide-up":
+      animationStyles.transform = isVisible
+        ? "translateY(0)"
+        : "translateY(40px)";
       break;
-    case 'slide-up':
-      animationStyles.transform = isVisible ? 'translateY(0)' : 'translateY(40px)';
+    case "slide-down":
+      animationStyles.transform = isVisible
+        ? "translateY(0)"
+        : "translateY(-40px)";
       break;
-    case 'slide-down':
-      animationStyles.transform = isVisible ? 'translateY(0)' : 'translateY(-40px)';
+    case "slide-left":
+      animationStyles.transform = isVisible
+        ? "translateX(0)"
+        : "translateX(40px)";
       break;
-    case 'slide-left':
-      animationStyles.transform = isVisible ? 'translateX(0)' : 'translateX(40px)';
+    case "slide-right":
+      animationStyles.transform = isVisible
+        ? "translateX(0)"
+        : "translateX(-40px)";
       break;
-    case 'slide-right':
-      animationStyles.transform = isVisible ? 'translateX(0)' : 'translateX(-40px)';
+    case "zoom-in":
+      animationStyles.transform = isVisible ? "scale(1)" : "scale(0.95)";
       break;
-    case 'zoom-in':
-      animationStyles.transform = isVisible ? 'scale(1)' : 'scale(0.95)';
+    case "zoom-out":
+      animationStyles.transform = isVisible ? "scale(1)" : "scale(1.05)";
       break;
-    case 'zoom-out':
-      animationStyles.transform = isVisible ? 'scale(1)' : 'scale(1.05)';
-      break;
-    case 'rotate':
-      animationStyles.transform = isVisible ? 'rotate(0deg)' : 'rotate(10deg)';
-      break;
-    default:
+    case "rotate":
+      animationStyles.transform = isVisible ? "rotate(0deg)" : "rotate(10deg)";
       break;
   }
 
   return (
-    <Component
-      ref={ref}
-      className={className}
-      style={animationStyles}
-    >
+    <Component className={className} style={animationStyles} {...rest}>
       {children}
     </Component>
   );
-});
+};
 
-AnimatedElement.displayName = 'AnimatedElement';
+AnimatedElement.displayName = "AnimatedElement";
