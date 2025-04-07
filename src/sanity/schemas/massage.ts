@@ -1,4 +1,4 @@
-export default {
+const massageSchema = {
   name: "massage",
   title: "Massage AMA",
   type: "document",
@@ -128,3 +128,5 @@ export default {
     },
   },
 };
+
+export default massageSchema;

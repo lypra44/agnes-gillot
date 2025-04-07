@@ -1,4 +1,4 @@
-export default {
+const faqSchema = {
   name: "faq",
   title: "FAQ",
   type: "document",
@@ -56,3 +56,5 @@ export default {
     },
   },
 };
+
+export default faqSchema;

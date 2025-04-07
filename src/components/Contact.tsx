@@ -28,7 +28,7 @@ export default function Contact() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handleSubmitForm = async (data: FormData) => {
+  const handleSubmitForm = async (formData: FormData) => {
     try {
       setErrorMessage(null);
       await sendContactForm();
@@ -36,7 +36,9 @@ export default function Contact() {
       reset();
     } catch (error) {
       console.error("Error sending message:", error);
-      setErrorMessage("Erreur lors de l'envoi du message. Veuillez réessayer.");
+      setErrorMessage(
+        "Erreur lors de l&apos;envoi du message. Veuillez réessayer."
+      );
     }
   };
 

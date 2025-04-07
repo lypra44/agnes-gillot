@@ -1,4 +1,4 @@
-export default {
+const introSchema = {
   name: "intro",
   title: "Introduction",
   type: "document",
@@ -85,3 +85,5 @@ export default {
     },
   },
 };
+
+export default introSchema;
