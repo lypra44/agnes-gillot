@@ -16,7 +16,7 @@ export function AnimatedElement({
   className = "",
   as: Component = "div",
 }: AnimatedElementProps) {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLElement | SVGElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const {
     type,
@@ -108,12 +108,15 @@ export function AnimatedElement({
       break;
   }
 
+  // Créer un élément avec les props appropriées
+  const elementProps = {
+    ref,
+    className,
+    style: animationStyles,
+  };
+
   return (
-    <Component
-      ref={ref as React.RefObject<JSX.IntrinsicElements[typeof Component]>}
-      className={className}
-      style={animationStyles}
-    >
+    <Component {...elementProps}>
       {children}
     </Component>
   );
