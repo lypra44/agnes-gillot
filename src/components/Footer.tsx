@@ -95,7 +95,7 @@ export const Footer = () => {
               <li className="flex items-start">
                 <MapPinIcon className="h-5 w-5 text-lightgreen mr-2 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-200">
-                  14 rue de l'Eglise, 44810 Héric
+                  14 rue de l&apos;Eglise, 44810 Héric
                 </span>
               </li>
               <li className="flex items-start">
