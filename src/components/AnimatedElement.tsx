@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import { AnimationOptions } from "@/utils/animations";
 
 interface AnimatedElementProps {
@@ -10,31 +10,27 @@ interface AnimatedElementProps {
   as?: keyof JSX.IntrinsicElements;
 }
 
-export function AnimatedElement({
+export const AnimatedElement = forwardRef<any, AnimatedElementProps>(({
   children,
-  options = { type: "fade-in" },
-  className = "",
-  as: Component = "div",
-}: AnimatedElementProps) {
-  const ref = useRef<HTMLElement | SVGElement>(null);
+  options = { type: 'fade-in' },
+  className = '',
+  as: Component = 'div',
+}, ref) => {
   const [isVisible, setIsVisible] = useState(false);
-  const {
-    type,
-    duration = 800,
-    delay = 0,
-    threshold = 0.1,
-    once = true,
-  } = options;
+  const { type, duration = 800, delay = 0, threshold = 0.1, once = true } = options;
 
   useEffect(() => {
+    const element = ref as React.RefObject<HTMLElement | SVGElement>;
+    if (!element?.current) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         // Si l'élément est visible
         if (entry.isIntersecting) {
           setIsVisible(true);
           // Si l'animation ne doit être jouée qu'une fois, on déconnecte l'observer
-          if (once && ref.current) {
-            observer.unobserve(ref.current);
+          if (once && element.current) {
+            observer.unobserve(element.current);
           }
         } else if (!once) {
           // Si l'élément n'est plus visible et que l'animation peut être rejouée
@@ -43,22 +39,19 @@ export function AnimatedElement({
       },
       {
         root: null, // viewport
-        rootMargin: "0px",
+        rootMargin: '0px',
         threshold, // pourcentage de visibilité requis
       }
     );
 
-    const currentRef = ref.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
+    observer.observe(element.current);
 
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
+      if (element.current) {
+        observer.unobserve(element.current);
       }
     };
-  }, [threshold, once]);
+  }, [threshold, once, ref]);
 
   // Styles d'animation
   const animationStyles: React.CSSProperties = {
@@ -72,52 +65,43 @@ export function AnimatedElement({
   }
 
   switch (type) {
-    case "fade-in":
+    case 'fade-in':
       // Déjà géré par opacity
       break;
-    case "slide-up":
-      animationStyles.transform = isVisible
-        ? "translateY(0)"
-        : "translateY(40px)";
+    case 'slide-up':
+      animationStyles.transform = isVisible ? 'translateY(0)' : 'translateY(40px)';
       break;
-    case "slide-down":
-      animationStyles.transform = isVisible
-        ? "translateY(0)"
-        : "translateY(-40px)";
+    case 'slide-down':
+      animationStyles.transform = isVisible ? 'translateY(0)' : 'translateY(-40px)';
       break;
-    case "slide-left":
-      animationStyles.transform = isVisible
-        ? "translateX(0)"
-        : "translateX(40px)";
+    case 'slide-left':
+      animationStyles.transform = isVisible ? 'translateX(0)' : 'translateX(40px)';
       break;
-    case "slide-right":
-      animationStyles.transform = isVisible
-        ? "translateX(0)"
-        : "translateX(-40px)";
+    case 'slide-right':
+      animationStyles.transform = isVisible ? 'translateX(0)' : 'translateX(-40px)';
       break;
-    case "zoom-in":
-      animationStyles.transform = isVisible ? "scale(1)" : "scale(0.95)";
+    case 'zoom-in':
+      animationStyles.transform = isVisible ? 'scale(1)' : 'scale(0.95)';
       break;
-    case "zoom-out":
-      animationStyles.transform = isVisible ? "scale(1)" : "scale(1.05)";
+    case 'zoom-out':
+      animationStyles.transform = isVisible ? 'scale(1)' : 'scale(1.05)';
       break;
-    case "rotate":
-      animationStyles.transform = isVisible ? "rotate(0deg)" : "rotate(10deg)";
+    case 'rotate':
+      animationStyles.transform = isVisible ? 'rotate(0deg)' : 'rotate(10deg)';
       break;
     default:
       break;
   }
 
-  // Créer un élément avec les props appropriées
-  const elementProps = {
-    ref,
-    className,
-    style: animationStyles,
-  };
-
   return (
-    <Component {...elementProps}>
+    <Component
+      ref={ref}
+      className={className}
+      style={animationStyles}
+    >
       {children}
     </Component>
   );
-}
+});
+
+AnimatedElement.displayName = 'AnimatedElement';
