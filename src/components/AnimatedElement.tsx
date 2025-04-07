@@ -12,13 +12,19 @@ interface AnimatedElementProps {
 
 export function AnimatedElement({
   children,
-  options = { type: 'fade-in' },
-  className = '',
-  as: Component = 'div',
+  options = { type: "fade-in" },
+  className = "",
+  as: Component = "div",
 }: AnimatedElementProps) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const { type, duration = 800, delay = 0, threshold = 0.1, once = true } = options;
+  const {
+    type,
+    duration = 800,
+    delay = 0,
+    threshold = 0.1,
+    once = true,
+  } = options;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,7 +43,7 @@ export function AnimatedElement({
       },
       {
         root: null, // viewport
-        rootMargin: '0px',
+        rootMargin: "0px",
         threshold, // pourcentage de visibilité requis
       }
     );
@@ -66,41 +72,45 @@ export function AnimatedElement({
   }
 
   switch (type) {
-    case 'fade-in':
+    case "fade-in":
       // Déjà géré par opacity
       break;
-    case 'slide-up':
-      animationStyles.transform = isVisible ? 'translateY(0)' : 'translateY(40px)';
+    case "slide-up":
+      animationStyles.transform = isVisible
+        ? "translateY(0)"
+        : "translateY(40px)";
       break;
-    case 'slide-down':
-      animationStyles.transform = isVisible ? 'translateY(0)' : 'translateY(-40px)';
+    case "slide-down":
+      animationStyles.transform = isVisible
+        ? "translateY(0)"
+        : "translateY(-40px)";
       break;
-    case 'slide-left':
-      animationStyles.transform = isVisible ? 'translateX(0)' : 'translateX(40px)';
+    case "slide-left":
+      animationStyles.transform = isVisible
+        ? "translateX(0)"
+        : "translateX(40px)";
       break;
-    case 'slide-right':
-      animationStyles.transform = isVisible ? 'translateX(0)' : 'translateX(-40px)';
+    case "slide-right":
+      animationStyles.transform = isVisible
+        ? "translateX(0)"
+        : "translateX(-40px)";
       break;
-    case 'zoom-in':
-      animationStyles.transform = isVisible ? 'scale(1)' : 'scale(0.95)';
+    case "zoom-in":
+      animationStyles.transform = isVisible ? "scale(1)" : "scale(0.95)";
       break;
-    case 'zoom-out':
-      animationStyles.transform = isVisible ? 'scale(1)' : 'scale(1.05)';
+    case "zoom-out":
+      animationStyles.transform = isVisible ? "scale(1)" : "scale(1.05)";
       break;
-    case 'rotate':
-      animationStyles.transform = isVisible ? 'rotate(0deg)' : 'rotate(10deg)';
+    case "rotate":
+      animationStyles.transform = isVisible ? "rotate(0deg)" : "rotate(10deg)";
       break;
     default:
       break;
   }
 
   return (
-    <Component
-      ref={ref}
-      className={className}
-      style={animationStyles}
-    >
+    <Component ref={ref as any} className={className} style={animationStyles}>
       {children}
     </Component>
   );
-} 
+}
