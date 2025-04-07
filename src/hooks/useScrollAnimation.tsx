@@ -1,12 +1,18 @@
 "use client";
 
-import { useEffect, useRef, useState, ElementType } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  ElementType,
+  ComponentPropsWithoutRef,
+} from "react";
 import { AnimationOptions } from "@/utils/animations";
 
 export function useScrollAnimation<T extends ElementType = "div">(
   options: AnimationOptions = { type: "fade-in" }
 ) {
-  const ref = useRef<T>(null);
+  const ref = useRef<ComponentPropsWithoutRef<T>["ref"]>(null);
   const [isVisible, setIsVisible] = useState(false);
   const { threshold = 0.1, once = true } = options;
 
