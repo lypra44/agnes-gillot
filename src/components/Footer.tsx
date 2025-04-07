@@ -100,7 +100,7 @@ export const Footer = () => {
               </li>
               <li className="flex items-start">
                 <ClockIcon className="h-5 w-5 text-lightgreen mr-2 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-200">Lun-Ven: 9h-19h</span>
+                <span className="text-gray-200">Lun-Ven&apos;: 9h-19h</span>
               </li>
             </ul>
           </div>

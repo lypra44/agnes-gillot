@@ -83,7 +83,7 @@ export default function Techniques() {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}
-        d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"
+        d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"
       />
     </svg>,
     <svg
@@ -149,13 +149,17 @@ export default function Techniques() {
   ];
 
   return (
-    <ResponsiveSection id="techniques" bgColor="bg-gray-50" className="py-16">
+    <ResponsiveSection
+      id="techniques"
+      bgColor="bg-gradient-to-b from-white to-gray-50"
+      className="py-8"
+    >
       <div className="max-w-7xl mx-auto">
         <AnimatedElement
           options={{ type: "fade-in", duration: 800 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-4 relative inline-block">
+          <h2 className="text-3xl font-bold text-primarygreen sm:text-4xl relative inline-block">
             {techniquesData.title}
           </h2>
           {techniquesData.subtitle && (
@@ -180,10 +184,10 @@ export default function Techniques() {
                 delay: 200 + index * 100,
               }}
             >
-              <div className="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px] group">
-                <div className="p-6 flex flex-col h-full">
-                  <div className="flex items-center mb-4">
-                    <div className="bg-primarygreen bg-opacity-10 p-3 rounded-lg mr-4">
+              <div className="rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px] border border-green-200 bg-green-50">
+                <div className="p-8 flex flex-col h-full">
+                  <div className="flex items-center mb-6">
+                    <div className="p-4 rounded-full bg-white border mr-4">
                       {block.image && block.image.asset ? (
                         <Image
                           src={block.image.asset.url}
@@ -193,14 +197,16 @@ export default function Techniques() {
                           className="h-12 w-12 object-contain"
                         />
                       ) : (
-                        fallbackIcons[index % fallbackIcons.length]
+                        <div className="text-primarygreen">
+                          {fallbackIcons[index % fallbackIcons.length]}
+                        </div>
                       )}
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900">
+                    <h3 className="text-xl font-semibold text-darkgreen">
                       {block.title}
                     </h3>
                   </div>
-                  <p className="text-gray-600 leading-relaxed flex-grow">
+                  <p className="text-gray-700 leading-relaxed flex-grow">
                     {block.body}
                   </p>
                 </div>
