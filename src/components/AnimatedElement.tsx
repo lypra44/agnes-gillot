@@ -109,7 +109,11 @@ export function AnimatedElement({
   }
 
   return (
-    <Component ref={ref as any} className={className} style={animationStyles}>
+    <Component
+      ref={ref as React.RefObject<JSX.IntrinsicElements[typeof Component]>}
+      className={className}
+      style={animationStyles}
+    >
       {children}
     </Component>
   );

@@ -43,7 +43,7 @@ const Navbar = () => {
     };
 
     fetchHeroData();
-  }, []);
+  }, [heroQuery]);
 
   return (
     <>
