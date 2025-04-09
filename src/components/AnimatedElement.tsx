@@ -29,6 +29,7 @@ export const AnimatedElement = <T extends ElementType = "div">({
 }: AnimatedElementProps<T>) => {
   const Component = as || "div";
   const [isVisible, setIsVisible] = useState(false);
+  const elementId = `animated-element-${Math.random().toString(36).substr(2, 9)}`;
   const {
     type,
     duration = 800,
@@ -38,7 +39,7 @@ export const AnimatedElement = <T extends ElementType = "div">({
   } = options;
 
   useEffect(() => {
-    const element = document.querySelector(`.${className}`);
+    const element = document.getElementById(elementId);
     if (!element) return;
 
     const observer = new IntersectionObserver(
@@ -62,10 +63,11 @@ export const AnimatedElement = <T extends ElementType = "div">({
     return () => {
       if (element) observer.unobserve(element);
     };
-  }, [threshold, once, className]);
+  }, [threshold, once, elementId]);
 
   const animationStyles: CSSProperties = {
     opacity: isVisible ? 1 : 0,
+    transform: isVisible ? "translateY(0)" : "translateY(20px)",
     transition: `all ${duration}ms ease-out ${delay}ms`,
   };
 
@@ -102,7 +104,12 @@ export const AnimatedElement = <T extends ElementType = "div">({
   }
 
   return (
-    <Component className={className} style={animationStyles} {...rest}>
+    <Component
+      id={elementId}
+      className={className}
+      style={animationStyles}
+      {...rest}
+    >
       {children}
     </Component>
   );
