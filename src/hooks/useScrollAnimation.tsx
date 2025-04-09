@@ -1,18 +1,12 @@
 "use client";
 
-import {
-  useEffect,
-  useRef,
-  useState,
-  ElementType,
-  ComponentPropsWithoutRef,
-} from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimationOptions } from "@/utils/animations";
 
-export function useScrollAnimation<T extends ElementType = "div">(
+export function useScrollAnimation(
   options: AnimationOptions = { type: "fade-in" }
 ) {
-  const ref = useRef<ComponentPropsWithoutRef<T>["ref"]>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const { threshold = 0.1, once = true } = options;
 
@@ -54,20 +48,18 @@ export function useScrollAnimation<T extends ElementType = "div">(
 }
 
 // Composant d'animation
-interface AnimatedElementProps<T extends ElementType = "div"> {
+interface AnimatedElementProps {
   children: React.ReactNode;
   options?: AnimationOptions;
   className?: string;
-  as?: T;
+  as?: keyof JSX.IntrinsicElements;
 }
 
-export function AnimatedElement<T extends ElementType = "div">({
+export function AnimatedElement({
   children,
   options = { type: "fade-in" },
-  className = "",
-  as: Component = "div" as T,
-}: AnimatedElementProps<T>) {
-  const { ref, isVisible } = useScrollAnimation<T>(options);
+}: AnimatedElementProps) {
+  const { isVisible } = useScrollAnimation(options);
   const { type, duration = 800, delay = 0 } = options;
 
   // Styles d'animation
@@ -118,9 +110,5 @@ export function AnimatedElement<T extends ElementType = "div">({
       break;
   }
 
-  return (
-    <Component ref={ref} className={className} style={animationStyles}>
-      {children}
-    </Component>
-  );
+  return <>{children}</>;
 }
