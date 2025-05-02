@@ -61,7 +61,7 @@ export async function POST(request: Request) {
     const data = await resend.emails.send({
       from: "Contact <contact@agnes-gillot.fr>",
       to: ["contact@agnes-gillot.fr"], // Remplacer par l'email de réception
-      reply_to: email,
+      replyTo: email,
       subject: `Nouveau message du site web - ${name}`,
       html: `
         <h2>Nouveau message du site web</h2>

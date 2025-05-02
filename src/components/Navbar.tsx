@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { client } from "@/sanity/lib/client";
 import { groq } from "next-sanity";
 import { scrollToSection } from "@/utils/scrollToSection";
@@ -15,12 +15,16 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
 
-  const navigation = [
-    { name: "Pour qui ? Pourquoi ?", id: "pourquoi" },
-    { name: "Les techniques", id: "techniques" },
-    { name: "Massage AMA assis en entreprise", id: "massage-entreprise" },
-    { name: "Contact", id: "contact" },
-  ];
+  // Utilisation de useMemo pour éviter la recréation du tableau à chaque rendu
+  const navigation = useMemo(
+    () => [
+      { name: "Pour qui ? Pourquoi ?", id: "pourquoi" },
+      { name: "Les techniques", id: "techniques" },
+      { name: "Massage AMA assis en entreprise", id: "massage-entreprise" },
+      { name: "Contact", id: "contact" },
+    ],
+    []
+  );
 
   // État pour stocker les données de Hero
   const [heroData, setHeroData] = useState<HeroData | null>(null);
