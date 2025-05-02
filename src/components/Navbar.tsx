@@ -13,9 +13,9 @@ interface HeroData {
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   const navigation = [
-    { name: "La naturopathie", id: "naturopathie" },
     { name: "Pour qui ? Pourquoi ?", id: "pourquoi" },
     { name: "Les techniques", id: "techniques" },
     { name: "Massage AMA assis en entreprise", id: "massage-entreprise" },
@@ -27,6 +27,41 @@ const Navbar = () => {
 
   // Query pour récupérer les données de Hero depuis Sanity
   const heroQuery = groq`*[_type == "hero"][0]{ annonce }`;
+
+  // useEffect pour détecter la section active au scroll
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-50% 0px -50% 0px", // Zone centrale de la fenêtre
+        threshold: 0,
+      }
+    );
+
+    // Observer toutes les sections qui correspondent aux liens du menu
+    navigation.forEach(({ id }) => {
+      const element = document.getElementById(id);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      // Nettoyer l'observer lors du démontage du composant
+      navigation.forEach(({ id }) => {
+        const element = document.getElementById(id);
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
+    };
+  }, [navigation]);
 
   // useEffect pour récupérer les données à partir de Sanity
   useEffect(() => {
@@ -70,7 +105,12 @@ const Navbar = () => {
             <li className="mr-3 nav__item" key={index}>
               <a
                 href={`#${menu.id}`}
-                className="inline-block p-2 font-sm no-underline text-gray-800 hover:text-primarygreen font-medium"
+                className={`inline-block p-2 font-sm no-underline font-medium transition-colors
+                  ${
+                    activeSection === menu.id
+                      ? "text-primarygreen font-semibold"
+                      : "text-gray-800 hover:text-primarygreen"
+                  }`}
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection(menu.id);
@@ -119,7 +159,13 @@ const Navbar = () => {
               <li className="mr-3 nav__item" key={index}>
                 <a
                   href={`#${menu.id}`}
-                  className="inline-block px-2 py-2 text-sm xl:text-base font-medium text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-primarygreen focus:text-primarygreen focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+                  className={`inline-block px-2 py-2 text-sm xl:text-base font-medium no-underline rounded-md 
+                  relative transition-colors
+                  ${
+                    activeSection === menu.id
+                      ? "text-primarygreen after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primarygreen"
+                      : "text-gray-800 hover:text-primarygreen"
+                  }`}
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToSection(menu.id);

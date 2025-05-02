@@ -7,6 +7,7 @@ import {
   ReactNode,
   CSSProperties,
   ComponentPropsWithoutRef,
+  useId,
 } from "react";
 import { AnimationOptions } from "@/utils/animations";
 
@@ -29,7 +30,8 @@ export const AnimatedElement = <T extends ElementType = "div">({
 }: AnimatedElementProps<T>) => {
   const Component = as || "div";
   const [isVisible, setIsVisible] = useState(false);
-  const elementId = `animated-element-${Math.random().toString(36).substr(2, 9)}`;
+  const id = useId();
+  const elementId = `animated-element-${id}`;
   const {
     type,
     duration = 800,

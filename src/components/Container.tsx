@@ -8,13 +8,8 @@ interface ContainerProps {
 
 export function Container({ className, children, style }: ContainerProps) {
   return (
-    <div
-      className={` ${
-        className ? className : ""
-      }`}
-      style={style}>
+    <div className={` ${className ? className : ""}`} style={style}>
       {children}
     </div>
   );
 }
-

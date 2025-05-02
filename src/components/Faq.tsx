@@ -77,25 +77,23 @@ export const Faq = () => {
 
   // Valeurs par défaut pour les textes si non définis dans Sanity
   const title = faqData.title || "Foire aux questions";
-  const subtitle = faqData.subtitle || "Retrouvez les réponses aux questions les plus fréquemment posées";
+  const subtitle =
+    faqData.subtitle ||
+    "Retrouvez les réponses aux questions les plus fréquemment posées";
   const contactText = faqData.contactText || "Vous avez d'autres questions ?";
   const contactButtonText = faqData.contactButtonText || "Me contacter";
 
   return (
-    <ResponsiveSection
-      id="faq"
-      bgColor="bg-white"
-      className="py-16"
-    >
+    <ResponsiveSection id="faq" bgColor="bg-white">
       <div className="max-w-7xl mx-auto">
-        <AnimatedElement 
-          options={{ type: 'fade-in', duration: 800 }}
+        <AnimatedElement
+          options={{ type: "fade-in", duration: 800 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-4 relative inline-block">
+          <h2 className="text-3xl font-bold text-darkgreen sm:text-4xl mb-4 relative inline-block">
             {title}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-6">
+          <p className="text-xl text-darkgreen max-w-3xl mx-auto mt-6">
             {subtitle}
           </p>
         </AnimatedElement>
@@ -104,17 +102,27 @@ export const Faq = () => {
           {faqData.blocks.map((faq, index) => (
             <AnimatedElement
               key={index}
-              options={{ type: 'slide-up', duration: 800, delay: 200 + index * 100 }}
+              options={{
+                type: "slide-up",
+                duration: 800,
+                delay: 200 + index * 100,
+              }}
               className="mb-6"
             >
               <Disclosure>
                 {({ open }) => (
-                  <div className={`overflow-hidden rounded-xl transition-all duration-300 ${open ? 'shadow-lg' : 'shadow-md'}`}>
-                    <DisclosureButton className={`flex items-center w-full px-6 py-5 text-left text-gray-800 bg-white hover:bg-gray-50 transition-all duration-300 ${open ? 'bg-gray-50' : ''}`}>
+                  <div
+                    className={`overflow-hidden rounded-xl transition-all duration-300 ${open ? "shadow-lg" : "shadow-md"}`}
+                  >
+                    <DisclosureButton
+                      className={`flex items-center w-full px-6 py-5 text-left text-gray-800 bg-white hover:bg-gray-50 transition-all duration-300 ${open ? "bg-gray-50" : ""}`}
+                    >
                       <div className="mr-4 flex-shrink-0">
                         {faqIcons[index % faqIcons.length]}
                       </div>
-                      <span className="flex-grow font-medium">{faq.question}</span>
+                      <span className="flex-grow font-medium">
+                        {faq.question}
+                      </span>
                       <ChevronUpIcon
                         className={`${
                           open ? "transform rotate-180" : ""
@@ -123,9 +131,7 @@ export const Faq = () => {
                     </DisclosureButton>
 
                     <DisclosurePanel className="px-6 pt-4 pb-6 bg-white border-t border-gray-100">
-                      <div className="pl-10 text-gray-600">
-                        {faq.answer}
-                      </div>
+                      <div className="pl-10 text-gray-600">{faq.answer}</div>
                     </DisclosurePanel>
                   </div>
                 )}
@@ -134,8 +140,8 @@ export const Faq = () => {
           ))}
         </div>
 
-        <AnimatedElement 
-          options={{ type: 'fade-in', duration: 800, delay: 600 }}
+        <AnimatedElement
+          options={{ type: "fade-in", duration: 800, delay: 600 }}
           className="text-center mt-12"
         >
           <p className="text-gray-600 mb-6">{contactText}</p>

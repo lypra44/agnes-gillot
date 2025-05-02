@@ -149,32 +149,26 @@ export default function Techniques() {
   ];
 
   return (
-    <ResponsiveSection
-      id="techniques"
-      bgColor="bg-gradient-to-b from-white to-gray-50"
-      className="py-8"
-    >
-      <div className="max-w-7xl mx-auto">
+    <ResponsiveSection id="techniques">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedElement
           options={{ type: "fade-in", duration: 800 }}
-          className="text-center mb-12"
+          className="text-left mb-12 max-w-3xl"
         >
-          <h2 className="text-3xl font-bold text-primarygreen sm:text-4xl relative inline-block">
+          <h2 className="text-3xl font-bold text-primarygreen sm:text-4xl mb-2 relative inline-block">
             {techniquesData.title}
           </h2>
           {techniquesData.subtitle && (
-            <p className="text-xl text-gray-600 italic mt-4">
+            <p className="text-xl text-gray-600 italic">
               {techniquesData.subtitle}
             </p>
           )}
           {techniquesData.body && (
-            <p className="mt-6 text-gray-600 max-w-3xl mx-auto">
-              {techniquesData.body}
-            </p>
+            <p className="mt-6 text-gray-600">{techniquesData.body}</p>
           )}
         </AnimatedElement>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
           {blocks.map((block, index) => (
             <AnimatedElement
               key={index}
@@ -184,31 +178,44 @@ export default function Techniques() {
                 delay: 200 + index * 100,
               }}
             >
-              <div className="rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px] border border-green-200 bg-green-50">
-                <div className="p-8 flex flex-col h-full">
-                  <div className="flex items-center mb-6">
-                    <div className="p-4 rounded-full bg-white border mr-4">
+              <div
+                className="group rounded-xl overflow-hidden h-full transition-all duration-500 
+                border border-zinc-400 border-opacity-50 bg-white hover:border-primarygreen hover:shadow-xl 
+                hover:shadow-green-100/40 hover:translate-y-[-8px] flex flex-col"
+              >
+                {/* Header avec icône */}
+                <div className="bg-gradient-to-r from-green-50 to-blue-50 p-6 relative border-b border-green-100">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-primarygreen opacity-5 rounded-bl-full"></div>
+                  <div className="flex items-center">
+                    <div className="p-3 rounded-full bg-white shadow-md border border-green-100 mr-4 group-hover:bg-primarygreen group-hover:border-primarygreen transition-all duration-300">
                       {block.image && block.image.asset ? (
                         <Image
                           src={block.image.asset.url}
                           alt={block.title}
                           height={48}
                           width={48}
-                          className="h-12 w-12 object-contain"
+                          className="h-10 w-10 object-contain group-hover:brightness-0 group-hover:invert transition-all duration-300"
                         />
                       ) : (
-                        <div className="text-primarygreen">
+                        <div className="text-primarygreen group-hover:text-white transition-all duration-300">
                           {fallbackIcons[index % fallbackIcons.length]}
                         </div>
                       )}
                     </div>
-                    <h3 className="text-xl font-semibold text-darkgreen">
+                    <h3 className="text-xl font-semibold text-gray-800 group-hover:text-primarygreen transition-all duration-300">
                       {block.title}
                     </h3>
                   </div>
-                  <p className="text-gray-700 leading-relaxed flex-grow">
-                    {block.body}
-                  </p>
+                </div>
+
+                {/* Contenu */}
+                <div className="p-6 flex-grow bg-white">
+                  <p className="text-gray-600 leading-relaxed">{block.body}</p>
+                </div>
+
+                {/* Footer avec indicateur visuel */}
+                <div className="px-6 py-4 flex justify-end">
+                  <div className="w-12 h-1 bg-gray-200 rounded-full group-hover:bg-primarygreen transition-all duration-300"></div>
                 </div>
               </div>
             </AnimatedElement>

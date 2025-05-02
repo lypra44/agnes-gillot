@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Ne pas indexer les pages d'administration
+Disallow: /studio/
+
+# Sitemap
+Sitemap: https://www.agnes-gillot.fr/sitemap.xml 

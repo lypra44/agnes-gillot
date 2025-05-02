@@ -7,6 +7,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import Image from "next/image";
 import { ResponsiveSection } from "./ResponsiveSection";
 import { AnimatedElement } from "./AnimatedElement";
+import Button from "./Button";
 
 const builder = imageUrlBuilder(client);
 
@@ -93,100 +94,105 @@ export function MassageEntreprise() {
   return (
     <ResponsiveSection
       id="massage-entreprise"
-      bgColor="bg-lightgreen"
-      className="py-8"
+      bgColor="bg-lightgreen bg-opacity-30"
+      style={{
+        backgroundImage: "url(/img/pattern.svg)",
+        backgroundBlendMode: "soft-light",
+      }}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* En-tête de section */}
         <AnimatedElement
           options={{ type: "fade-in", duration: 800 }}
-          className="text-center mb-8"
+          className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-white gray-900 sm:text-4xl relative inline-block">
+          <h2 className="text-3xl font-bold text-white sm:text-4xl relative inline-block">
             {massageData.title}
           </h2>
           {massageData.subtitle && (
-            <p className="text-xl text-gray-900 max-w-3xl mx-auto mt-4">
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto mt-4">
               {massageData.subtitle}
             </p>
           )}
         </AnimatedElement>
 
-        {/* Présentation principale */}
-        <div className="bg-white rounded-3xl shadow-xl overflow-hidden mb-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            {/* Image principale */}
-            <div className="relative h-96 lg:h-auto">
-              <Image
-
-              
-                src={urlFor(massageData.image).url()}
-                alt="Massage Amma en entreprise"
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
-                <div className="bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg border-l-4 border-primarygreen max-w-sm">
-                  <p className="text-gray-800 italic text-sm">
-                    &ldquo;Le massage Amma apporte équilibre et harmonie, en
-                    libérant les tensions pour retrouver sérénité et
-                    bien-être.&rdquo;
+        {/* Présentation principale - structure améliorée */}
+        <div className="mb-16">
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+              {/* Image avec superposition */}
+              <div className="relative h-80 lg:h-auto order-1 lg:order-1">
+                <Image
+                  src={urlFor(massageData.image).url()}
+                  alt="Massage Amma en entreprise"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 p-6 text-white">
+                  <h3 className="text-2xl font-bold mb-2">Le massage Amma</h3>
+                  <p className="text-white/90 max-w-md">
+                    Un art millénaire pour le bien-être en entreprise
                   </p>
                 </div>
               </div>
-            </div>
 
-            {/* Description */}
-            <div className="p-8 lg:p-10">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
-                <span className="w-10 h-10 rounded-full bg-primarygreen text-white flex items-center justify-center mr-3 text-sm">
-                  ?
-                </span>
-                Qu&apos;est-ce que le massage Ama ?
-              </h3>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                {massageData.body1} </p>
+              {/* Contenu descriptif */}
+              <div className="p-8 lg:p-10 order-2 lg:order-2">
+                <div className="prose prose-lg">
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                    Qu&apos;est-ce que le massage Amma ?
+                  </h3>
 
-              {massageData.body2 && (
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  {massageData.body2}
-                </p>
-              )}
+                  <div className="space-y-4 text-gray-700">
+                    <p className="leading-relaxed">{massageData.body1}</p>
 
-              <a
-                href="#contact"
-                className="inline-flex items-center px-6 py-3 text-base font-medium rounded-lg text-white bg-primarygreen hover:bg-darkgreen transition-all duration-300 shadow-md hover:shadow-lg transform hover:translate-y-[-2px]"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const contactSection = document.getElementById("contact");
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-                {buttonText}
-              </a>
+                    {massageData.body2 && (
+                      <p className="leading-relaxed">{massageData.body2}</p>
+                    )}
+                  </div>
+
+                  <Button
+                    as="a"
+                    href="#contact"
+                    variant="primary"
+                    size="md"
+                    className="mt-8"
+                    icon={
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
+                      </svg>
+                    }
+                    onClick={(e: React.MouseEvent) => {
+                      e.preventDefault();
+                      const contactSection = document.getElementById("contact");
+                      if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
+                  >
+                    {buttonText}
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Sections d'informations */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Sections d'informations en cartes */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Comment se déroule une séance */}
           <AnimatedElement
             options={{ type: "slide-up", duration: 800, delay: 200 }}
@@ -214,20 +220,124 @@ export function MassageEntreprise() {
               </h3>
               <p className="text-gray-700 leading-relaxed">
                 Une séance de massage Amma dure généralement entre 15 et 30
-                minutes, ce qui en fait une solution idéale pour le milieu
-                professionnel. Le praticien effectue une série de mouvements
-                précis (pressions, percussions, étirements) qui permettent de
-                détendre les muscles et de stimuler les points d&apos;énergie.
-                Aucune huile n&apos;est utilisée et vous restez habillé, ce qui
-                rend cette pratique particulièrement adaptée au contexte de
-                l&apos;entreprise.
+                minutes. Le praticien effectue des mouvements précis (pressions,
+                percussions, étirements) qui détendent les muscles et stimulent
+                les points d&apos;énergie.
               </p>
+              <div className="mt-4 p-3 bg-green-50 border-l-4 border-primarygreen rounded">
+                <p className="text-sm text-gray-700">
+                  <strong>Avantage :</strong> Aucune huile n&apos;est utilisée
+                  et vous restez habillé, idéal pour le contexte professionnel.
+                </p>
+              </div>
             </div>
           </AnimatedElement>
 
-          {/* Les bienfaits du massage */}
+          {/* Les bienfaits pour l'entreprise */}
           <AnimatedElement
             options={{ type: "slide-up", duration: 800, delay: 300 }}
+            className="bg-white rounded-2xl shadow-lg overflow-hidden h-full"
+          >
+            <div className="p-8">
+              <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-6">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-8 w-8 text-primarygreen"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                Avantages pour l&apos;entreprise
+              </h3>
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-primarygreen mr-2 mt-0.5 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span className="text-gray-700">
+                    Réduction de l&apos;absentéisme
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-primarygreen mr-2 mt-0.5 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span className="text-gray-700">
+                    Augmentation de la productivité
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-primarygreen mr-2 mt-0.5 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span className="text-gray-700">
+                    Amélioration du climat social
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-primarygreen mr-2 mt-0.5 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span className="text-gray-700">
+                    Image positive de l&apos;entreprise
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </AnimatedElement>
+
+          {/* Les bienfaits pour les employés */}
+          <AnimatedElement
+            options={{ type: "slide-up", duration: 800, delay: 400 }}
             className="bg-white rounded-2xl shadow-lg overflow-hidden h-full"
           >
             <div className="p-8">
@@ -248,10 +358,10 @@ export function MassageEntreprise() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Les bienfaits du massage Ama
+                Bienfaits pour les employés
               </h3>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3">
                 {massageData.bienfaits?.map((bienfait, index) => (
                   <div key={index} className="flex items-start">
                     <svg

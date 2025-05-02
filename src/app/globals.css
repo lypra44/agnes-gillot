@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+/* Century Gothic est généralement disponible en local, mais vous pouvez utiliser un équivalent web si nécessaire */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -20,7 +23,7 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Century Gothic', sans-serif;
   overflow-x: hidden;
 }
 
@@ -28,6 +31,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   letter-spacing: -0.02em;
+  font-family: 'Manrope', sans-serif;
 }
 
 h1 {
@@ -47,6 +51,7 @@ h3 {
 
 p {
   line-height: 1.7;
+  font-family: 'Century Gothic', sans-serif;
 }
 
 /* Effets de survol pour les liens */
@@ -216,4 +221,17 @@ ul.check-list li::before {
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-darkgreen;
+}
+
+/* Styles basiques pour Swiper (remplace par Tailwind dans les composants) */
+.swiper-wrapper {
+  padding: 10px 0;
+}
+
+/* Tailwind CSS Line Clamp */
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
 }
