@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
 /* Century Gothic est généralement disponible en local, mais vous pouvez utiliser un équivalent web si nécessaire */
 
 @tailwind base;
@@ -23,7 +24,7 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Century Gothic', sans-serif;
+  font-family: 'Raleway', sans-serif;
   overflow-x: hidden;
 }
 
@@ -35,23 +36,156 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 1.75rem; /* Par défaut pour mobile */
   font-weight: 700;
+}
+
+@media (min-width: 640px) {
+  h1 {
+    font-size: 2rem; /* sm */
+  }
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.25rem; /* md */
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 2.5rem; /* lg */
+  }
+}
+
+@media (min-width: 1280px) {
+  h1 {
+    font-size: 3rem; /* xl */
+  }
+}
+
+@media (min-width: 1536px) {
+  h1 {
+    font-size: 3.5rem; /* 2xl */
+  }
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.5rem; /* Par défaut pour mobile */
   font-weight: 700;
 }
 
+@media (min-width: 640px) {
+  h2 {
+    font-size: 1.625rem; /* sm */
+  }
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: 1.75rem; /* md */
+  }
+}
+
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 2rem; /* lg */
+  }
+}
+
+@media (min-width: 1280px) {
+  h2 {
+    font-size: 2.25rem; /* xl */
+  }
+}
+
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.25rem; /* Par défaut pour mobile */
   font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  h3 {
+    font-size: 1.35rem; /* sm */
+  }
+}
+
+@media (min-width: 768px) {
+  h3 {
+    font-size: 1.4rem; /* md */
+  }
+}
+
+@media (min-width: 1024px) {
+  h3 {
+    font-size: 1.5rem; /* lg */
+  }
+}
+
+@media (min-width: 1280px) {
+  h3 {
+    font-size: 1.65rem; /* xl */
+  }
+}
+
+h4 {
+  font-size: 1.1rem; /* Par défaut pour mobile */
+  font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  h4 {
+    font-size: 1.15rem; /* sm */
+  }
+}
+
+@media (min-width: 768px) {
+  h4 {
+    font-size: 1.2rem; /* md */
+  }
+}
+
+@media (min-width: 1024px) {
+  h4 {
+    font-size: 1.25rem; /* lg */
+  }
+}
+
+@media (min-width: 1280px) {
+  h4 {
+    font-size: 1.35rem; /* xl */
+  }
 }
 
 p {
   line-height: 1.7;
-  font-family: 'Century Gothic', sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.95rem; /* Par défaut pour mobile */
+}
+
+@media (min-width: 640px) {
+  p,li {
+    font-size: 0.90rem; /* sm */
+  }
+}
+
+@media (min-width: 768px) {
+  p {
+    font-size: 0.95rem; /* md */
+  }
+}
+
+@media (min-width: 1024px) {
+  p,li {
+    font-size: 0.95rem; /* lg */
+    line-height: 1.75;
+  }
+}
+
+@media (min-width: 1280px) {
+  p,li {
+    font-size: 0.95rem; /* xl */
+  }
 }
 
 /* Effets de survol pour les liens */

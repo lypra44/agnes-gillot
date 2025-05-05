@@ -3,22 +3,54 @@
   <!-- Page d'accueil -->
   <url>
     <loc>https://www.agnes-gillot.fr/</loc>
-    <lastmod>2023-07-01</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-05-05</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <!-- Pages légales -->
   <url>
     <loc>https://www.agnes-gillot.fr/mentions-legales</loc>
-    <lastmod>2023-07-01</lastmod>
+    <lastmod>2025-05-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.agnes-gillot.fr/politique-confidentialite</loc>
-    <lastmod>2023-07-01</lastmod>
+    <lastmod>2025-05-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  
+  <!-- Sections principales (comme ils sont sur la même page mais accessibles par ancres) -->
+  <url>
+    <loc>https://www.agnes-gillot.fr/#pourquoi</loc>
+    <lastmod>2025-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.agnes-gillot.fr/#techniques</loc>
+    <lastmod>2025-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.agnes-gillot.fr/#massage-entreprise</loc>
+    <lastmod>2025-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.agnes-gillot.fr/#contact</loc>
+    <lastmod>2025-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.agnes-gillot.fr/#faq</loc>
+    <lastmod>2025-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset> 

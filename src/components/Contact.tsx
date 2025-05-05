@@ -75,7 +75,7 @@ export default function Contact() {
   };
 
   return (
-    <ResponsiveSection id="contact" className="py-16 relative">
+    <ResponsiveSection id="contact" className="py-10 relative">
       <div className="absolute inset-0 opacity-10">
         <div
           className="absolute inset-0"
@@ -86,177 +86,211 @@ export default function Contact() {
         ></div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
         <AnimatedElement
           options={{ type: "fade-in", duration: 800 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
-          <h2 className="text-3xl font-bold text-darkgreen sm:text-4xl mb-4">
-            Contact
-          </h2>
-          <p className="text-xl text-darkgreen  text-opacity-80 max-w-3xl mx-auto">
+          <h2 className="font-bold text-darkgreen mb-2">Contact</h2>
+          <p className="text-xl text-darkgreen text-opacity-80 max-w-3xl mx-auto">
             N&apos;hésitez pas à me contacter pour toute question ou pour
             prendre rendez-vous.
           </p>
         </AnimatedElement>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:grid-flow-col lg:auto-rows-fr">
           {/* Formulaire de contact */}
           <AnimatedElement
             options={{ type: "slide-right", duration: 800 }}
-            className="lg:col-span-7 h-full"
+            className="lg:col-span-7 flex"
           >
-            <div className="bg-white rounded-xl shadow-xl p-8 border border-primarygreen h-full flex flex-col">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                Envoyez-moi un message
-              </h3>
+            <div className="bg-white rounded-xl shadow-xl p-6 border border-primarygreen w-full flex flex-col justify-between">
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-4">
+                  Envoyez-moi un message
+                </h3>
 
-              <form
-                onSubmit={handleSubmit(handleSubmitForm)}
-                className="space-y-6 flex-grow flex flex-col"
-              >
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Nom complet
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    {...register("name", { required: "Le nom est requis" })}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primarygreen focus:border-primarygreen transition-all duration-300"
-                    placeholder="Votre nom"
-                  />
-                  {errors.name && (
-                    <p className="mt-1 text-sm text-red-600">
-                      {errors.name.message}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    {...register("email", {
-                      required: "L&apos;email est requis",
-                      pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: "Adresse email invalide",
-                      },
-                    })}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primarygreen focus:border-primarygreen transition-all duration-300"
-                    placeholder="Votre email"
-                  />
-                  {errors.email && (
-                    <p className="mt-1 text-sm text-red-600">
-                      {errors.email.message}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Téléphone
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    {...register("phone")}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primarygreen focus:border-primarygreen transition-all duration-300"
-                    placeholder="Votre numéro de téléphone"
-                  />
-                </div>
-
-                <div className="flex-grow">
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    {...register("message", {
-                      required: "Le message est requis",
-                      minLength: {
-                        value: 10,
-                        message:
-                          "Le message doit contenir au moins 10 caractères",
-                      },
-                    })}
-                    rows={5}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primarygreen focus:border-primarygreen transition-all duration-300 h-40"
-                    placeholder="Votre message"
-                  ></textarea>
-                  {errors.message && (
-                    <p className="mt-1 text-sm text-red-600">
-                      {errors.message.message}
-                    </p>
-                  )}
-                </div>
-
-                <div className="flex items-start">
-                  <div className="flex items-center h-5">
-                    <input
-                      id="acceptPolicy"
-                      type="checkbox"
-                      {...register("acceptPolicy", {
-                        required:
-                          "Vous devez accepter la politique de confidentialité",
-                      })}
-                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primarygreen"
-                    />
-                  </div>
-                  <label
-                    htmlFor="acceptPolicy"
-                    className="ml-2 text-sm font-medium text-gray-700"
-                  >
-                    J&apos;accepte la{" "}
-                    <Link
-                      href="/politique-confidentialite"
-                      className="text-primarygreen hover:underline"
+                <form
+                  id="contact-form"
+                  onSubmit={handleSubmit(handleSubmitForm)}
+                  className="space-y-2 flex flex-col"
+                  aria-label="Formulaire de contact"
+                >
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 mb-1"
                     >
-                      politique de confidentialité
-                    </Link>{" "}
-                    et le traitement de mes données personnelles
-                  </label>
-                </div>
-                {errors.acceptPolicy && (
-                  <p className="mt-1 text-sm text-red-600">
-                    {errors.acceptPolicy.message}
-                  </p>
-                )}
-
-                <div className="my-4">
-                  <ReCAPTCHA
-                    ref={recaptchaRef}
-                    sitekey="6LdOFywrAAAAAMtBWYQPMue-P-R0HnNfZe2LhnZr"
-                    onChange={onReCAPTCHAChange}
-                  />
-                </div>
-
-                {errorMessage && (
-                  <div className="p-4 bg-red-50 text-red-700 rounded-lg">
-                    {errorMessage}
+                      Nom complet
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      {...register("name", { required: "Le nom est requis" })}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primarygreen focus:border-primarygreen transition-all duration-300"
+                      placeholder="Votre nom"
+                      aria-required="true"
+                      aria-invalid={errors.name ? "true" : "false"}
+                      aria-describedby={errors.name ? "name-error" : undefined}
+                    />
+                    {errors.name && (
+                      <p className="mt-1 text-sm text-red-600" id="name-error">
+                        {errors.name.message}
+                      </p>
+                    )}
                   </div>
-                )}
 
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      {...register("email", {
+                        required: "L&apos;email est requis",
+                        pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                          message: "Adresse email invalide",
+                        },
+                      })}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primarygreen focus:border-primarygreen transition-all duration-300"
+                      placeholder="Votre email"
+                      aria-required="true"
+                      aria-invalid={errors.email ? "true" : "false"}
+                      aria-describedby={
+                        errors.email ? "email-error" : undefined
+                      }
+                    />
+                    {errors.email && (
+                      <p className="mt-1 text-sm text-red-600" id="email-error">
+                        {errors.email.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
+                      Téléphone
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      {...register("phone", {
+                        required: "Le numéro de téléphone est requis",
+                      })}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primarygreen focus:border-primarygreen transition-all duration-300"
+                      placeholder="Votre numéro de téléphone"
+                      aria-required="true"
+                      aria-invalid={errors.phone ? "true" : "false"}
+                      aria-describedby={
+                        errors.phone ? "phone-error" : undefined
+                      }
+                    />
+                    {errors.phone && (
+                      <p className="mt-1 text-sm text-red-600" id="phone-error">
+                        {errors.phone.message}
+                      </p>
+                    )}
+                  </div>
+                  <div className="pb-4">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      {...register("message", {
+                        required: "Le message est requis",
+                        minLength: {
+                          value: 10,
+                          message:
+                            "Le message doit contenir au moins 10 caractères",
+                        },
+                      })}
+                      rows={4}
+                      className="w-full px-4 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primarygreen focus:border-primarygreen transition-all duration-300"
+                      placeholder="Votre message"
+                      aria-required="true"
+                      aria-invalid={errors.message ? "true" : "false"}
+                      aria-describedby={
+                        errors.message ? "message-error" : undefined
+                      }
+                    ></textarea>
+                    {errors.message && (
+                      <p
+                        className="mt-1 text-sm text-red-600"
+                        id="message-error"
+                      >
+                        {errors.message.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="flex items-start mt-1">
+                    <div className="flex items-center h-5">
+                      <input
+                        id="acceptPolicy"
+                        type="checkbox"
+                        {...register("acceptPolicy", {
+                          required:
+                            "Vous devez accepter la politique de confidentialité",
+                        })}
+                        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primarygreen"
+                      />
+                    </div>
+                    <label
+                      htmlFor="acceptPolicy"
+                      className="ml-2 text-sm font-medium text-gray-700"
+                    >
+                      J&apos;accepte la{" "}
+                      <Link
+                        href="/politique-confidentialite"
+                        className="text-primarygreen hover:underline"
+                      >
+                        politique de confidentialité
+                      </Link>{" "}
+                      et le traitement de mes données personnelles
+                    </label>
+                  </div>
+                  {errors.acceptPolicy && (
+                    <p className="mt-1 text-sm text-red-600">
+                      {errors.acceptPolicy.message}
+                    </p>
+                  )}
+
+                  <div className="my-2 overflow-hidden max-w-full">
+                    <div className="transform scale-90 md:scale-100 origin-left">
+                      <ReCAPTCHA
+                        ref={recaptchaRef}
+                        sitekey="6LdOFywrAAAAAMtBWYQPMue-P-R0HnNfZe2LhnZr"
+                        onChange={onReCAPTCHAChange}
+                      />
+                    </div>
+                  </div>
+
+                  {errorMessage && (
+                    <div className="p-4 bg-red-50 text-red-700 rounded-lg">
+                      {errorMessage}
+                    </div>
+                  )}
+                </form>
+              </div>
+
+              <div className="mt-6">
                 <button
                   type="submit"
+                  form="contact-form"
                   disabled={isSubmitting || !recaptchaValue}
-                  className="w-full px-6 py-3 bg-primarygreen text-white font-medium rounded-lg shadow-md hover:bg-darkgreen transition-all duration-300 hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed mt-auto"
+                  className="w-full px-6 py-3 bg-primarygreen text-white font-medium rounded-lg shadow-md hover:bg-darkgreen transition-all duration-300 hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
                 </button>
@@ -267,25 +301,25 @@ export default function Contact() {
                     dans les plus brefs délais.
                   </div>
                 )}
-              </form>
+              </div>
             </div>
           </AnimatedElement>
 
           {/* Informations de contact */}
           <AnimatedElement
             options={{ type: "slide-left", duration: 800 }}
-            className="lg:col-span-5 h-full"
+            className="lg:col-span-5 flex"
           >
-            <div className="bg-primarygreen rounded-xl shadow-xl overflow-hidden h-full">
-              <div className="p-8 h-full flex flex-col justify-between">
+            <div className="bg-primarygreen rounded-xl shadow-xl overflow-hidden w-full flex flex-col">
+              <div className="p-6 flex flex-col flex-grow">
                 <div>
-                  <h3 className="text-2xl font-semibold text-white mb-8">
+                  <h3 className="text-2xl font-semibold text-white mb-6">
                     Mes coordonnées
                   </h3>
 
                   <div className="space-y-8">
                     <div className="flex items-start">
-                      <div className="bg-white p-3 rounded-full mr-4">
+                      <div className="bg-white p-2.5 rounded-full mr-3">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-6 w-6 text-primarygreen"
@@ -312,7 +346,7 @@ export default function Contact() {
                     </div>
 
                     <div className="flex items-start">
-                      <div className="bg-white p-3 rounded-full mr-4">
+                      <div className="bg-white p-2.5 rounded-full mr-3">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-6 w-6 text-primarygreen"
@@ -339,7 +373,7 @@ export default function Contact() {
                     </div>
 
                     <div className="flex items-start">
-                      <div className="bg-white p-3 rounded-full mr-4">
+                      <div className="bg-white p-2.5 rounded-full mr-3">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-6 w-6 text-primarygreen"
@@ -366,7 +400,7 @@ export default function Contact() {
                     </div>
 
                     <div className="flex items-start">
-                      <div className="bg-white p-3 rounded-full mr-4">
+                      <div className="bg-white p-2.5 rounded-full mr-3">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-6 w-6 text-primarygreen"
@@ -400,13 +434,13 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="mt-auto pt-6 relative ">
+                <div className="mt-4 relative">
                   <Image
                     width={600}
                     height={600}
                     src="/img/plant-1.svg"
                     alt="Décoration plante"
-                    className="relative -bottom-10 z-10 mx-auto opacity-30"
+                    className="relative -bottom-10 z-10 mx-auto opacity-30 h-64"
                   />
                 </div>
               </div>

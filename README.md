@@ -1,4 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Site web d'Agnès Gillot - Naturopathe
+
+Ce dépôt contient le code source du site web professionnel d'Agnès Gillot, naturopathe à Héric (44).
+
+## Technologies utilisées
+
+- Next.js
+- Tailwind CSS
+- Sanity CMS
+- TypeScript
+
+## Configuration
+
+### Variables d'environnement
+
+Pour le développement local, créez un fichier `.env.local` à la racine du projet avec les variables suivantes :
+
+```bash
+# Variables d'environnement Sanity
+NEXT_PUBLIC_SANITY_PROJECT_ID=lwkszdwh
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2025-05-05
+
+# Variables d'environnement Google
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=votre_cle_api_google_maps
+NEXT_PUBLIC_GOOGLE_PLACE_ID=votre_place_id_google
+```
+
+Pour la production, assurez-vous de configurer ces variables d'environnement dans votre plateforme d'hébergement.
+
+### Sanity Studio
+
+Le studio Sanity est intégré à l'application et accessible à l'adresse `/studio`.
+
+## Développement
+
+```bash
+# Installer les dépendances
+npm install
+
+# Démarrer le serveur de développement
+npm run dev
+```
+
+## Déploiement
+
+Le site est déployé automatiquement sur Netlify à chaque push sur la branche main.
+
+## Contact
+
+Pour toute question concernant ce site, veuillez contacter Mélanie Kitenge.
 
 ## Getting Started
 

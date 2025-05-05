@@ -69,13 +69,19 @@ const introSchema = {
       name: "googlePlaceId",
       title: "ID de lieu Google",
       type: "string",
-      description: "L'identifiant de votre établissement sur Google (place_id)",
+      description:
+        "L'identifiant de votre établissement sur Google (place_id). Cette valeur sera remplacée par la variable d'environnement NEXT_PUBLIC_GOOGLE_PLACE_ID en production.",
+      readOnly: true,
+      initialValue: "Configuré via variable d'environnement",
     },
     {
       name: "googleMapsApiKey",
       title: "Clé API Google Maps",
       type: "string",
-      description: "Votre clé API Google Maps pour afficher les avis",
+      description:
+        "Cette clé est configurée via la variable d'environnement NEXT_PUBLIC_GOOGLE_MAPS_API_KEY pour des raisons de sécurité.",
+      readOnly: true,
+      initialValue: "Configuré via variable d'environnement",
     },
   ],
   preview: {

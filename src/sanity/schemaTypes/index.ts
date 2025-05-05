@@ -19,7 +19,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     // Éléments de navigation
     navbar,
     footer,
-    
+
     // Sections principales du site
     hero,
     updatedIntro,
@@ -29,10 +29,10 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     massage,
     contact,
     updatedFaq,
-    
+
     // Pages légales
     legalPages,
-    
+
     // Avis clients
     updatedReviews,
   ],

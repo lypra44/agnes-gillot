@@ -13,7 +13,6 @@ interface HeroData {
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("");
 
   // Utilisation de useMemo pour éviter la recréation du tableau à chaque rendu
   const navigation = useMemo(
@@ -31,41 +30,6 @@ const Navbar = () => {
 
   // Query pour récupérer les données de Hero depuis Sanity
   const heroQuery = groq`*[_type == "hero"][0]{ annonce }`;
-
-  // useEffect pour détecter la section active au scroll
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        rootMargin: "-50% 0px -50% 0px", // Zone centrale de la fenêtre
-        threshold: 0,
-      }
-    );
-
-    // Observer toutes les sections qui correspondent aux liens du menu
-    navigation.forEach(({ id }) => {
-      const element = document.getElementById(id);
-      if (element) {
-        observer.observe(element);
-      }
-    });
-
-    return () => {
-      // Nettoyer l'observer lors du démontage du composant
-      navigation.forEach(({ id }) => {
-        const element = document.getElementById(id);
-        if (element) {
-          observer.unobserve(element);
-        }
-      });
-    };
-  }, [navigation]);
 
   // useEffect pour récupérer les données à partir de Sanity
   useEffect(() => {
@@ -95,26 +59,28 @@ const Navbar = () => {
 
       {/* Annonce - doit être au-dessus du fond noir */}
       <div className="bg-primarygreen z-50 relative">
-        <p className="text-white py-1 text-center">{heroData?.annonce}</p>
+        <p className="text-xs md:text-sm text-white py-1 text-center">
+          {heroData?.annonce}
+        </p>
       </div>
 
       {/* Menu : Mobile */}
       <div
-        className={`fixed top-6 pl-4 pb-4 rounded-sm mt-8 bg-white w-screen z-50 shadow-lg transition-all duration-300 ease-in-out ${
-          open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+        className={`fixed top-6 pl-4 pb-4 pt-4 rounded-sm mt-8 bg-white w-screen z-50 shadow-lg transition-all duration-300 ease-in-out ${
+          open
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-10 pointer-events-none"
         }`}
+        id="mobile-menu"
+        aria-label="Menu de navigation mobile"
+        aria-hidden={!open}
       >
         <ul className="items-center justify-end flex-1 pt-4 list-none">
           {navigation.map((menu, index) => (
             <li className="mr-3 nav__item" key={index}>
               <a
                 href={`#${menu.id}`}
-                className={`inline-block p-2 font-sm no-underline font-medium transition-colors
-                  ${
-                    activeSection === menu.id
-                      ? "text-primarygreen font-semibold"
-                      : "text-gray-800 hover:text-primarygreen"
-                  }`}
+                className="inline-block p-2 font-sm no-underline font-medium transition-colors text-gray-800 hover:text-primarygreen"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection(menu.id);
@@ -137,7 +103,7 @@ const Navbar = () => {
               <Image
                 src="/img/logo.svg"
                 width="220"
-                alt="N"
+                alt="Logo Agnès Gillot Naturopathe"
                 height="200"
                 className="w-48"
               />
@@ -145,9 +111,18 @@ const Navbar = () => {
 
             {/* Menu Button : Mobile */}
             <div
-              aria-label="Toggle Menu"
+              aria-label="Ouvrir le menu de navigation"
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              role="button"
+              tabIndex={0}
               className={`lg:hidden ml-auto px-2 py-1 text-gray-500 rounded-md hover:text-primarygreen focus:text-primarygreen focus:bg-indigo-100 focus:outline-none transition-all duration-300 ${open ? "opacity-100 rotate-90" : "opacity-50 rotate-0"}`}
               onClick={() => setOpen(!open)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setOpen(!open);
+                }
+              }}
             >
               {open ? (
                 <XMarkIcon className="h-8 w-8 transition-transform duration-300" />
@@ -163,13 +138,7 @@ const Navbar = () => {
               <li className="mr-3 nav__item" key={index}>
                 <a
                   href={`#${menu.id}`}
-                  className={`inline-block px-2 py-2 text-sm xl:text-base font-medium no-underline rounded-md 
-                  relative transition-colors
-                  ${
-                    activeSection === menu.id
-                      ? "text-primarygreen after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primarygreen"
-                      : "text-gray-800 hover:text-primarygreen"
-                  }`}
+                  className="inline-block px-2 py-2 text-sm xl:text-base font-medium no-underline rounded-md relative transition-colors text-gray-800 hover:text-primarygreen"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToSection(menu.id);

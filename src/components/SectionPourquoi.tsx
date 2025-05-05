@@ -58,14 +58,14 @@ export const SectionPourquoi = () => {
     <Container className=" p-8 lg:p-0 lg:w-11/12 lg:pb-10 md:pb-14">
       <div
         id="pourquoi"
-        className="w-full flex items-center justify-center flex-col-reverse h-fit mb-8 lg:flex-row-reverse xl:px-24 xl:py-10"
+        className="w-full flex items-center justify-center flex-col-reverse h-fit mb-8 lg:flex-row-reverse xl:px-24 xl:py-10 max-w-7xl mx-auto"
       >
         <Image
           src={urlFor(pourquoiSectionData.image).url()}
           alt={pourquoiSectionData.title}
           width={800}
           height={800}
-          className=" object-contain md:w-2/5 my-4 xl:mx-10"
+          className="object-contain md:w-2/5 my-4 xl:mx-10 max-w-md 2xl:max-w-lg"
         />
 
         <div className="lg:w-2/3">
@@ -90,7 +90,7 @@ export const SectionPourquoi = () => {
         {pourquoiSectionData.title2}
       </h2>
 
-      <div className="flex items-center justify-center flex-col gap-12 mt-12 lg:grid lg:grid-cols-3">
+      <div className="flex items-center justify-center flex-col gap-12 mt-12 lg:grid lg:grid-cols-3 max-w-7xl mx-auto">
         {pourquoiSectionData.bulletPoints.map((point, index) => (
           <div
             key={index}

@@ -11,7 +11,6 @@ import {
 
 export const Footer = () => {
   const navigation = [
-    { name: "La naturopathie", id: "naturopathie" },
     { name: "Pour qui ? Pourquoi ?", id: "pourquoi" },
     { name: "Les techniques", id: "techniques" },
     { name: "Massage AMA assis en entreprise", id: "massage-entreprise" },
@@ -49,9 +48,9 @@ export const Footer = () => {
                 alt="Logo Agnès Gillot Naturopathe"
                 width={180}
                 height={120}
-                className="mb-4 bg-white p-2 rounded-lg"
+                className="mb-2 bg-white p-2 rounded-lg"
               />
-              <p className="text-gray-200 text-sm mt-4 max-w-xs">
+              <p className="text-gray-200 text-sm mt-4 max-w-xs text-center md:text-left">
                 Naturopathe certifiée, je vous accompagne vers un mieux-être
                 global grâce à des approches naturelles et personnalisées.
               </p>
@@ -60,12 +59,12 @@ export const Footer = () => {
 
           {/* Navigation */}
           <div className="col-span-1 lg:col-span-1">
-            <h3 className="text-lg font-semibold mb-4 border-b border-lightgreen pb-2">
+            <h3 className="text-sm md:text-base font-semibold mb-4 border-b border-lightgreen pb-2">
               Navigation
             </h3>
             <ul className="space-y-2">
               {navigation.map((menu, index) => (
-                <li key={index}>
+                <li key={index} className="text-xs md:text-sm">
                   <a
                     href={`#${menu.id}`}
                     className="text-gray-200 hover:text-lightgreen transition-colors duration-300 flex items-center"
@@ -80,38 +79,44 @@ export const Footer = () => {
 
           {/* Coordonnées */}
           <div className="col-span-1 lg:col-span-1">
-            <h3 className="text-lg font-semibold mb-4 border-b border-lightgreen pb-2">
+            <h3 className="text-sm md:text-base font-semibold mb-4 border-b border-lightgreen pb-2">
               Contact
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start">
                 <PhoneIcon className="h-5 w-5 text-lightgreen mr-2 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-200">07 83 26 18 11</span>
+                <span className="text-gray-200 text-xs md:text-sm">
+                  07 83 26 18 11
+                </span>
               </li>
               <li className="flex items-start">
                 <EnvelopeIcon className="h-5 w-5 text-lightgreen mr-2 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-200">agnesgillot44@gmail.com</span>
+                <span className="text-gray-200 text-xs md:text-sm">
+                  agnesgillot44@gmail.com
+                </span>
               </li>
               <li className="flex items-start">
                 <MapPinIcon className="h-5 w-5 text-lightgreen mr-2 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-200">
+                <span className="text-gray-200 text-xs md:text-sm">
                   14 rue de l&apos;Eglise, 44810 Héric
                 </span>
               </li>
               <li className="flex items-start">
                 <ClockIcon className="h-5 w-5 text-lightgreen mr-2 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-200">Lun-Ven&apos;: 9h-19h</span>
+                <span className="text-gray-200 text-xs md:text-sm">
+                  Lun-Ven&apos;: 9h-19h
+                </span>
               </li>
             </ul>
           </div>
 
           {/* Mentions légales */}
           <div className="col-span-1 lg:col-span-1">
-            <h3 className="text-lg font-semibold mb-4 border-b border-lightgreen pb-2">
+            <h3 className="text-sm md:text-base  font-semibold mb-4 border-b border-lightgreen pb-2">
               Informations
             </h3>
             <ul className="space-y-2">
-              <li>
+              <li className="text-xs md:text-sm">
                 <a
                   href="/mentions-legales"
                   className="text-gray-200 hover:text-lightgreen transition-colors duration-300 flex items-center"
@@ -120,7 +125,7 @@ export const Footer = () => {
                   Mentions légales
                 </a>
               </li>
-              <li>
+              <li className="text-xs md:text-sm">
                 <a
                   href="/politique-confidentialite"
                   className="text-gray-200 hover:text-lightgreen transition-colors duration-300 flex items-center"
@@ -142,7 +147,13 @@ export const Footer = () => {
             </p>
             <p className="text-gray-300 text-sm mt-4 md:mt-0">
               Site conçu et développé par{" "}
-              <a href="#" className="text-lightgreen hover:underline">
+              <a
+                href="https://www.linkedin.com/in/m%C3%A9lanie-kitenge-55b309211/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lightgreen hover:underline"
+                aria-label="Visiter le site de Mélanie Kitenge (nouvelle fenêtre)"
+              >
                 Mélanie Kitenge
               </a>
             </p>

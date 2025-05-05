@@ -84,8 +84,8 @@ export const Faq = () => {
   const contactButtonText = faqData.contactButtonText || "Me contacter";
 
   return (
-    <ResponsiveSection id="faq" bgColor="bg-white">
-      <div className="max-w-7xl mx-auto">
+    <ResponsiveSection id="faq">
+      <div className="max-w-7xl mx-6 md:mx-auto">
         <AnimatedElement
           options={{ type: "fade-in", duration: 800 }}
           className="text-center mb-12"
@@ -120,7 +120,7 @@ export const Faq = () => {
                       <div className="mr-4 flex-shrink-0">
                         {faqIcons[index % faqIcons.length]}
                       </div>
-                      <span className="flex-grow font-medium">
+                      <span className="flex-grow font-medium text-sm md:text-base">
                         {faq.question}
                       </span>
                       <ChevronUpIcon

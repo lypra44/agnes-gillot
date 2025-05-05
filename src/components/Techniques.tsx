@@ -83,7 +83,7 @@ export default function Techniques() {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}
-        d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"
+        d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"
       />
     </svg>,
     <svg
@@ -155,7 +155,7 @@ export default function Techniques() {
           options={{ type: "fade-in", duration: 800 }}
           className="text-left mb-12 max-w-3xl"
         >
-          <h2 className="text-3xl font-bold text-primarygreen sm:text-4xl mb-2 relative inline-block">
+          <h2 className="font-bold text-primarygreen mb-2 relative inline-block">
             {techniquesData.title}
           </h2>
           {techniquesData.subtitle && (
@@ -202,7 +202,7 @@ export default function Techniques() {
                         </div>
                       )}
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-800 group-hover:text-primarygreen transition-all duration-300">
+                    <h3 className="font-semibold text-gray-800 group-hover:text-primarygreen transition-all duration-300">
                       {block.title}
                     </h3>
                   </div>

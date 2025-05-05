@@ -23,25 +23,40 @@ export default function MentionsLegales() {
               <h2 className="text-xl font-semibold text-primarygreen mb-3">
                 1. Éditeur du site
               </h2>
-              <p className="mb-2">
-                <strong>Nom :</strong> Agnès Gillot
-              </p>
-              <p className="mb-2">
-                <strong>Statut :</strong> Auto-entrepreneur
-              </p>
-              <p className="mb-2">
-                <strong>SIRET :</strong> XX XXX XXX XXXXX
-              </p>
-              <p className="mb-2">
-                <strong>Adresse professionnelle :</strong> 14 rue de l&apos;Église,
-                44810 Héric
-              </p>
-              <p className="mb-2">
-                <strong>Téléphone :</strong> 06 12 34 56 78
-              </p>
-              <p className="mb-2">
-                <strong>Email :</strong> contact@agnes-gillot.fr
-              </p>
+              <p className="mb-4">Ce site a été développé et designé par :</p>
+              <ul className="list-disc pl-6 mb-4 space-y-1">
+                <li>
+                  <strong>Nom et prénom :</strong> Mélanie Kitenge
+                </li>
+                <li>
+                  <strong>Téléphone :</strong> 06 15 75 72 13
+                </li>
+                <li>
+                  <strong>Email :</strong> mel.kitenge@gmail.com
+                </li>
+              </ul>
+              <p className="mb-4">Le propriétaire du site est :</p>
+              <ul className="list-disc pl-6 mb-4 space-y-1">
+                <li>
+                  <strong>Nom et prénom :</strong> Agnès Gillot
+                </li>
+                <li>
+                  <strong>Statut :</strong> Auto-entrepreneur
+                </li>
+                <li>
+                  <strong>SIRET :</strong> XX XXX XXX XXXXX
+                </li>
+                <li>
+                  <strong>Adresse professionnelle :</strong> 14 rue de
+                  l&apos;Église, 44810 Héric
+                </li>
+                <li>
+                  <strong>Téléphone :</strong> 06 12 34 56 78
+                </li>
+                <li>
+                  <strong>Email :</strong> contact@agnes-gillot.fr
+                </li>
+              </ul>
             </section>
 
             <section>
@@ -73,11 +88,36 @@ export default function MentionsLegales() {
                 3. Propriété intellectuelle
               </h2>
               <p className="mb-4">
-                L&apos;ensemble du contenu de ce site (structure, textes, images,
-                graphismes, logo, icônes, sons, logiciels...) est la propriété
-                exclusive d&apos;Agnès Gillot, à l&apos;exception des éléments provenant
-                de ressources externes dûment identifiées.
+                L&apos;ensemble du contenu de ce site (structure, textes,
+                images, graphismes, logo, icônes, sons, logiciels...) est la
+                propriété exclusive d&apos;Agnès Gillot, à l&apos;exception des
+                éléments provenant de ressources externes dûment identifiées.
               </p>
+              <p className="mb-4">
+                <strong>Sources des illustrations :</strong>
+              </p>
+              <ul className="list-disc pl-6 mb-4 space-y-1">
+                <li>
+                  <Link
+                    href="https://www.freepik.com"
+                    className="text-primarygreen hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Freepik
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://undraw.co"
+                    className="text-primarygreen hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    unDraw
+                  </Link>
+                </li>
+              </ul>
               <p className="mb-4">
                 Toute reproduction, représentation, modification, publication,
                 adaptation de tout ou partie des éléments du site, quel que soit
@@ -85,11 +125,11 @@ export default function MentionsLegales() {
                 écrite préalable d&apos;Agnès Gillot.
               </p>
               <p>
-                Toute exploitation non autorisée du site ou de l&apos;un quelconque
-                des éléments qu&apos;il contient sera considérée comme constitutive
-                d&apos;une contrefaçon et poursuivie conformément aux dispositions
-                des articles L.335-2 et suivants du Code de Propriété
-                Intellectuelle.
+                Toute exploitation non autorisée du site ou de l&apos;un
+                quelconque des éléments qu&apos;il contient sera considérée
+                comme constitutive d&apos;une contrefaçon et poursuivie
+                conformément aux dispositions des articles L.335-2 et suivants
+                du Code de Propriété Intellectuelle.
               </p>
             </section>
 
@@ -98,10 +138,10 @@ export default function MentionsLegales() {
                 4. Liens hypertextes
               </h2>
               <p className="mb-4">
-                Le site peut contenir des liens hypertextes vers d&apos;autres sites
-                internet ou d&apos;autres ressources disponibles sur Internet. Agnès
-                Gillot ne dispose d&apos;aucun moyen pour contrôler les sites en
-                connexion avec son site internet.
+                Le site peut contenir des liens hypertextes vers d&apos;autres
+                sites internet ou d&apos;autres ressources disponibles sur
+                Internet. Agnès Gillot ne dispose d&apos;aucun moyen pour
+                contrôler les sites en connexion avec son site internet.
               </p>
               <p>
                 Agnès Gillot ne répond pas de la disponibilité de tels sites et
@@ -117,16 +157,16 @@ export default function MentionsLegales() {
               </h2>
               <p className="mb-4">
                 Les informations et services présentés sur ce site sont fournis
-                à titre informatif. Agnès Gillot s&apos;efforce d&apos;assurer au mieux de
-                ses possibilités l&apos;exactitude et la mise à jour des informations
-                diffusées, dont elle se réserve le droit de corriger le contenu
-                à tout moment.
+                à titre informatif. Agnès Gillot s&apos;efforce d&apos;assurer
+                au mieux de ses possibilités l&apos;exactitude et la mise à jour
+                des informations diffusées, dont elle se réserve le droit de
+                corriger le contenu à tout moment.
               </p>
               <p className="mb-4">
                 Agnès Gillot ne peut cependant garantir l&apos;exactitude, la
-                précision ou l&apos;exhaustivité des informations mises à disposition
-                sur ce site. En conséquence, Agnès Gillot décline toute
-                responsabilité :
+                précision ou l&apos;exhaustivité des informations mises à
+                disposition sur ce site. En conséquence, Agnès Gillot décline
+                toute responsabilité :
               </p>
               <ul className="list-disc pl-6 mb-4 space-y-1">
                 <li>
@@ -134,9 +174,9 @@ export default function MentionsLegales() {
                   des informations disponibles sur le site ;
                 </li>
                 <li>
-                  pour tous dommages résultant d&apos;une intrusion frauduleuse d&apos;un
-                  tiers ayant entraîné une modification des informations mises à
-                  disposition sur le site ;
+                  pour tous dommages résultant d&apos;une intrusion frauduleuse
+                  d&apos;un tiers ayant entraîné une modification des
+                  informations mises à disposition sur le site ;
                 </li>
                 <li>
                   et plus généralement pour tous dommages, directs ou indirects,

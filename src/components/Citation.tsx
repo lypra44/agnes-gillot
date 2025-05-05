@@ -32,7 +32,7 @@ export default function Citation() {
 
   return (
     <section
-      className="flex flex-col items-center justify-center text-center bg-lightgreen bg-cover py-16 px-6 text-white md:py-24 md:my-12 md:rounded-xl w-11/12 xl:py-28 relative overflow-hidden"
+      className="w-screen flex flex-col items-center justify-center text-center bg-lightgreen bg-cover py-16 px-6 text-white md:py-24 md:my-12 md:rounded-xl md:w-11/12 xl:py-28 relative overflow-hidden"
       style={{
         backgroundImage: "url(/img/pattern.svg)",
         backgroundBlendMode: "soft-light",
@@ -45,7 +45,7 @@ export default function Citation() {
         {citationData.body && (
           <div className="relative">
             <svg
-              className="absolute -top-10 -left-20 w-16 h-16 text-white opacity-20"
+              className="absolute -top-10  left-0 w-16 h-16 text-white opacity-20"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
               viewBox="0 0 24 24"
@@ -56,7 +56,7 @@ export default function Citation() {
               {citationData.body}
             </p>
             <svg
-              className="absolute -bottom-10 -right-20 w-16 h-16 text-white opacity-20 transform rotate-180"
+              className="absolute -bottom-10 right-0 w-16 h-16 text-white opacity-20 transform rotate-180"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
               viewBox="0 0 24 24"

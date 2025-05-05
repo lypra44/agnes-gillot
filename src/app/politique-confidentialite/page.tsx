@@ -13,11 +13,11 @@ export default function PolitiqueConfidentialite() {
     <Container className="flex flex-col items-center justify-center">
       <ResponsiveSection className="py-16">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl font-bold text-gray-900 mb-8">Politique de Confidentialité</h1>
+          <h1 className="font-bold text-gray-900 mb-8">Politique de Confidentialité</h1>
           
           <div className="space-y-8">
             <section>
-              <h2 className="text-xl font-semibold text-primarygreen mb-3">1. Introduction</h2>
+              <h2 className="font-semibold text-primarygreen mb-3">1. Introduction</h2>
               <p className="mb-4">
                 Chez Agnès Gillot Naturopathie, nous accordons une importance particulière à la protection de vos données personnelles. Cette politique de confidentialité vous informe sur la façon dont nous recueillons, utilisons et protégeons vos informations lorsque vous utilisez notre site web et nos services.
               </p>
@@ -27,7 +27,7 @@ export default function PolitiqueConfidentialite() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-primarygreen mb-3">2. Données collectées</h2>
+              <h2 className="font-semibold text-primarygreen mb-3">2. Données collectées</h2>
               <p className="mb-4">
                 Nous pouvons collecter les types de données suivants :
               </p>
@@ -39,7 +39,7 @@ export default function PolitiqueConfidentialite() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-primarygreen mb-3">3. Finalités du traitement</h2>
+              <h2 className="font-semibold text-primarygreen mb-3">3. Finalités du traitement</h2>
               <p className="mb-4">
                 Nous utilisons vos données personnelles pour les finalités suivantes :
               </p>
@@ -54,7 +54,7 @@ export default function PolitiqueConfidentialite() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-primarygreen mb-3">4. Base légale du traitement</h2>
+              <h2 className="font-semibold text-primarygreen mb-3">4. Base légale du traitement</h2>
               <p className="mb-4">
                 Nous traitons vos données personnelles sur les bases légales suivantes :
               </p>
@@ -67,7 +67,7 @@ export default function PolitiqueConfidentialite() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-primarygreen mb-3">5. Destinataires des données</h2>
+              <h2 className="font-semibold text-primarygreen mb-3">5. Destinataires des données</h2>
               <p className="mb-4">
                 Les données que nous collectons sont destinées à :
               </p>
@@ -82,7 +82,7 @@ export default function PolitiqueConfidentialite() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-primarygreen mb-3">6. Durée de conservation</h2>
+              <h2 className="font-semibold text-primarygreen mb-3">6. Durée de conservation</h2>
               <p className="mb-4">
                 Nous conservons vos données personnelles uniquement pendant la durée nécessaire à la réalisation des finalités pour lesquelles elles ont été collectées, dans le respect des délais de prescription légale.
               </p>
@@ -93,24 +93,24 @@ export default function PolitiqueConfidentialite() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-primarygreen mb-3">7. Sécurité des données</h2>
+              <h2 className="font-semibold text-primarygreen mb-3">7. Sécurité des données</h2>
               <p>
                 Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données personnelles contre la perte, l&apos;accès non autorisé, la divulgation, l&apos;altération ou la destruction. Toutefois, aucune méthode de transmission sur Internet ou de stockage électronique n&apos;est totalement sécurisée, et nous ne pouvons garantir une sécurité absolue.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-primarygreen mb-3">8. Utilisation des cookies</h2>
+              <h2 className="font-semibold text-primarygreen mb-3">8. Absence de cookies</h2>
               <p className="mb-4">
-                Notre site peut utiliser des cookies pour améliorer votre expérience utilisateur. Les cookies sont de petits fichiers stockés sur votre appareil qui nous aident à analyser votre utilisation du site.
+                Notre site web n&apos;utilise aucun cookie de suivi, d&apos;analyse ou de publicité. Nous respectons votre vie privée et avons choisi de ne pas mettre en place de système de traçage de votre navigation.
               </p>
               <p>
-                Vous pouvez configurer votre navigateur pour refuser tous les cookies ou pour être averti lorsqu&apos;un cookie est envoyé. Toutefois, certaines fonctionnalités du site peuvent ne pas fonctionner correctement si vous refusez les cookies.
+                Cette absence de cookies garantit que vos données de navigation ne sont pas collectées lors de votre visite sur notre site.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-primarygreen mb-3">9. Vos droits</h2>
+              <h2 className="font-semibold text-primarygreen mb-3">9. Vos droits</h2>
               <p className="mb-4">
                 Conformément à la réglementation applicable en matière de protection des données personnelles, notamment le Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :
               </p>
@@ -130,14 +130,14 @@ export default function PolitiqueConfidentialite() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-primarygreen mb-3">10. Modifications de la politique de confidentialité</h2>
+              <h2 className="font-semibold text-primarygreen mb-3">10. Modifications de la politique de confidentialité</h2>
               <p>
                 Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment. Toute modification sera publiée sur cette page avec une date de mise à jour. Nous vous encourageons à consulter régulièrement cette page pour rester informé des éventuelles modifications.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-primarygreen mb-3">11. Contact</h2>
+              <h2 className="font-semibold text-primarygreen mb-3">11. Contact</h2>
               <p>
                 Pour toute question concernant cette politique de confidentialité ou vos données personnelles, veuillez nous contacter à l&apos;adresse email suivante : contact@agnes-gillot.fr
               </p>

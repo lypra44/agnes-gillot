@@ -124,17 +124,11 @@ export function SectionIntro() {
     return stars;
   };
 
-  // Fonction pour tronquer le texte s'il est trop long
-  const truncateText = (text: string, maxLength: number = 300) => {
-    if (text.length <= maxLength) return text;
-    return text.slice(0, maxLength) + "...";
-  };
-
   // Fonction pour ouvrir le lien d'avis Google
   const handleReviewClick = () => {
     if (IntroData?.googlePlaceId) {
       window.open(
-        `https://search.google.com/local/writereview?placeid=${IntroData.googlePlaceId}`,
+        `https://www.google.fr/maps/place/Agn%C3%A8s+GILLOT+-+NATUROPATHE/@47.4141957,-1.6547502,17z/data=!4m8!3m7!1s0x4805f5576c12c701:0x57b942fc9d37ffec!8m2!3d47.4141957!4d-1.6521753!9m1!1b1!16s%2Fg%2F11kx5w_7jw?hl=fr&entry=ttu&g_ep=EgoyMDI1MDQzMC4xIKXMDSoASAFQAw%3D%3D`,
         "_blank"
       );
     } else {
@@ -144,7 +138,10 @@ export function SectionIntro() {
 
   // Fonction pour ouvrir le lien vers tous les avis Google
   const handleViewAllReviews = () => {
-    window.open("https://g.co/kgs/7QcPc6Q", "_blank");
+    window.open(
+      "https://www.google.fr/maps/place/Agn%C3%A8s+GILLOT+-+NATUROPATHE/@47.4141957,-1.6547502,17z/data=!4m16!1m9!3m8!1s0x4805f5576c12c701:0x57b942fc9d37ffec!2sAgn%C3%A8s+GILLOT+-+NATUROPATHE!8m2!3d47.4141957!4d-1.6521753!9m1!1b1!16s%2Fg%2F11kx5w_7jw!3m5!1s0x4805f5576c12c701:0x57b942fc9d37ffec!8m2!3d47.4141957!4d-1.6521753!16s%2Fg%2F11kx5w_7jw?hl=fr&entry=ttu&g_ep=EgoyMDI1MDQzMC4xIKXMDSoASAFQAw%3D%3D",
+      "_blank"
+    );
   };
 
   if (isLoading) {
@@ -173,7 +170,7 @@ export function SectionIntro() {
   const reviewButtonText = IntroData.reviewButtonText || "Laisser un avis";
 
   return (
-    <div className="flex flex-col w-screen pt-8">
+    <div className="flex flex-col w-screen pt-12 pb-8">
       <style jsx>{`
         .line-clamp-4 {
           display: -webkit-box;
@@ -182,10 +179,20 @@ export function SectionIntro() {
           overflow: hidden;
         }
 
+        .line-clamp-6 {
+          display: -webkit-box;
+          -webkit-line-clamp: 6;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+
         /* Styles de pagination personnalisés */
         :global(.swiper-pagination-bullet) {
           background-color: white;
           opacity: 0.7;
+          margin: 0 6px !important;
+          width: 10px !important;
+          height: 10px !important;
         }
 
         :global(.swiper-pagination-bullet-active) {
@@ -196,7 +203,7 @@ export function SectionIntro() {
 
       <div
         id="naturopathie"
-        className="flex flex-col text-left bg-lightgreen p-4 w-full xl:p-8"
+        className="flex flex-col text-left bg-lightgreen p-4 py-8 md:py-12 lg:py-16 w-full xl:p-12 mx-auto"
         style={{
           backgroundImage: "url(/img/pattern.svg)",
           backgroundSize: "cover",
@@ -205,24 +212,26 @@ export function SectionIntro() {
       >
         <AnimatedElement
           options={{ type: "fade-in", duration: 800 }}
-          className=" max-w-4xl mx-auto text-center"
+          className="max-w-4xl mx-auto text-center lg:max-w-5xl"
         >
-          <h2 className="font-title font-bold text-3xl leading-snug tracking-tight text-gray-800 relative inline-block">
+          <h2 className="font-title font-bold leading-snug tracking-tight text-gray-800 relative inline-block lg:mb-3">
             {reviewsTitle}
           </h2>
 
-          <p className="font-body text-white mb-8">{reviewsSubtitle}</p>
+          <p className="font-body text-white mb-8 lg:max-w-3xl lg:mx-auto">
+            {reviewsSubtitle}
+          </p>
         </AnimatedElement>
 
         <AnimatedElement
           options={{ type: "slide-up", duration: 800, delay: 200 }}
-          className="mb-10 relative"
+          className="mb-10 relative lg:mb-16"
         >
           {/* Carrousel d'avis */}
-          <div className="w-full max-w-4xl mx-auto px-12">
+          <div className="w-full max-w-4xl mx-auto px-8 sm:px-12 relative lg:max-w-6xl">
             <Swiper
               modules={[Pagination, Navigation, Autoplay]}
-              spaceBetween={20}
+              spaceBetween={50}
               slidesPerView={1}
               pagination={{
                 clickable: true,
@@ -236,20 +245,27 @@ export function SectionIntro() {
               breakpoints={{
                 640: {
                   slidesPerView: 1,
+                  spaceBetween: 40,
                 },
                 768: {
-                  slidesPerView: 2,
+                  slidesPerView: 1,
+                  spaceBetween: 45,
                 },
                 1024: {
+                  slidesPerView: 2,
+                  spaceBetween: 50,
+                },
+                1280: {
                   slidesPerView: 3,
+                  spaceBetween: 50,
                 },
               }}
               className="py-8"
             >
               {googleReviews.map((review, index) => (
-                <SwiperSlide key={index}>
-                  <div className="bg-white rounded-lg shadow-md p-6 h-64 flex flex-col">
-                    <div className="flex items-center mb-2">
+                <SwiperSlide key={index} className="h-auto flex">
+                  <div className="bg-white rounded-lg shadow-md p-6 h-64 md:h-56 lg:h-60 flex flex-col w-full">
+                    <div className="flex items-center mb-3">
                       <div className="w-10 h-10 rounded-full bg-primarygreen text-white flex items-center justify-center font-title font-semibold">
                         {review.name.charAt(0)}
                       </div>
@@ -262,13 +278,13 @@ export function SectionIntro() {
                         </div>
                       </div>
                     </div>
-                    <div className="flex-grow overflow-hidden">
-                      <p className="font-body text-sm text-gray-700 line-clamp-4">
-                        {truncateText(review.text)}
+                    <div className="flex-grow">
+                      <p className="font-body text-sm text-gray-700 line-clamp-6">
+                        {review.text}
                       </p>
                     </div>
                     {review.visitDate && (
-                      <p className="text-xs text-gray-500 italic mt-2 invisible">
+                      <p className="text-xs text-gray-500 italic mt-3">
                         Visité en {review.visitDate}
                       </p>
                     )}
@@ -278,41 +294,69 @@ export function SectionIntro() {
             </Swiper>
 
             {/* Flèches de navigation personnalisées */}
-            <div className="swiper-button-prev-custom absolute top-1/2 -left-2 z-10 flex items-center justify-center w-10 h-10 bg-white bg-opacity-90 rounded-full shadow-md cursor-pointer transform -translate-y-1/2">
+            <div className="swiper-button-prev-custom absolute top-1/2 -left-0 sm:-left-2 lg:-left-5 z-20 flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white bg-opacity-95 rounded-full shadow-md cursor-pointer transform -translate-y-1/2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="16"
+                height="16"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-primarygreen"
+                className="text-primarygreen sm:hidden"
+              >
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-primarygreen hidden sm:block"
               >
                 <path d="M15 18l-6-6 6-6" />
               </svg>
             </div>
-            <div className="swiper-button-next-custom absolute top-1/2 -right-2 z-10 flex items-center justify-center w-10 h-10 bg-white bg-opacity-90 rounded-full shadow-md cursor-pointer transform -translate-y-1/2">
+            <div className="swiper-button-next-custom absolute top-1/2 -right-0 sm:-right-2 lg:-right-5 z-20 flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white bg-opacity-95 rounded-full shadow-md cursor-pointer transform -translate-y-1/2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="16"
+                height="16"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-primarygreen"
+                className="text-primarygreen sm:hidden"
+              >
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-primarygreen hidden sm:block"
               >
                 <path d="M9 18l6-6-6-6" />
               </svg>
             </div>
 
             {/* Pagination personnalisée */}
-            <div className="swiper-pagination-custom mt-4 flex justify-center"></div>
+            <div className="swiper-pagination-custom mt-4 flex justify-center gap-1"></div>
           </div>
         </AnimatedElement>
 
@@ -320,33 +364,23 @@ export function SectionIntro() {
           options={{ type: "slide-up", duration: 800, delay: 400 }}
           className="text-center"
         >
-          <div className="bg-white p-5 rounded-lg shadow-lg max-w-md mx-auto mb-4 flex flex-col">
-            <h3 className="font-title text-base font-semibold text-gray-800 mb-2">
+          <div className="bg-white p-5 rounded-lg shadow-lg max-w-md mx-auto mb-4 flex flex-col lg:p-8 lg:max-w-xl">
+            <h3 className="font-title text-base font-semibold text-gray-800 mb-2 lg:text-lg">
               {reviewsCallToActionTitle}
             </h3>
-            <p className="font-body text-sm text-gray-600 mb-4">
+            <p className="font-body text-sm text-gray-600 mb-4 lg:mb-6">
               {reviewsCallToActionText}
             </p>
             <div className="flex flex-row justify-center gap-4">
               <button
                 onClick={handleReviewClick}
-                className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-md text-white bg-primarygreen hover:bg-darkgreen transition-all duration-300"
+                className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-md text-white bg-primarygreen hover:bg-darkgreen transition-all duration-300 lg:px-6 lg:py-3"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="white"
-                  className="mr-2"
-                >
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
-                </svg>
                 {reviewButtonText}
               </button>
               <button
                 onClick={handleViewAllReviews}
-                className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-md text-primarygreen bg-white border-primarygreen hover:bg-gray-50 transition-all duration-300"
+                className="inline-flex items-center justify-center px-4 py-2 border border-primarygreen text-sm font-medium rounded-md shadow-md text-primarygreen bg-white hover:bg-gray-50 transition-all duration-300 lg:px-6 lg:py-3"
               >
                 Voir tous les avis
               </button>

@@ -2,40 +2,32 @@
 
 import { ReactNode, CSSProperties } from "react";
 
-interface ResponsiveSectionProps {
+export interface ResponsiveSectionProps {
   id?: string;
-  className?: string;
   children: ReactNode;
-  bgColor?: string;
-  fullWidth?: boolean;
-  maxWidth?: string;
-  padding?: string;
+  className?: string;
+  ariaLabel?: string;
+  role?: string;
   style?: CSSProperties;
 }
 
-export function ResponsiveSection({
+export const ResponsiveSection = ({
   id,
-  className = "",
   children,
-  bgColor = "bg-white",
-  fullWidth = false,
-  maxWidth = "max-w-7xl",
-  padding = "py-16 px-4 sm:px-6 lg:px-8",
+  className = "",
+  ariaLabel,
+  role,
   style,
-}: ResponsiveSectionProps) {
+}: ResponsiveSectionProps) => {
   return (
-    <section
+    <div
       id={id}
-      className={`${bgColor} w-full ${className}`}
+      className={`py-10 md:py-14 lg:py-16 ${className}`}
+      aria-label={ariaLabel}
+      role={role}
       style={style}
     >
-      <div
-        className={`mx-auto ${padding} ${
-          fullWidth ? "w-full" : maxWidth
-        }`}
-      >
-        {children}
-      </div>
-    </section>
+      {children}
+    </div>
   );
-} 
+};
