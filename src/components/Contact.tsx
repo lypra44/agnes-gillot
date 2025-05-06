@@ -7,6 +7,7 @@ import Image from "next/image";
 import ReCAPTCHA from "react-google-recaptcha";
 import Link from "next/link";
 import useContactInfo from "@/hooks/useContactInfo";
+import { sendEmail } from "@/app/actions/send-email.action";
 
 interface FormData {
   name: string;
@@ -33,30 +34,14 @@ export default function Contact() {
     try {
       setErrorMessage(null);
 
-      // Vérifier si le reCAPTCHA a été validé
-      if (!recaptchaValue) {
-        setErrorMessage(
-          "Veuillez confirmer que vous n'êtes pas un robot en cochant le reCAPTCHA"
-        );
-        return;
-      }
-
-      // Appel à l'API pour envoyer l'email
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...formData,
-          recaptchaToken: recaptchaValue,
-        }),
+      // Envoyer le token reCAPTCHA au serveur qui se chargera de le vérifier
+      const result = await sendEmail({
+        ...formData,
+        recaptchaToken: recaptchaValue || undefined,
       });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Erreur lors de l'envoi du message");
+      if (!result.success) {
+        throw new Error(result.error || "Erreur lors de l'envoi du message");
       }
 
       setIsSuccess(true);
@@ -67,7 +52,9 @@ export default function Contact() {
     } catch (error) {
       console.error("Error sending message:", error);
       setErrorMessage(
-        "Erreur lors de l&apos;envoi du message. Veuillez réessayer."
+        error instanceof Error
+          ? error.message
+          : "Erreur lors de l'envoi du message"
       );
     }
   };
@@ -153,7 +140,7 @@ export default function Contact() {
                       type="email"
                       id="email"
                       {...register("email", {
-                        required: "L&apos;email est requis",
+                        required: "L'email est requis",
                         pattern: {
                           value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                           message: "Adresse email invalide",
@@ -201,6 +188,7 @@ export default function Contact() {
                       </p>
                     )}
                   </div>
+
                   <div className="pb-4">
                     <label
                       htmlFor="message"
@@ -269,11 +257,14 @@ export default function Contact() {
                     </p>
                   )}
 
+                  {/* reCAPTCHA avec gestion propre des clés */}
                   <div className="my-2 overflow-hidden max-w-full">
                     <div className="transform scale-90 md:scale-100 origin-left">
                       <ReCAPTCHA
                         ref={recaptchaRef}
-                        sitekey="6LdOFywrAAAAAMtBWYQPMue-P-R0HnNfZe2LhnZr"
+                        sitekey={
+                          process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""
+                        }
                         onChange={onReCAPTCHAChange}
                       />
                     </div>
