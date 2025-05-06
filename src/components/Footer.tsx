@@ -5,11 +5,13 @@ import {
   PhoneIcon,
   EnvelopeIcon,
   MapPinIcon,
-  ClockIcon,
-  ArrowUpIcon,
 } from "@heroicons/react/24/outline";
+import { ArrowUpIcon } from "@heroicons/react/24/solid";
+import useContactInfo from "@/hooks/useContactInfo";
 
 export const Footer = () => {
+  const { contactInfo } = useContactInfo();
+
   const navigation = [
     { name: "Pour qui ? Pourquoi ?", id: "pourquoi" },
     { name: "Les techniques", id: "techniques" },
@@ -86,25 +88,19 @@ export const Footer = () => {
               <li className="flex items-start">
                 <PhoneIcon className="h-5 w-5 text-lightgreen mr-2 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-200 text-xs md:text-sm">
-                  07 83 26 18 11
+                  {contactInfo.phone}
                 </span>
               </li>
               <li className="flex items-start">
                 <EnvelopeIcon className="h-5 w-5 text-lightgreen mr-2 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-200 text-xs md:text-sm">
-                  agnesgillot44@gmail.com
+                  {contactInfo.email}
                 </span>
               </li>
               <li className="flex items-start">
                 <MapPinIcon className="h-5 w-5 text-lightgreen mr-2 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-200 text-xs md:text-sm">
-                  14 rue de l&apos;Eglise, 44810 Héric
-                </span>
-              </li>
-              <li className="flex items-start">
-                <ClockIcon className="h-5 w-5 text-lightgreen mr-2 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-200 text-xs md:text-sm">
-                  Lun-Ven&apos;: 9h-19h
+                  {contactInfo.address}
                 </span>
               </li>
             </ul>

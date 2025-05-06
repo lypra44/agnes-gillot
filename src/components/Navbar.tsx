@@ -19,7 +19,7 @@ const Navbar = () => {
     () => [
       { name: "Pour qui ? Pourquoi ?", id: "pourquoi" },
       { name: "Les techniques", id: "techniques" },
-      { name: "Massage AMA assis en entreprise", id: "massage-entreprise" },
+      { name: "Massage AMMA assis en entreprise", id: "massage-entreprise" },
       { name: "Contact", id: "contact" },
     ],
     []

@@ -13,6 +13,7 @@ import { massage } from "./massage";
 import updatedIntro from "../schemas/intro";
 import updatedFaq from "../schemas/faq";
 import updatedReviews from "../schemas/reviews";
+import updatedContactInfo from "../schemas/contactInfo";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -35,5 +36,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 
     // Avis clients
     updatedReviews,
+    
+    // Informations de contact
+    updatedContactInfo,
   ],
 };

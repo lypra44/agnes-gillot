@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   keywords:
     "naturopathie, massage bien-être, réflexologie plantaire, Héric, médecine douce, bien-être, santé naturelle, thérapie holistique",
   authors: [{ name: "Agnès Gillot" }],
+  robots: "noindex, nofollow",
   openGraph: {
     type: "website",
     locale: "fr_FR",

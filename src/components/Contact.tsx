@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import Image from "next/image";
 import ReCAPTCHA from "react-google-recaptcha";
 import Link from "next/link";
+import useContactInfo from "@/hooks/useContactInfo";
 
 interface FormData {
   name: string;
@@ -26,6 +27,7 @@ export default function Contact() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const { contactInfo } = useContactInfo();
 
   const handleSubmitForm = async (formData: FormData) => {
     try {
@@ -337,10 +339,10 @@ export default function Contact() {
                       </div>
                       <div>
                         <h4 className="font-medium text-lg text-white">
-                          Naturopathe
+                          {contactInfo.role}
                         </h4>
                         <p className="text-white text-opacity-90">
-                          Certifiée en naturopathie et massage bien-être
+                          {contactInfo.roleDescription}
                         </p>
                       </div>
                     </div>
@@ -367,7 +369,7 @@ export default function Contact() {
                           Email
                         </h4>
                         <p className="text-white text-opacity-90">
-                          contact@agnes-gillot.fr
+                          {contactInfo.email}
                         </p>
                       </div>
                     </div>
@@ -394,7 +396,7 @@ export default function Contact() {
                           Téléphone
                         </h4>
                         <p className="text-white text-opacity-90">
-                          06 12 34 56 78
+                          {contactInfo.phone}
                         </p>
                       </div>
                     </div>
@@ -427,7 +429,7 @@ export default function Contact() {
                           Adresse
                         </h4>
                         <p className="text-white text-opacity-90">
-                          14 rue de l&apos;Eglise, 44810 Héric
+                          {contactInfo.address}
                         </p>
                       </div>
                     </div>

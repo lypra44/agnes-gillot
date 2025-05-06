@@ -1,5 +1,10 @@
+# Agnes Gillot - Naturopathe
+# robots.txt
+
 User-agent: *
-Allow: /
+Disallow: /
+
+# Interdire l'indexation à tous les moteurs de recherche
 
 # Ne pas indexer les pages d'administration
 Disallow: /studio/

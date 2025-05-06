@@ -11,3 +11,16 @@ export const heroQuery = `
   // ... autres champs
 }
 `; 
+
+// Requête pour récupérer les informations de contact
+export const contactInfoQuery = `
+*[_type == "contactInfo"][0] {
+  title,
+  role,
+  roleDescription,
+  email,
+  phone,
+  address,
+  scheduleLabel
+}
+`; 
