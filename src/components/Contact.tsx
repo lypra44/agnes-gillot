@@ -260,13 +260,18 @@ export default function Contact() {
                   {/* reCAPTCHA avec gestion propre des clés */}
                   <div className="my-2 overflow-hidden max-w-full">
                     <div className="transform scale-90 md:scale-100 origin-left">
-                      <ReCAPTCHA
-                        ref={recaptchaRef}
-                        sitekey={
-                          process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""
-                        }
-                        onChange={onReCAPTCHAChange}
-                      />
+                      {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ? (
+                        <ReCAPTCHA
+                          ref={recaptchaRef}
+                          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                          onChange={onReCAPTCHAChange}
+                        />
+                      ) : (
+                        <div className="p-4 bg-yellow-50 text-yellow-700 rounded-lg">
+                          Système de vérification non configuré. Veuillez
+                          contacter l&apos;administrateur.
+                        </div>
+                      )}
                     </div>
                   </div>
 
@@ -282,7 +287,11 @@ export default function Contact() {
                 <button
                   type="submit"
                   form="contact-form"
-                  disabled={isSubmitting || !recaptchaValue}
+                  disabled={
+                    isSubmitting ||
+                    !recaptchaValue ||
+                    !process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+                  }
                   className="w-full px-6 py-3 bg-primarygreen text-white font-medium rounded-lg shadow-md hover:bg-darkgreen transition-all duration-300 hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
