@@ -25,7 +25,7 @@ export const preloadCriticalComponents = () => {
     const link = document.createElement('link');
     link.rel = 'prefetch';
     link.as = 'image';
-    link.href = '/img/logo.svg';
+    link.href = '/img/logo.jpg';
     document.head.appendChild(link);
   }
 }; 

@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     siteName: "Agnès Gillot - Naturopathe",
     images: [
       {
-        url: "/img/logo.svg",
+        url: "/img/logo.jpg",
         width: 800,
         height: 600,
         alt: "Agnès Gillot Naturopathe",
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     title: "Agnès Gillot - Naturopathe à Bellevigne",
     description:
       "Accompagnement personnalisé en naturopathie, massages bien-être thérapeutiques et réflexologie plantaire à Bellevigne (49). Retrouvez équilibre et vitalité naturellement.",
-    images: ["/img/logo.svg"],
+    images: ["/img/logo.jpg"],
   },
 };
 
@@ -111,9 +111,9 @@ export default function RootLayout({
         />
         <link
           rel="preload"
-          href="/img/logo.svg"
+          href="/img/logo.jpg"
           as="image"
-          type="image/svg+xml"
+          type="image/jpeg"
         />
         <link
           rel="preload"

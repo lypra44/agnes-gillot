@@ -46,7 +46,7 @@ export const Footer = () => {
           <div className="col-span-1 lg:col-span-1">
             <div className="flex flex-col items-center md:items-start">
               <Image
-                src="/img/logo.svg"
+                src="/img/logo.jpg"
                 alt="Logo Agnès Gillot Naturopathe"
                 width={180}
                 height={120}

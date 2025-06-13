@@ -133,7 +133,7 @@ export function Hero() {
             alt="Hero Illustration"
             width={700}
             height={700}
-            className="object-contain object-center w-full h-auto"
+            className="object-contain object-center w-screen h-auto"
             priority
             sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 600px"
           />

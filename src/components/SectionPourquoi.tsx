@@ -55,7 +55,7 @@ export const SectionPourquoi = () => {
   }
 
   return (
-    <Container className=" p-8 lg:p-0 lg:w-11/12 lg:pb-10 md:pb-14">
+    <Container className=" p-8 lg:p-0 lg:w-11/12 lg:pb-10 md:pb-14 w-full!">
       <div
         id="pourquoi"
         className="w-full flex items-center justify-center flex-col-reverse h-fit mb-8 lg:flex-row-reverse xl:px-24 xl:py-10 max-w-7xl mx-auto"
@@ -65,7 +65,7 @@ export const SectionPourquoi = () => {
           alt={pourquoiSectionData.title}
           width={800}
           height={800}
-          className="object-contain md:w-2/5 my-4 xl:mx-10 max-w-md 2xl:max-w-lg"
+          className="object-contain w-full md:w-2/5 my-4 xl:mx-10 max-w-md 2xl:max-w-lg"
         />
 
         <div className="lg:w-2/3">

@@ -144,7 +144,7 @@ const nextConfig = {
 // Vérifier dans layout.tsx
 // S'assurer que ces images sont bien en /public
 <link rel="preload" href="/img/favicon.svg" as="image" />
-<link rel="preload" href="/img/logo.svg" as="image" />
+<link rel="preload" href="/img/logo.jpg" as="image" />
 
 // Et dans Hero.tsx, vérifier que l'image Sanity est optimisée
 <Image
