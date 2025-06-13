@@ -102,7 +102,7 @@ const Navbar = () => {
           <div className="flex justify-between w-full lg:w-auto">
             <span>
               <Image
-                src="/img/logo.svg"
+                src="/img/logo.jpg"
                 width="220"
                 alt="Logo Agnès Gillot Naturopathe"
                 height="200"
