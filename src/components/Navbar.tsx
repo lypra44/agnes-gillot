@@ -103,10 +103,11 @@ const Navbar = () => {
             <span>
               <Image
                 src="/img/logo.jpg"
-                width="220"
+                width={220}
+                height={200}
                 alt="Logo Agnès Gillot Naturopathe"
-                height="200"
                 className="w-48"
+                unoptimized
               />
             </span>
 

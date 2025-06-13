@@ -51,6 +51,7 @@ export const Footer = () => {
                 width={180}
                 height={120}
                 className="mb-2 bg-white p-2 rounded-lg"
+                unoptimized
               />
               <p className="text-gray-200 text-sm mt-4 max-w-xs text-center md:text-left">
                 Naturopathe certifiée, je vous accompagne vers un mieux-être

@@ -443,6 +443,7 @@ export default function Contact() {
                     src="/img/plant-1.svg"
                     alt="Décoration plante"
                     className="relative -bottom-10 z-10 mx-auto opacity-30 h-64"
+                    unoptimized
                   />
                 </div>
               </div>
