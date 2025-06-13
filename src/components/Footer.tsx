@@ -34,7 +34,7 @@ export const Footer = () => {
       {/* Bouton retour en haut */}
       <button
         onClick={scrollToTop}
-        className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-primarygreen text-white p-3 rounded-full shadow-lg hover:bg-lightgreen transition-all duration-300 hover:scale-110 focus:outline-none"
+        className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-greenbutton text-white p-3 rounded-full shadow-lg hover:bg-darkgreen transition-all duration-300 hover:scale-110 focus:outline-none"
         aria-label="Retour en haut"
       >
         <ArrowUpIcon className="h-5 w-5" />
@@ -147,7 +147,7 @@ export const Footer = () => {
                 href="https://www.linkedin.com/in/m%C3%A9lanie-kitenge-55b309211/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lightgreen hover:underline"
+                className="text-gray-300 font-semibold underline hover:text-gray-200 transition-colors duration-300"
                 aria-label="Visiter le site de Mélanie Kitenge (nouvelle fenêtre)"
               >
                 Mélanie Kitenge

@@ -24,18 +24,59 @@ interface HeroData {
   image: string;
 }
 
+// Skeleton loader component
+const HeroSkeleton = () => (
+  <Container className="h-[calc(100vh-70px)] py-6 lg:px-10 flex flex-col lg:flex-row items-center justify-center">
+    <div className="flex items-center justify-center w-full lg:w-1/2 px-4 sm:px-6">
+      <div className="text-center sm:text-left max-w-xl mt-4 lg:mt-0 w-full">
+        {/* Title skeleton */}
+        <div className="mb-4 sm:mb-8">
+          <div className="h-8 sm:h-10 lg:h-12 bg-gray-200 rounded animate-pulse mb-2"></div>
+          <div className="h-8 sm:h-10 lg:h-12 bg-gray-200 rounded animate-pulse w-3/4"></div>
+        </div>
+
+        {/* Subtitle skeleton */}
+        <div className="mb-6 sm:mb-8">
+          <div className="h-4 lg:h-5 bg-gray-200 rounded animate-pulse mb-2"></div>
+          <div className="h-4 lg:h-5 bg-gray-200 rounded animate-pulse mb-2"></div>
+          <div className="h-4 lg:h-5 bg-gray-200 rounded animate-pulse w-2/3"></div>
+        </div>
+
+        {/* Buttons skeleton */}
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+          <div className="h-12 sm:h-14 bg-gray-200 rounded-lg animate-pulse"></div>
+          <div className="h-12 sm:h-14 bg-gray-200 rounded-lg animate-pulse"></div>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex lg:w-1/2 mt-6 sm:mt-8 lg:mt-0 px-4 sm:px-6">
+      <div className="w-full aspect-square max-w-[500px]">
+        <div className="w-full h-full bg-gray-200 rounded animate-pulse"></div>
+      </div>
+    </div>
+  </Container>
+);
+
 export function Hero() {
   const [heroData, setHeroData] = useState<HeroData | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    client.fetch(heroQuery).then((data) => {
-      setHeroData(data); // Met à jour l'état avec les données récupérées
-    });
+    client.fetch(heroQuery)
+      .then((data) => {
+        setHeroData(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Erreur lors du chargement des données hero:", error);
+        setIsLoading(false);
+      });
   }, []);
 
-  // Modifiez la vérification
-  if (!heroData?.image) {
-    return null;
+  // Show skeleton while loading
+  if (isLoading || !heroData?.image) {
+    return <HeroSkeleton />;
   }
 
   return (
@@ -59,7 +100,7 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
             <a
               href="#techniques"
-              className="px-6 sm:px-8 py-3 sm:py-3.5 font-medium text-center text-white bg-lightgreen rounded-lg shadow-md transition-all duration-300 hover:bg-primarygreen hover:shadow-lg hover:translate-y-[-2px] text-sm sm:text-base lg:text-lg"
+              className="px-6 sm:px-8 py-3 sm:py-3.5 font-medium text-center text-white bg-greenbutton rounded-lg shadow-md transition-all duration-300 hover:bg-darkgreen hover:shadow-lg hover:translate-y-[-2px] text-sm sm:text-base lg:text-lg"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection("techniques");
@@ -70,7 +111,7 @@ export function Hero() {
 
             <a
               href="#contact"
-              className="px-6 sm:px-8 py-3 sm:py-3.5 font-medium text-center text-white bg-lightgreen rounded-lg shadow-md transition-all duration-300 hover:bg-primarygreen hover:shadow-lg hover:translate-y-[-2px] text-sm sm:text-base lg:text-lg"
+              className="px-6 sm:px-8 py-3 sm:py-3.5 font-medium text-center text-white bg-greenbutton rounded-lg shadow-md transition-all duration-300 hover:bg-darkgreen hover:shadow-lg hover:translate-y-[-2px] text-sm sm:text-base lg:text-lg"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection("contact");
@@ -86,13 +127,15 @@ export function Hero() {
         options={{ type: "slide-left", duration: 800, delay: 200 }}
         className="flex lg:w-1/2 mt-6 sm:mt-8 lg:mt-0 px-4 sm:px-6"
       >
-        <div className="">
+        <div className="w-full max-w-[600px] lg:max-w-[650px] xl:max-w-[700px] mx-auto">
           <Image
             src={urlFor(heroData.image).url()}
             alt="Hero Illustration"
-            width={500}
-            height={500}
+            width={700}
+            height={700}
             className="object-contain object-center w-full h-auto"
+            priority
+            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 600px"
           />
         </div>
       </AnimatedElement>

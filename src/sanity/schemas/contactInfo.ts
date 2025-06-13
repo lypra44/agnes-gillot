@@ -1,4 +1,4 @@
-export default {
+const contactInfo = {
   name: 'contactInfo',
   title: 'Informations de Contact',
   type: 'document',
@@ -59,4 +59,6 @@ export default {
       subtitle: 'email'
     }
   }
-} 
+};
+
+export default contactInfo; 

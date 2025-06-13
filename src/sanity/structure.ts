@@ -35,7 +35,9 @@ export const structure: StructureResolver = (S) => {
 
   // Log pour vérifier les identifiants
   items.forEach((item) => {
-    console.log("Item ID:", item.id);
+    if ('getId' in item) {
+      console.log("Item ID:", item.getId?.());
+    }
   });
 
   return S.list().title("Site Agnès Gillot").items(items);

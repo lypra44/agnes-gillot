@@ -10,11 +10,8 @@ import {
   QuestionMarkCircleIcon,
   LightBulbIcon,
   ClockIcon,
-  CurrencyDollarIcon,
-  UserGroupIcon,
   HeartIcon,
   SparklesIcon,
-  ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
 import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
@@ -68,12 +65,10 @@ export const Faq = () => {
     <QuestionMarkCircleIcon key="1" className="w-6 h-6 text-primarygreen" />,
     <LightBulbIcon key="2" className="w-6 h-6 text-primarygreen" />,
     <ClockIcon key="3" className="w-6 h-6 text-primarygreen" />,
-    <CurrencyDollarIcon key="4" className="w-6 h-6 text-primarygreen" />,
-    <UserGroupIcon key="5" className="w-6 h-6 text-primarygreen" />,
-    <HeartIcon key="6" className="w-6 h-6 text-primarygreen" />,
+     <HeartIcon key="6" className="w-6 h-6 text-primarygreen" />,
     <SparklesIcon key="7" className="w-6 h-6 text-primarygreen" />,
-    <ShieldCheckIcon key="8" className="w-6 h-6 text-primarygreen" />,
   ];
+
 
   // Valeurs par défaut pour les textes si non définis dans Sanity
   const title = faqData.title || "Foire aux questions";
@@ -112,7 +107,7 @@ export const Faq = () => {
               <Disclosure>
                 {({ open }) => (
                   <div
-                    className={`overflow-hidden rounded-xl transition-all duration-300 ${open ? "shadow-lg" : "shadow-md"}`}
+                    className={`overflow-hidden rounded-xl transition-all border-[0.5px] border-primarygreen duration-300 ${open ? "shadow-lg" : "shadow-md"}`}
                   >
                     <DisclosureButton
                       className={`flex items-center w-full px-6 py-5 text-left text-gray-800 bg-white hover:bg-gray-50 transition-all duration-300 ${open ? "bg-gray-50" : ""}`}
@@ -147,7 +142,7 @@ export const Faq = () => {
           <p className="text-gray-600 mb-6">{contactText}</p>
           <a
             href="#contact"
-            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-md text-white bg-primarygreen hover:bg-darkgreen transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px]"
+            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-md text-white bg-greenbutton hover:bg-darkgreen transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px]"
             onClick={(e) => {
               e.preventDefault();
               const contactSection = document.getElementById("contact");

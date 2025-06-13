@@ -67,41 +67,53 @@ export const AnimatedElement = <T extends ElementType = "div">({
     };
   }, [threshold, once, elementId]);
 
+  // Base styles with will-change for performance
   const animationStyles: CSSProperties = {
     opacity: isVisible ? 1 : 0,
-    transform: isVisible ? "translateY(0)" : "translateY(20px)",
-    transition: `all ${duration}ms ease-out ${delay}ms`,
+    transition: `opacity ${duration}ms ease-out ${delay}ms, transform ${duration}ms ease-out ${delay}ms`,
+    willChange: isVisible ? 'auto' : 'opacity, transform',
   };
 
+  // Reduce transform values to minimize layout shift
   switch (type) {
     case "slide-up":
       animationStyles.transform = isVisible
-        ? "translateY(0)"
-        : "translateY(40px)";
+        ? "translate3d(0, 0, 0)"
+        : "translate3d(0, 20px, 0)";
       break;
     case "slide-down":
       animationStyles.transform = isVisible
-        ? "translateY(0)"
-        : "translateY(-40px)";
+        ? "translate3d(0, 0, 0)"
+        : "translate3d(0, -20px, 0)";
       break;
     case "slide-left":
       animationStyles.transform = isVisible
-        ? "translateX(0)"
-        : "translateX(40px)";
+        ? "translate3d(0, 0, 0)"
+        : "translate3d(20px, 0, 0)";
       break;
     case "slide-right":
       animationStyles.transform = isVisible
-        ? "translateX(0)"
-        : "translateX(-40px)";
+        ? "translate3d(0, 0, 0)"
+        : "translate3d(-20px, 0, 0)";
       break;
     case "zoom-in":
-      animationStyles.transform = isVisible ? "scale(1)" : "scale(0.95)";
+      animationStyles.transform = isVisible 
+        ? "translate3d(0, 0, 0) scale(1)" 
+        : "translate3d(0, 0, 0) scale(0.98)";
       break;
     case "zoom-out":
-      animationStyles.transform = isVisible ? "scale(1)" : "scale(1.05)";
+      animationStyles.transform = isVisible 
+        ? "translate3d(0, 0, 0) scale(1)" 
+        : "translate3d(0, 0, 0) scale(1.02)";
       break;
     case "rotate":
-      animationStyles.transform = isVisible ? "rotate(0deg)" : "rotate(10deg)";
+      animationStyles.transform = isVisible 
+        ? "translate3d(0, 0, 0) rotate(0deg)" 
+        : "translate3d(0, 0, 0) rotate(2deg)";
+      break;
+    case "fade-in":
+    default:
+      animationStyles.transform = "translate3d(0, 0, 0)";
       break;
   }
 

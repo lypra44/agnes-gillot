@@ -16,6 +16,7 @@ const config: Config = {
         darkgreen: "var(--dark-green)",
         lightgreen: "var(--light-green)",
         darkblue: "var(--dark-blue)",
+        greenbutton: "var(--green-button)",
       },
       animation: {
         "fade-in": "fadeIn 0.8s ease-in-out forwards",

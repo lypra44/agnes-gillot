@@ -31,11 +31,11 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseClasses =
-    "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed hover:translate-y-[-2px] text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primarygreen";
+    "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed hover:translate-y-[-2px] text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-greenbutton";
 
   const variantClasses = {
     primary:
-      "bg-primarygreen text-white hover:bg-darkgreen shadow-md hover:shadow-lg",
+      "bg-greenbutton text-white hover:bg-darkgreen shadow-md hover:shadow-lg",
     secondary:
       "bg-white text-primarygreen border border-primarygreen hover:bg-lightgreen hover:bg-opacity-10 shadow-sm hover:shadow-md",
     outline:

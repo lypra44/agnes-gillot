@@ -1,0 +1,3503 @@
+{
+  "dependencies": [
+    {
+      "name": "next",
+      "version": "^14.2.29",
+      "estimated_size": 800000,
+      "is_heavy": false,
+      "category": "Framework"
+    },
+    {
+      "name": "sanity",
+      "version": "^3.63.0",
+      "estimated_size": 500000,
+      "is_heavy": true,
+      "category": "CMS"
+    },
+    {
+      "name": "@sanity/vision",
+      "version": "^3.63.0",
+      "estimated_size": 200000,
+      "is_heavy": true,
+      "category": "CMS"
+    },
+    {
+      "name": "@sanity/client",
+      "version": "^6.22.4",
+      "estimated_size": 150000,
+      "is_heavy": true,
+      "category": "CMS"
+    },
+    {
+      "name": "@heroicons/react",
+      "version": "^2.1.5",
+      "estimated_size": 120000,
+      "is_heavy": true,
+      "category": "Icons"
+    },
+    {
+      "name": "swiper",
+      "version": "^11.2.6",
+      "estimated_size": 100000,
+      "is_heavy": true,
+      "category": "UI Component"
+    },
+    {
+      "name": "next-sanity",
+      "version": "^9.8.10",
+      "estimated_size": 80000,
+      "is_heavy": true,
+      "category": "CMS"
+    },
+    {
+      "name": "react-dom",
+      "version": "^18",
+      "estimated_size": 60000,
+      "is_heavy": false,
+      "category": "Framework"
+    },
+    {
+      "name": "react",
+      "version": "^18",
+      "estimated_size": 50000,
+      "is_heavy": false,
+      "category": "Framework"
+    },
+    {
+      "name": "styled-components",
+      "version": "^6.1.13",
+      "estimated_size": 50000,
+      "is_heavy": true,
+      "category": "Styling"
+    },
+    {
+      "name": "react-hook-form",
+      "version": "^7.53.2",
+      "estimated_size": 40000,
+      "is_heavy": false,
+      "category": "Framework"
+    },
+    {
+      "name": "react-google-recaptcha",
+      "version": "^3.1.0",
+      "estimated_size": 30000,
+      "is_heavy": true,
+      "category": "Framework"
+    },
+    {
+      "name": "@headlessui/react",
+      "version": "^2.2.0",
+      "estimated_size": 10000,
+      "is_heavy": false,
+      "category": "Framework"
+    },
+    {
+      "name": "@portabletext/react",
+      "version": "^3.1.0",
+      "estimated_size": 10000,
+      "is_heavy": false,
+      "category": "Framework"
+    },
+    {
+      "name": "@sanity/icons",
+      "version": "^3.4.0",
+      "estimated_size": 10000,
+      "is_heavy": true,
+      "category": "CMS"
+    },
+    {
+      "name": "@sanity/image-url",
+      "version": "^1.1.0",
+      "estimated_size": 10000,
+      "is_heavy": true,
+      "category": "CMS"
+    },
+    {
+      "name": "lucide-react",
+      "version": "^0.506.0",
+      "estimated_size": 10000,
+      "is_heavy": false,
+      "category": "Framework"
+    },
+    {
+      "name": "next-themes",
+      "version": "^0.4.3",
+      "estimated_size": 10000,
+      "is_heavy": false,
+      "category": "Framework"
+    },
+    {
+      "name": "resend",
+      "version": "^4.5.0",
+      "estimated_size": 10000,
+      "is_heavy": false,
+      "category": "Other"
+    },
+    {
+      "name": "@netlify/plugin-nextjs",
+      "version": "^5.10.4",
+      "estimated_size": 10000,
+      "is_heavy": false,
+      "category": "Framework"
+    },
+    {
+      "name": "@types/node",
+      "version": "^20",
+      "estimated_size": 10000,
+      "is_heavy": false,
+      "category": "Other"
+    },
+    {
+      "name": "@types/react",
+      "version": "^18",
+      "estimated_size": 10000,
+      "is_heavy": false,
+      "category": "Framework"
+    },
+    {
+      "name": "@types/react-dom",
+      "version": "^18",
+      "estimated_size": 10000,
+      "is_heavy": false,
+      "category": "Framework"
+    },
+    {
+      "name": "@types/react-google-recaptcha",
+      "version": "^2.1.9",
+      "estimated_size": 10000,
+      "is_heavy": true,
+      "category": "Framework"
+    },
+    {
+      "name": "eslint",
+      "version": "^8",
+      "estimated_size": 10000,
+      "is_heavy": false,
+      "category": "Other"
+    },
+    {
+      "name": "eslint-config-next",
+      "version": "14.2.17",
+      "estimated_size": 10000,
+      "is_heavy": false,
+      "category": "Framework"
+    },
+    {
+      "name": "postcss",
+      "version": "^8",
+      "estimated_size": 10000,
+      "is_heavy": false,
+      "category": "Other"
+    },
+    {
+      "name": "tailwindcss",
+      "version": "^3.4.1",
+      "estimated_size": 10000,
+      "is_heavy": false,
+      "category": "Other"
+    },
+    {
+      "name": "typescript",
+      "version": "^5",
+      "estimated_size": 10000,
+      "is_heavy": false,
+      "category": "Other"
+    }
+  ],
+  "recommendations": [
+    {
+      "type": "SANITY_OPTIMIZATION",
+      "impact": "HIGH",
+      "description": "Optimiser les imports Sanity avec dynamic imports",
+      "code": "\n// Lazy load Sanity studio\nconst SanityStudio = dynamic(() => import('./studio/[[...tool]]'), {\n  ssr: false\n});",
+      "savings": "~200-300KB"
+    },
+    {
+      "type": "HEROICONS_OPTIMIZATION",
+      "impact": "MEDIUM",
+      "description": "Optimiser les imports Heroicons",
+      "code": "\n// Au lieu de:\nimport { Bars3Icon } from '@heroicons/react/24/solid';\n\n// Utiliser:\nimport Bars3Icon from '@heroicons/react/24/solid/Bars3Icon';",
+      "savings": "~100-150KB"
+    },
+    {
+      "type": "SWIPER_OPTIMIZATION",
+      "impact": "MEDIUM",
+      "description": "Remplacer Swiper par une solution CSS pure",
+      "code": "\n// CSS Scroll Snap alternative\n.slider {\n  scroll-snap-type: x mandatory;\n  overflow-x: scroll;\n}",
+      "savings": "~80-120KB"
+    },
+    {
+      "type": "STYLING_OPTIMIZATION",
+      "impact": "LOW",
+      "description": "Styled-components peut être remplacé par Tailwind CSS uniquement",
+      "savings": "~30-50KB"
+    }
+  ],
+  "totalSizeEstimate": 0,
+  "actualSizes": [
+    {
+      "name": "@next",
+      "size": 135953147
+    },
+    {
+      "name": "@sanity",
+      "size": 92580310
+    },
+    {
+      "name": "next",
+      "size": 86914883
+    },
+    {
+      "name": "sanity",
+      "size": 57297440
+    },
+    {
+      "name": "lucide-react",
+      "size": 33394693
+    },
+    {
+      "name": "typescript",
+      "size": 22867703
+    },
+    {
+      "name": "@octokit",
+      "size": 16366397
+    },
+    {
+      "name": "next-sanity",
+      "size": 11933525
+    },
+    {
+      "name": "@babel",
+      "size": 11417917
+    },
+    {
+      "name": "@esbuild",
+      "size": 10520581
+    },
+    {
+      "name": "@portabletext",
+      "size": 8068620
+    },
+    {
+      "name": "prettier",
+      "size": 7876465
+    },
+    {
+      "name": "tailwindcss",
+      "size": 7739082
+    },
+    {
+      "name": "date-fns",
+      "size": 6685407
+    },
+    {
+      "name": "@sentry-internal",
+      "size": 5740576
+    },
+    {
+      "name": "@sentry",
+      "size": 5117522
+    },
+    {
+      "name": "react-dom",
+      "size": 4513549
+    },
+    {
+      "name": "rxjs",
+      "size": 4497673
+    },
+    {
+      "name": "moment",
+      "size": 4350323
+    },
+    {
+      "name": "@tanstack",
+      "size": 4290564
+    },
+    {
+      "name": "@typescript-eslint",
+      "size": 3996888
+    },
+    {
+      "name": "@types",
+      "size": 3966841
+    },
+    {
+      "name": "@rollup",
+      "size": 3936229
+    },
+    {
+      "name": "@heroicons",
+      "size": 3688492
+    },
+    {
+      "name": "isomorphic-dompurify",
+      "size": 3518903
+    },
+    {
+      "name": "swiper",
+      "size": 3407910
+    },
+    {
+      "name": "jsdom",
+      "size": 3105366
+    },
+    {
+      "name": "eslint",
+      "size": 3042582
+    },
+    {
+      "name": "tldts",
+      "size": 2977311
+    },
+    {
+      "name": "@netlify",
+      "size": 2875703
+    },
+    {
+      "name": "vite",
+      "size": 2822380
+    },
+    {
+      "name": "@unrs",
+      "size": 2822336
+    },
+    {
+      "name": "polished",
+      "size": 2795612
+    },
+    {
+      "name": "axe-core",
+      "size": 2789874
+    },
+    {
+      "name": "es-abstract",
+      "size": 2784526
+    },
+    {
+      "name": "rollup",
+      "size": 2740266
+    },
+    {
+      "name": "@codemirror",
+      "size": 2718603
+    },
+    {
+      "name": "@asamuzakjp",
+      "size": 2437122
+    },
+    {
+      "name": "framer-motion",
+      "size": 2299355
+    },
+    {
+      "name": "caniuse-lite",
+      "size": 2264707
+    },
+    {
+      "name": "slate",
+      "size": 2133856
+    },
+    {
+      "name": "jiti",
+      "size": 2131809
+    },
+    {
+      "name": "@react-aria",
+      "size": 2088121
+    },
+    {
+      "name": "styled-components",
+      "size": 2055282
+    },
+    {
+      "name": "prismjs",
+      "size": 1990158
+    },
+    {
+      "name": "valibot",
+      "size": 1741212
+    },
+    {
+      "name": "xstate",
+      "size": 1705013
+    },
+    {
+      "name": "zod",
+      "size": 1631426
+    },
+    {
+      "name": "eslint-plugin-import",
+      "size": 1584027
+    },
+    {
+      "name": "language-subtag-registry",
+      "size": 1544744
+    },
+    {
+      "name": "@dnd-kit",
+      "size": 1455386
+    },
+    {
+      "name": "lodash",
+      "size": 1412415
+    },
+    {
+      "name": "@floating-ui",
+      "size": 1253165
+    },
+    {
+      "name": "eslint-plugin-react",
+      "size": 1253000
+    },
+    {
+      "name": "csstype",
+      "size": 1246074
+    },
+    {
+      "name": "tar",
+      "size": 1239499
+    },
+    {
+      "name": "parse5",
+      "size": 1236424
+    },
+    {
+      "name": "sucrase",
+      "size": 1230219
+    },
+    {
+      "name": "css-tree",
+      "size": 1190591
+    },
+    {
+      "name": "undici",
+      "size": 1172246
+    },
+    {
+      "name": "react-hook-form",
+      "size": 1132260
+    },
+    {
+      "name": "esquery",
+      "size": 1037210
+    },
+    {
+      "name": "groq-js",
+      "size": 1036998
+    },
+    {
+      "name": "styled-jsx",
+      "size": 1032153
+    },
+    {
+      "name": "@headlessui",
+      "size": 1006424
+    },
+    {
+      "name": "@eslint-community",
+      "size": 955722
+    },
+    {
+      "name": "@oclif",
+      "size": 932481
+    },
+    {
+      "name": "ajv",
+      "size": 929154
+    },
+    {
+      "name": "refractor",
+      "size": 926201
+    },
+    {
+      "name": "glob",
+      "size": 900861
+    },
+    {
+      "name": "@lezer",
+      "size": 828516
+    },
+    {
+      "name": "graphemer",
+      "size": 811810
+    },
+    {
+      "name": "dompurify",
+      "size": 808637
+    },
+    {
+      "name": "async",
+      "size": 807741
+    },
+    {
+      "name": "source-map",
+      "size": 805224
+    },
+    {
+      "name": "lru-cache",
+      "size": 804301
+    },
+    {
+      "name": "core-js-compat",
+      "size": 791287
+    },
+    {
+      "name": "get-it",
+      "size": 756889
+    },
+    {
+      "name": "eslint-plugin-jsx-a11y",
+      "size": 752797
+    },
+    {
+      "name": "pako",
+      "size": 741440
+    },
+    {
+      "name": "psl",
+      "size": 711982
+    },
+    {
+      "name": "motion-dom",
+      "size": 695653
+    },
+    {
+      "name": "slate-dom",
+      "size": 683746
+    },
+    {
+      "name": "yaml",
+      "size": 683419
+    },
+    {
+      "name": "@eslint",
+      "size": 672641
+    },
+    {
+      "name": "reselect",
+      "size": 646106
+    },
+    {
+      "name": "i18next",
+      "size": 639937
+    },
+    {
+      "name": "lodash-es",
+      "size": 636080
+    },
+    {
+      "name": "immer",
+      "size": 627402
+    },
+    {
+      "name": "mdn-data",
+      "size": 602138
+    },
+    {
+      "name": "regenerate-unicode-properties",
+      "size": 601545
+    },
+    {
+      "name": "acorn",
+      "size": 554942
+    },
+    {
+      "name": "path-scurry",
+      "size": 535479
+    },
+    {
+      "name": "yargs",
+      "size": 474307
+    },
+    {
+      "name": "uri-js",
+      "size": 469879
+    },
+    {
+      "name": "@inquirer",
+      "size": 436488
+    },
+    {
+      "name": "@jridgewell",
+      "size": 434839
+    },
+    {
+      "name": "load-yaml-file",
+      "size": 418326
+    },
+    {
+      "name": "entities",
+      "size": 412892
+    },
+    {
+      "name": "tabbable",
+      "size": 411841
+    },
+    {
+      "name": "js-yaml",
+      "size": 404738
+    },
+    {
+      "name": "@csstools",
+      "size": 369596
+    },
+    {
+      "name": "whatwg-encoding",
+      "size": 361857
+    },
+    {
+      "name": "ts-api-utils",
+      "size": 356154
+    },
+    {
+      "name": "iconv-lite",
+      "size": 335941
+    },
+    {
+      "name": "react-i18next",
+      "size": 330709
+    },
+    {
+      "name": "react",
+      "size": 318101
+    },
+    {
+      "name": "esprima",
+      "size": 314361
+    },
+    {
+      "name": "eventsource",
+      "size": 313528
+    },
+    {
+      "name": "cssstyle",
+      "size": 309790
+    },
+    {
+      "name": "readable-stream",
+      "size": 309177
+    },
+    {
+      "name": "tsconfig-paths",
+      "size": 295671
+    },
+    {
+      "name": "color2k",
+      "size": 293214
+    },
+    {
+      "name": "minipass",
+      "size": 286202
+    },
+    {
+      "name": "decimal.js",
+      "size": 284225
+    },
+    {
+      "name": "@actions",
+      "size": 278427
+    },
+    {
+      "name": "form-data",
+      "size": 268209
+    },
+    {
+      "name": "htmlparser2",
+      "size": 265049
+    },
+    {
+      "name": "@rexxars",
+      "size": 260896
+    },
+    {
+      "name": "@rushstack",
+      "size": 254742
+    },
+    {
+      "name": "jackspeak",
+      "size": 253070
+    },
+    {
+      "name": "@swc",
+      "size": 249560
+    },
+    {
+      "name": "get-uri",
+      "size": 238547
+    },
+    {
+      "name": "eventsource-parser",
+      "size": 236922
+    },
+    {
+      "name": "jsx-ast-utils",
+      "size": 235572
+    },
+    {
+      "name": "json5",
+      "size": 235198
+    },
+    {
+      "name": "tr46",
+      "size": 225902
+    },
+    {
+      "name": "mime-db",
+      "size": 225566
+    },
+    {
+      "name": "css-select",
+      "size": 224084
+    },
+    {
+      "name": "tldts-core",
+      "size": 222678
+    },
+    {
+      "name": "babel-plugin-polyfill-corejs3",
+      "size": 221237
+    },
+    {
+      "name": "decompress-tar",
+      "size": 211754
+    },
+    {
+      "name": "es-iterator-helpers",
+      "size": 207946
+    },
+    {
+      "name": "postcss",
+      "size": 204291
+    },
+    {
+      "name": "json-stream-stringify",
+      "size": 203220
+    },
+    {
+      "name": "tinyglobby",
+      "size": 202293
+    },
+    {
+      "name": "@isaacs",
+      "size": 201698
+    },
+    {
+      "name": "xregexp",
+      "size": 188951
+    },
+    {
+      "name": "event-target-shim",
+      "size": 188883
+    },
+    {
+      "name": "focus-lock",
+      "size": 188410
+    },
+    {
+      "name": "bl",
+      "size": 188398
+    },
+    {
+      "name": "postcss-selector-parser",
+      "size": 186430
+    },
+    {
+      "name": "tar-fs",
+      "size": 185741
+    },
+    {
+      "name": "esbuild-register",
+      "size": 182205
+    },
+    {
+      "name": "aria-query",
+      "size": 176114
+    },
+    {
+      "name": "html-to-text",
+      "size": 175345
+    },
+    {
+      "name": "typeid-js",
+      "size": 175244
+    },
+    {
+      "name": "jake",
+      "size": 175013
+    },
+    {
+      "name": "peek-stream",
+      "size": 173919
+    },
+    {
+      "name": "pumpify",
+      "size": 173647
+    },
+    {
+      "name": "hotscript",
+      "size": 171707
+    },
+    {
+      "name": "argparse",
+      "size": 171548
+    },
+    {
+      "name": "speakingurl",
+      "size": 167059
+    },
+    {
+      "name": "domutils",
+      "size": 166738
+    },
+    {
+      "name": "electron-to-chromium",
+      "size": 165882
+    },
+    {
+      "name": "node-html-parser",
+      "size": 165463
+    },
+    {
+      "name": "saxes",
+      "size": 163774
+    },
+    {
+      "name": "bidi-js",
+      "size": 160810
+    },
+    {
+      "name": "ftp",
+      "size": 154824
+    },
+    {
+      "name": "gunzip-maybe",
+      "size": 154701
+    },
+    {
+      "name": "lazystream",
+      "size": 154633
+    },
+    {
+      "name": "read-pkg",
+      "size": 152947
+    },
+    {
+      "name": "babel-plugin-polyfill-corejs2",
+      "size": 151321
+    },
+    {
+      "name": "mississippi",
+      "size": 150300
+    },
+    {
+      "name": "from2",
+      "size": 148338
+    },
+    {
+      "name": "ws",
+      "size": 147181
+    },
+    {
+      "name": "eslint-scope",
+      "size": 146333
+    },
+    {
+      "name": "resolve",
+      "size": 145619
+    },
+    {
+      "name": "parallel-transform",
+      "size": 144523
+    },
+    {
+      "name": "ejs",
+      "size": 142835
+    },
+    {
+      "name": "browserify-zlib",
+      "size": 142313
+    },
+    {
+      "name": "duplexify",
+      "size": 142272
+    },
+    {
+      "name": "source-map-js",
+      "size": 139872
+    },
+    {
+      "name": "mendoza",
+      "size": 139527
+    },
+    {
+      "name": "stylis",
+      "size": 139160
+    },
+    {
+      "name": "regexpu-core",
+      "size": 135551
+    },
+    {
+      "name": "ansi-escapes",
+      "size": 135433
+    },
+    {
+      "name": "esbuild",
+      "size": 134494
+    },
+    {
+      "name": "concat-stream",
+      "size": 133527
+    },
+    {
+      "name": "unbzip2-stream",
+      "size": 133327
+    },
+    {
+      "name": "through2",
+      "size": 133317
+    },
+    {
+      "name": "flush-write-stream",
+      "size": 130474
+    },
+    {
+      "name": "scrollmirror",
+      "size": 127227
+    },
+    {
+      "name": "meow",
+      "size": 126792
+    },
+    {
+      "name": "ast-types-flow",
+      "size": 125975
+    },
+    {
+      "name": "yargs-parser",
+      "size": 124417
+    },
+    {
+      "name": "busboy",
+      "size": 124397
+    },
+    {
+      "name": "eslint-plugin-react-hooks",
+      "size": 124212
+    },
+    {
+      "name": "he",
+      "size": 124138
+    },
+    {
+      "name": "exif-component",
+      "size": 124125
+    },
+    {
+      "name": "adm-zip",
+      "size": 121487
+    },
+    {
+      "name": "history",
+      "size": 121477
+    },
+    {
+      "name": "prop-types",
+      "size": 118491
+    },
+    {
+      "name": "uuid",
+      "size": 116098
+    },
+    {
+      "name": "get-tsconfig",
+      "size": 115564
+    },
+    {
+      "name": "path-to-regexp",
+      "size": 112042
+    },
+    {
+      "name": "tough-cookie",
+      "size": 111787
+    },
+    {
+      "name": "minizlib",
+      "size": 110996
+    },
+    {
+      "name": "axobject-query",
+      "size": 110878
+    },
+    {
+      "name": "react-focus-lock",
+      "size": 110789
+    },
+    {
+      "name": "type-fest",
+      "size": 110590
+    },
+    {
+      "name": "fast-glob",
+      "size": 110530
+    },
+    {
+      "name": "eslint-module-utils",
+      "size": 107897
+    },
+    {
+      "name": "regjsparser",
+      "size": 106669
+    },
+    {
+      "name": "mkdirp",
+      "size": 106656
+    },
+    {
+      "name": "doctrine",
+      "size": 106364
+    },
+    {
+      "name": "object-inspect",
+      "size": 102920
+    },
+    {
+      "name": "@humanwhocodes",
+      "size": 102809
+    },
+    {
+      "name": "chokidar",
+      "size": 102334
+    },
+    {
+      "name": "peberminta",
+      "size": 100524
+    },
+    {
+      "name": "whatwg-url",
+      "size": 98558
+    },
+    {
+      "name": "emoji-regex",
+      "size": 97916
+    },
+    {
+      "name": "read-pkg-up",
+      "size": 97544
+    },
+    {
+      "name": "semver",
+      "size": 97420
+    },
+    {
+      "name": "cliui",
+      "size": 96378
+    },
+    {
+      "name": "property-information",
+      "size": 96307
+    },
+    {
+      "name": "compute-scroll-into-view",
+      "size": 95312
+    },
+    {
+      "name": "scheduler",
+      "size": 93383
+    },
+    {
+      "name": "configstore",
+      "size": 93211
+    },
+    {
+      "name": "react-refractor",
+      "size": 92490
+    },
+    {
+      "name": "zustand",
+      "size": 91494
+    },
+    {
+      "name": "tslib",
+      "size": 90359
+    },
+    {
+      "name": "css-to-react-native",
+      "size": 90021
+    },
+    {
+      "name": "picomatch",
+      "size": 89952
+    },
+    {
+      "name": "log-symbols",
+      "size": 88504
+    },
+    {
+      "name": "@react-stately",
+      "size": 88456
+    },
+    {
+      "name": "resend",
+      "size": 87908
+    },
+    {
+      "name": "@react-types",
+      "size": 87655
+    },
+    {
+      "name": "nwsapi",
+      "size": 85858
+    },
+    {
+      "name": "@date-fns",
+      "size": 85748
+    },
+    {
+      "name": "source-map-support",
+      "size": 85177
+    },
+    {
+      "name": "undici-types",
+      "size": 83680
+    },
+    {
+      "name": "events",
+      "size": 82778
+    },
+    {
+      "name": "buffer",
+      "size": 82527
+    },
+    {
+      "name": "make-dir",
+      "size": 81245
+    },
+    {
+      "name": "yallist",
+      "size": 80297
+    },
+    {
+      "name": "json-2-csv",
+      "size": 80291
+    },
+    {
+      "name": "@fastify",
+      "size": 80189
+    },
+    {
+      "name": "@ampproject",
+      "size": 78946
+    },
+    {
+      "name": "object.assign",
+      "size": 78300
+    },
+    {
+      "name": "signal-exit",
+      "size": 76966
+    },
+    {
+      "name": "pluralize-esm",
+      "size": 76689
+    },
+    {
+      "name": "abort-controller",
+      "size": 76297
+    },
+    {
+      "name": "domhandler",
+      "size": 75339
+    },
+    {
+      "name": "chardet",
+      "size": 74843
+    },
+    {
+      "name": "@pkgjs",
+      "size": 74173
+    },
+    {
+      "name": "yauzl",
+      "size": 74156
+    },
+    {
+      "name": "readdir-glob",
+      "size": 73833
+    },
+    {
+      "name": "@juggle",
+      "size": 73672
+    },
+    {
+      "name": "espree",
+      "size": 73642
+    },
+    {
+      "name": "inquirer",
+      "size": 72485
+    },
+    {
+      "name": "rimraf",
+      "size": 72391
+    },
+    {
+      "name": "execa",
+      "size": 71519
+    },
+    {
+      "name": "tsconfck",
+      "size": 69544
+    },
+    {
+      "name": "filelist",
+      "size": 69040
+    },
+    {
+      "name": "vite-tsconfig-paths",
+      "size": 68932
+    },
+    {
+      "name": "foreground-child",
+      "size": 68302
+    },
+    {
+      "name": "ts-interface-checker",
+      "size": 68036
+    },
+    {
+      "name": "cardinal",
+      "size": 66043
+    },
+    {
+      "name": "css-what",
+      "size": 66038
+    },
+    {
+      "name": "browserslist",
+      "size": 65447
+    },
+    {
+      "name": "tunnel",
+      "size": 64886
+    },
+    {
+      "name": "react-rx",
+      "size": 64586
+    },
+    {
+      "name": "wrap-ansi-cjs",
+      "size": 64064
+    },
+    {
+      "name": "find-yarn-workspace-root2",
+      "size": 64020
+    },
+    {
+      "name": "eslint-import-resolver-typescript",
+      "size": 63913
+    },
+    {
+      "name": "url-parse",
+      "size": 62957
+    },
+    {
+      "name": "@vitejs",
+      "size": 62948
+    },
+    {
+      "name": "hoist-non-react-statics",
+      "size": 62809
+    },
+    {
+      "name": "commander",
+      "size": 62442
+    },
+    {
+      "name": "dataloader",
+      "size": 62369
+    },
+    {
+      "name": "redeyed",
+      "size": 61727
+    },
+    {
+      "name": "@nodelib",
+      "size": 60377
+    },
+    {
+      "name": "xmlchars",
+      "size": 58957
+    },
+    {
+      "name": "object-hash",
+      "size": 58857
+    },
+    {
+      "name": "eslint-import-resolver-node",
+      "size": 58548
+    },
+    {
+      "name": "react-refresh",
+      "size": 58408
+    },
+    {
+      "name": "event-source-polyfill",
+      "size": 58055
+    },
+    {
+      "name": "widest-line",
+      "size": 57145
+    },
+    {
+      "name": "symbol-tree",
+      "size": 57073
+    },
+    {
+      "name": "micromatch",
+      "size": 56599
+    },
+    {
+      "name": "html-parse-stringify",
+      "size": 55524
+    },
+    {
+      "name": "min-document",
+      "size": 54850
+    },
+    {
+      "name": "hosted-git-info",
+      "size": 54799
+    },
+    {
+      "name": "async-mutex",
+      "size": 54722
+    },
+    {
+      "name": "minimist",
+      "size": 54477
+    },
+    {
+      "name": "lodash.merge",
+      "size": 54132
+    },
+    {
+      "name": "ignore",
+      "size": 53630
+    },
+    {
+      "name": "string-width-cjs",
+      "size": 53416
+    },
+    {
+      "name": "urlpattern-polyfill",
+      "size": 52699
+    },
+    {
+      "name": "globals",
+      "size": 52113
+    },
+    {
+      "name": "rrweb-cssom",
+      "size": 52111
+    },
+    {
+      "name": "use-callback-ref",
+      "size": 51813
+    },
+    {
+      "name": "streamx",
+      "size": 51510
+    },
+    {
+      "name": "react-google-recaptcha",
+      "size": 51288
+    },
+    {
+      "name": "esutils",
+      "size": 50582
+    },
+    {
+      "name": "optionator",
+      "size": 50157
+    },
+    {
+      "name": "use-sidecar",
+      "size": 49637
+    },
+    {
+      "name": "napi-postinstall",
+      "size": 49463
+    },
+    {
+      "name": "regenerate",
+      "size": 49156
+    },
+    {
+      "name": "character-entities",
+      "size": 47679
+    },
+    {
+      "name": "get-intrinsic",
+      "size": 46542
+    },
+    {
+      "name": "open",
+      "size": 46288
+    },
+    {
+      "name": "console-table-printer",
+      "size": 46006
+    },
+    {
+      "name": "fastq",
+      "size": 45922
+    },
+    {
+      "name": "seek-bzip",
+      "size": 45778
+    },
+    {
+      "name": "react-compiler-runtime",
+      "size": 45704
+    },
+    {
+      "name": "motion-utils",
+      "size": 45498
+    },
+    {
+      "name": "scroll-into-view-if-needed",
+      "size": 44784
+    },
+    {
+      "name": "selderee",
+      "size": 44636
+    },
+    {
+      "name": "braces",
+      "size": 44635
+    },
+    {
+      "name": "unrs-resolver",
+      "size": 44580
+    },
+    {
+      "name": "es-to-primitive",
+      "size": 44531
+    },
+    {
+      "name": "regexp.prototype.flags",
+      "size": 44310
+    },
+    {
+      "name": "which-typed-array",
+      "size": 43913
+    },
+    {
+      "name": "archiver",
+      "size": 43076
+    },
+    {
+      "name": "debug",
+      "size": 42793
+    },
+    {
+      "name": "nth-check",
+      "size": 42555
+    },
+    {
+      "name": "react-async-script",
+      "size": 42363
+    },
+    {
+      "name": "safer-buffer",
+      "size": 42299
+    },
+    {
+      "name": "parseley",
+      "size": 41853
+    },
+    {
+      "name": "b4a",
+      "size": 41037
+    },
+    {
+      "name": "@emotion",
+      "size": 40523
+    },
+    {
+      "name": "string.prototype.matchall",
+      "size": 39819
+    },
+    {
+      "name": "wrap-ansi",
+      "size": 39022
+    },
+    {
+      "name": "@uiw",
+      "size": 38666
+    },
+    {
+      "name": "node-releases",
+      "size": 37225
+    },
+    {
+      "name": "estraverse",
+      "size": 37094
+    },
+    {
+      "name": "before-after-hook",
+      "size": 36961
+    },
+    {
+      "name": "@react-email",
+      "size": 36825
+    },
+    {
+      "name": "wordwrap",
+      "size": 36754
+    },
+    {
+      "name": "prelude-ls",
+      "size": 36741
+    },
+    {
+      "name": "package-json-from-dist",
+      "size": 36453
+    },
+    {
+      "name": "@xstate",
+      "size": 36268
+    },
+    {
+      "name": "is-regex",
+      "size": 35732
+    },
+    {
+      "name": "compress-commons",
+      "size": 35726
+    },
+    {
+      "name": "is-generator-function",
+      "size": 35698
+    },
+    {
+      "name": "rxjs-mergemap-array",
+      "size": 35247
+    },
+    {
+      "name": "string.prototype.trim",
+      "size": 35238
+    },
+    {
+      "name": "chalk",
+      "size": 35047
+    },
+    {
+      "name": "minimatch",
+      "size": 34902
+    },
+    {
+      "name": "sprintf-js",
+      "size": 34784
+    },
+    {
+      "name": "next-themes",
+      "size": 33783
+    },
+    {
+      "name": "object.entries",
+      "size": 33658
+    },
+    {
+      "name": "punycode",
+      "size": 33514
+    },
+    {
+      "name": "is-core-module",
+      "size": 33475
+    },
+    {
+      "name": "find-cache-dir",
+      "size": 33276
+    },
+    {
+      "name": "use-device-pixel-ratio",
+      "size": 33115
+    },
+    {
+      "name": "object.values",
+      "size": 32667
+    },
+    {
+      "name": "nanoid",
+      "size": 32583
+    },
+    {
+      "name": "graceful-fs",
+      "size": 32535
+    },
+    {
+      "name": "jsesc",
+      "size": 32280
+    },
+    {
+      "name": "eslint-visitor-keys",
+      "size": 32278
+    },
+    {
+      "name": "cli-spinners",
+      "size": 32113
+    },
+    {
+      "name": "safe-buffer",
+      "size": 32101
+    },
+    {
+      "name": "language-tags",
+      "size": 32047
+    },
+    {
+      "name": "tar-stream",
+      "size": 31996
+    },
+    {
+      "name": "flatted",
+      "size": 31530
+    },
+    {
+      "name": "function-bind",
+      "size": 31427
+    },
+    {
+      "name": "deepmerge",
+      "size": 31157
+    },
+    {
+      "name": "crc-32",
+      "size": 31044
+    },
+    {
+      "name": "postcss-import",
+      "size": 30855
+    },
+    {
+      "name": "define-data-property",
+      "size": 30851
+    },
+    {
+      "name": "array.prototype.findlastindex",
+      "size": 30509
+    },
+    {
+      "name": "which-builtin-type",
+      "size": 30041
+    },
+    {
+      "name": "follow-redirects",
+      "size": 29918
+    },
+    {
+      "name": "fd-slicer",
+      "size": 29813
+    },
+    {
+      "name": "flat-cache",
+      "size": 29445
+    },
+    {
+      "name": "array.prototype.findlast",
+      "size": 29114
+    },
+    {
+      "name": "is-callable",
+      "size": 28950
+    },
+    {
+      "name": "gensync",
+      "size": 28891
+    },
+    {
+      "name": "dom-serializer",
+      "size": 28813
+    },
+    {
+      "name": "is-hotkey-esm",
+      "size": 28650
+    },
+    {
+      "name": "use-sync-external-store",
+      "size": 28186
+    },
+    {
+      "name": "normalize-package-data",
+      "size": 27888
+    },
+    {
+      "name": "ora",
+      "size": 27827
+    },
+    {
+      "name": "keyv",
+      "size": 27751
+    },
+    {
+      "name": "https-proxy-agent",
+      "size": 27706
+    },
+    {
+      "name": "@ungap",
+      "size": 27500
+    },
+    {
+      "name": "asynckit",
+      "size": 27362
+    },
+    {
+      "name": "array-includes",
+      "size": 27327
+    },
+    {
+      "name": "postcss-value-parser",
+      "size": 27193
+    },
+    {
+      "name": "color-convert",
+      "size": 27189
+    },
+    {
+      "name": "is-negative-zero",
+      "size": 27124
+    },
+    {
+      "name": "function.prototype.name",
+      "size": 27062
+    },
+    {
+      "name": "is-symbol",
+      "size": 27042
+    },
+    {
+      "name": "external-editor",
+      "size": 26996
+    },
+    {
+      "name": "object-keys",
+      "size": 26544
+    },
+    {
+      "name": "is-boolean-object",
+      "size": 26486
+    },
+    {
+      "name": "@vercel",
+      "size": 26430
+    },
+    {
+      "name": "unicode-match-property-value-ecmascript",
+      "size": 26301
+    },
+    {
+      "name": "decompress-tarbz2",
+      "size": 26137
+    },
+    {
+      "name": "tmp",
+      "size": 26021
+    },
+    {
+      "name": "typedarray",
+      "size": 25955
+    },
+    {
+      "name": "file-entry-cache",
+      "size": 25561
+    },
+    {
+      "name": "uuidv7",
+      "size": 25400
+    },
+    {
+      "name": "is-number-object",
+      "size": 25184
+    },
+    {
+      "name": "parse-entities",
+      "size": 25095
+    },
+    {
+      "name": "levn",
+      "size": 24947
+    },
+    {
+      "name": "decompress-unzip",
+      "size": 24895
+    },
+    {
+      "name": "@rolldown",
+      "size": 24506
+    },
+    {
+      "name": "acorn-jsx",
+      "size": 24385
+    },
+    {
+      "name": "webidl-conversions",
+      "size": 24242
+    },
+    {
+      "name": "typed-array-length",
+      "size": 24239
+    },
+    {
+      "name": "is-date-object",
+      "size": 24172
+    },
+    {
+      "name": "agent-base",
+      "size": 24129
+    },
+    {
+      "name": "resolve.exports",
+      "size": 24050
+    },
+    {
+      "name": "is-string",
+      "size": 24001
+    },
+    {
+      "name": "for-each",
+      "size": 23915
+    },
+    {
+      "name": "globalthis",
+      "size": 23665
+    },
+    {
+      "name": "style-mod",
+      "size": 23605
+    },
+    {
+      "name": "string.prototype.trimend",
+      "size": 23582
+    },
+    {
+      "name": "classnames",
+      "size": 23581
+    },
+    {
+      "name": "extend",
+      "size": 23461
+    },
+    {
+      "name": "y18n",
+      "size": 23435
+    },
+    {
+      "name": "spdx-correct",
+      "size": 23412
+    },
+    {
+      "name": "has-symbols",
+      "size": 23409
+    },
+    {
+      "name": "reflect.getprototypeof",
+      "size": 23348
+    },
+    {
+      "name": "is-async-function",
+      "size": 23312
+    },
+    {
+      "name": "internal-slot",
+      "size": 23009
+    },
+    {
+      "name": "to-regex-range",
+      "size": 22939
+    },
+    {
+      "name": "call-bind",
+      "size": 22902
+    },
+    {
+      "name": "string.prototype.trimstart",
+      "size": 22889
+    },
+    {
+      "name": "kind-of",
+      "size": 22820
+    },
+    {
+      "name": "write-file-atomic",
+      "size": 22745
+    },
+    {
+      "name": "bare-events",
+      "size": 22661
+    },
+    {
+      "name": "json-reduce",
+      "size": 22349
+    },
+    {
+      "name": "mime-types",
+      "size": 22341
+    },
+    {
+      "name": "any-promise",
+      "size": 22195
+    },
+    {
+      "name": "chownr",
+      "size": 22048
+    },
+    {
+      "name": "is-bun-module",
+      "size": 21943
+    },
+    {
+      "name": "is-typed-array",
+      "size": 21922
+    },
+    {
+      "name": "rxjs-exhaustmap-with-trailing",
+      "size": 21791
+    },
+    {
+      "name": "globby",
+      "size": 21758
+    },
+    {
+      "name": "decompress",
+      "size": 21692
+    },
+    {
+      "name": "arraybuffer.prototype.slice",
+      "size": 21673
+    },
+    {
+      "name": "postcss-load-config",
+      "size": 21626
+    },
+    {
+      "name": "side-channel",
+      "size": 21545
+    },
+    {
+      "name": "lodash.startcase",
+      "size": 21528
+    },
+    {
+      "name": "p-map",
+      "size": 21188
+    },
+    {
+      "name": "type-check",
+      "size": 21167
+    },
+    {
+      "name": "validate-npm-package-name",
+      "size": 20998
+    },
+    {
+      "name": "array.prototype.tosorted",
+      "size": 20913
+    },
+    {
+      "name": "array.prototype.flatmap",
+      "size": 20876
+    },
+    {
+      "name": "is-weakmap",
+      "size": 20571
+    },
+    {
+      "name": "readdirp",
+      "size": 20472
+    },
+    {
+      "name": "is-map",
+      "size": 20412
+    },
+    {
+      "name": "available-typed-arrays",
+      "size": 20380
+    },
+    {
+      "name": "which-collection",
+      "size": 20064
+    },
+    {
+      "name": "is-hotkey",
+      "size": 20039
+    },
+    {
+      "name": "is-weakset",
+      "size": 19794
+    },
+    {
+      "name": "typed-array-byte-offset",
+      "size": 19758
+    },
+    {
+      "name": "array.prototype.flat",
+      "size": 19714
+    },
+    {
+      "name": "is-set",
+      "size": 19707
+    },
+    {
+      "name": "json-schema-traverse",
+      "size": 19564
+    },
+    {
+      "name": "which-boxed-primitive",
+      "size": 19278
+    },
+    {
+      "name": "unbox-primitive",
+      "size": 18507
+    },
+    {
+      "name": "typed-array-byte-length",
+      "size": 18443
+    },
+    {
+      "name": "simple-wcswidth",
+      "size": 18410
+    },
+    {
+      "name": "hastscript",
+      "size": 18307
+    },
+    {
+      "name": "leac",
+      "size": 18267
+    },
+    {
+      "name": "file-type",
+      "size": 17975
+    },
+    {
+      "name": "w3c-xmlserializer",
+      "size": 17973
+    },
+    {
+      "name": "lilconfig",
+      "size": 17959
+    },
+    {
+      "name": "is-bigint",
+      "size": 17895
+    },
+    {
+      "name": "codemirror",
+      "size": 17785
+    },
+    {
+      "name": "has-tostringtag",
+      "size": 17603
+    },
+    {
+      "name": "safe-array-concat",
+      "size": 17603
+    },
+    {
+      "name": "text-decoder",
+      "size": 17581
+    },
+    {
+      "name": "cssesc",
+      "size": 17488
+    },
+    {
+      "name": "split2",
+      "size": 17419
+    },
+    {
+      "name": "math-intrinsics",
+      "size": 17323
+    },
+    {
+      "name": "http-proxy-agent",
+      "size": 17260
+    },
+    {
+      "name": "didyoumean",
+      "size": 17255
+    },
+    {
+      "name": "is-finalizationregistry",
+      "size": 17202
+    },
+    {
+      "name": "get-symbol-description",
+      "size": 17165
+    },
+    {
+      "name": "is-shared-array-buffer",
+      "size": 17117
+    },
+    {
+      "name": "call-bound",
+      "size": 17106
+    },
+    {
+      "name": "ansi-styles",
+      "size": 16978
+    },
+    {
+      "name": "fast-json-stable-stringify",
+      "size": 16959
+    },
+    {
+      "name": "deeks",
+      "size": 16904
+    },
+    {
+      "name": "react-clientside-effect",
+      "size": 16868
+    },
+    {
+      "name": "unist-util-visit-parents",
+      "size": 16831
+    },
+    {
+      "name": "buffer-crc32",
+      "size": 16801
+    },
+    {
+      "name": "fill-range",
+      "size": 16743
+    },
+    {
+      "name": "whatwg-mimetype",
+      "size": 16721
+    },
+    {
+      "name": "set-function-name",
+      "size": 16720
+    },
+    {
+      "name": "functions-have-names",
+      "size": 16715
+    },
+    {
+      "name": "tunnel-agent",
+      "size": 16679
+    },
+    {
+      "name": "validate-npm-package-license",
+      "size": 16597
+    },
+    {
+      "name": "streamsearch",
+      "size": 16575
+    },
+    {
+      "name": "module-alias",
+      "size": 16346
+    },
+    {
+      "name": "camelcase-keys",
+      "size": 16328
+    },
+    {
+      "name": "object.fromentries",
+      "size": 16324
+    },
+    {
+      "name": "string.prototype.includes",
+      "size": 16188
+    },
+    {
+      "name": "react-fast-compare",
+      "size": 16154
+    },
+    {
+      "name": "is-array-buffer",
+      "size": 16118
+    },
+    {
+      "name": "cross-spawn",
+      "size": 16094
+    },
+    {
+      "name": "use-hot-module-reload",
+      "size": 16066
+    },
+    {
+      "name": "call-bind-apply-helpers",
+      "size": 15952
+    },
+    {
+      "name": "is-weakref",
+      "size": 15872
+    },
+    {
+      "name": "convert-source-map",
+      "size": 15854
+    },
+    {
+      "name": "get-east-asian-width",
+      "size": 15688
+    },
+    {
+      "name": "string-width",
+      "size": 15514
+    },
+    {
+      "name": "process",
+      "size": 15325
+    },
+    {
+      "name": "ts-brand",
+      "size": 15078
+    },
+    {
+      "name": "js-tokens",
+      "size": 15069
+    },
+    {
+      "name": "resolve-pkg-maps",
+      "size": 15037
+    },
+    {
+      "name": "regjsgen",
+      "size": 14986
+    },
+    {
+      "name": "has-bigints",
+      "size": 14802
+    },
+    {
+      "name": "update-browserslist-db",
+      "size": 14770
+    },
+    {
+      "name": "set-function-length",
+      "size": 14747
+    },
+    {
+      "name": "side-channel-list",
+      "size": 14741
+    },
+    {
+      "name": "side-channel-weakmap",
+      "size": 14667
+    },
+    {
+      "name": "object.groupby",
+      "size": 14579
+    },
+    {
+      "name": "es-set-tostringtag",
+      "size": 14544
+    },
+    {
+      "name": "has-proto",
+      "size": 14473
+    },
+    {
+      "name": "string_decoder",
+      "size": 14427
+    },
+    {
+      "name": "wcwidth",
+      "size": 14241
+    },
+    {
+      "name": "dequal",
+      "size": 14229
+    },
+    {
+      "name": "json-stable-stringify-without-jsonify",
+      "size": 14224
+    },
+    {
+      "name": "globrex",
+      "size": 14164
+    },
+    {
+      "name": "@alloc",
+      "size": 14099
+    },
+    {
+      "name": "postcss-nested",
+      "size": 13962
+    },
+    {
+      "name": "lodash.debounce",
+      "size": 13951
+    },
+    {
+      "name": "unist-util-is",
+      "size": 13746
+    },
+    {
+      "name": "arg",
+      "size": 13665
+    },
+    {
+      "name": "eastasianwidth",
+      "size": 13640
+    },
+    {
+      "name": "is-glob",
+      "size": 13609
+    },
+    {
+      "name": "react-is",
+      "size": 13600
+    },
+    {
+      "name": "xml-name-validator",
+      "size": 13574
+    },
+    {
+      "name": "@marijn",
+      "size": 13551
+    },
+    {
+      "name": "esrecurse",
+      "size": 13527
+    },
+    {
+      "name": "is-data-view",
+      "size": 13459
+    },
+    {
+      "name": "fs.realpath",
+      "size": 13433
+    },
+    {
+      "name": "side-channel-map",
+      "size": 13348
+    },
+    {
+      "name": "dunder-proto",
+      "size": 13003
+    },
+    {
+      "name": "fast-deep-equal",
+      "size": 12966
+    },
+    {
+      "name": "array-treeify",
+      "size": 12949
+    },
+    {
+      "name": "es-shim-unscopables",
+      "size": 12902
+    },
+    {
+      "name": "spdx-license-ids",
+      "size": 12891
+    },
+    {
+      "name": "define-properties",
+      "size": 12890
+    },
+    {
+      "name": "jsdom-global",
+      "size": 12781
+    },
+    {
+      "name": "restore-cursor",
+      "size": 12775
+    },
+    {
+      "name": "pirates",
+      "size": 12564
+    },
+    {
+      "name": "iterator.prototype",
+      "size": 12561
+    },
+    {
+      "name": "archiver-utils",
+      "size": 12552
+    },
+    {
+      "name": "through",
+      "size": 12533
+    },
+    {
+      "name": "camelize",
+      "size": 12487
+    },
+    {
+      "name": "escalade",
+      "size": 12385
+    },
+    {
+      "name": "es-errors",
+      "size": 12324
+    },
+    {
+      "name": "react-promise-suspense",
+      "size": 12272
+    },
+    {
+      "name": "typed-array-buffer",
+      "size": 12215
+    },
+    {
+      "name": "tiny-invariant",
+      "size": 12186
+    },
+    {
+      "name": "doc-path",
+      "size": 12101
+    },
+    {
+      "name": "require-directory",
+      "size": 12071
+    },
+    {
+      "name": "array-buffer-byte-length",
+      "size": 12007
+    },
+    {
+      "name": "pretty-ms",
+      "size": 11970
+    },
+    {
+      "name": "debounce",
+      "size": 11960
+    },
+    {
+      "name": "safe-regex-test",
+      "size": 11917
+    },
+    {
+      "name": "imurmurhash",
+      "size": 11887
+    },
+    {
+      "name": "spdx-expression-parse",
+      "size": 11850
+    },
+    {
+      "name": "word-wrap",
+      "size": 11845
+    },
+    {
+      "name": "groq",
+      "size": 11827
+    },
+    {
+      "name": "damerau-levenshtein",
+      "size": 11813
+    },
+    {
+      "name": "json-lexer",
+      "size": 11805
+    },
+    {
+      "name": "find-up",
+      "size": 11761
+    },
+    {
+      "name": "reusify",
+      "size": 11696
+    },
+    {
+      "name": "html-encoding-sniffer",
+      "size": 11662
+    },
+    {
+      "name": "stop-iteration-iterator",
+      "size": 11646
+    },
+    {
+      "name": "combined-stream",
+      "size": 11514
+    },
+    {
+      "name": "es-object-atoms",
+      "size": 11442
+    },
+    {
+      "name": "data-view-byte-length",
+      "size": 11374
+    },
+    {
+      "name": "domelementtype",
+      "size": 11359
+    },
+    {
+      "name": "performance-now",
+      "size": 11346
+    },
+    {
+      "name": "observable-callback",
+      "size": 11326
+    },
+    {
+      "name": "data-view-buffer",
+      "size": 11323
+    },
+    {
+      "name": "clone",
+      "size": 11132
+    },
+    {
+      "name": "data-view-byte-offset",
+      "size": 11130
+    },
+    {
+      "name": "brace-expansion",
+      "size": 11107
+    },
+    {
+      "name": "text-table",
+      "size": 11014
+    },
+    {
+      "name": "p-queue",
+      "size": 10986
+    },
+    {
+      "name": "isexe",
+      "size": 10956
+    },
+    {
+      "name": "has-property-descriptors",
+      "size": 10911
+    },
+    {
+      "name": "minimist-options",
+      "size": 10869
+    },
+    {
+      "name": "get-proto",
+      "size": 10840
+    },
+    {
+      "name": "yoctocolors-cjs",
+      "size": 10694
+    },
+    {
+      "name": "pinkie",
+      "size": 10513
+    },
+    {
+      "name": "json-parse-even-better-errors",
+      "size": 10426
+    },
+    {
+      "name": "data-uri-to-buffer",
+      "size": 10310
+    },
+    {
+      "name": "@selderee",
+      "size": 10262
+    },
+    {
+      "name": "es-define-property",
+      "size": 10217
+    },
+    {
+      "name": "md5-o-matic",
+      "size": 10160
+    },
+    {
+      "name": "which",
+      "size": 9975
+    },
+    {
+      "name": "gopd",
+      "size": 9869
+    },
+    {
+      "name": "own-keys",
+      "size": 9797
+    },
+    {
+      "name": "mz",
+      "size": 9773
+    },
+    {
+      "name": "babel-plugin-polyfill-regenerator",
+      "size": 9736
+    },
+    {
+      "name": "unist-util-filter",
+      "size": 9713
+    },
+    {
+      "name": "possible-typed-array-names",
+      "size": 9698
+    },
+    {
+      "name": "anymatch",
+      "size": 9654
+    },
+    {
+      "name": "async-function",
+      "size": 9635
+    },
+    {
+      "name": "base64-js",
+      "size": 9624
+    },
+    {
+      "name": "is-number",
+      "size": 9615
+    },
+    {
+      "name": "dot-prop",
+      "size": 9607
+    },
+    {
+      "name": "use-effect-event",
+      "size": 9509
+    },
+    {
+      "name": "map-obj",
+      "size": 9492
+    },
+    {
+      "name": "shallow-clone",
+      "size": 9446
+    },
+    {
+      "name": "fast-levenshtein",
+      "size": 9444
+    },
+    {
+      "name": "set-proto",
+      "size": 9301
+    },
+    {
+      "name": "normalize-path",
+      "size": 9219
+    },
+    {
+      "name": "supports-preserve-symlinks-flag",
+      "size": 9178
+    },
+    {
+      "name": "zip-stream",
+      "size": 9144
+    },
+    {
+      "name": "error-ex",
+      "size": 9035
+    },
+    {
+      "name": "merge2",
+      "size": 8897
+    },
+    {
+      "name": "typedarray-to-buffer",
+      "size": 8835
+    },
+    {
+      "name": "hasown",
+      "size": 8765
+    },
+    {
+      "name": "pump",
+      "size": 8762
+    },
+    {
+      "name": "quick-lru",
+      "size": 8645
+    },
+    {
+      "name": "string.prototype.repeat",
+      "size": 8613
+    },
+    {
+      "name": "requires-port",
+      "size": 8565
+    },
+    {
+      "name": "clsx",
+      "size": 8555
+    },
+    {
+      "name": "safe-push-apply",
+      "size": 8500
+    },
+    {
+      "name": "postcss-js",
+      "size": 8449
+    },
+    {
+      "name": "w3c-keyname",
+      "size": 8381
+    },
+    {
+      "name": "queue-microtask",
+      "size": 8367
+    },
+    {
+      "name": "tiny-warning",
+      "size": 8309
+    },
+    {
+      "name": "get-stream",
+      "size": 8169
+    },
+    {
+      "name": "deep-is",
+      "size": 8114
+    },
+    {
+      "name": "raf",
+      "size": 8100
+    },
+    {
+      "name": "mimic-function",
+      "size": 8096
+    },
+    {
+      "name": "file-uri-to-path",
+      "size": 8068
+    },
+    {
+      "name": "delayed-stream",
+      "size": 8021
+    },
+    {
+      "name": "clone-deep",
+      "size": 8000
+    },
+    {
+      "name": "thenify",
+      "size": 7920
+    },
+    {
+      "name": "data-urls",
+      "size": 7834
+    },
+    {
+      "name": "p-limit",
+      "size": 7754
+    },
+    {
+      "name": "glob-parent",
+      "size": 7719
+    },
+    {
+      "name": "run-async",
+      "size": 7705
+    },
+    {
+      "name": "hast-util-parse-selector",
+      "size": 7531
+    },
+    {
+      "name": "is-plain-object",
+      "size": 7503
+    },
+    {
+      "name": "ansicolors",
+      "size": 7465
+    },
+    {
+      "name": "camelcase",
+      "size": 7447
+    },
+    {
+      "name": "shallowequal",
+      "size": 7347
+    },
+    {
+      "name": "find-up-simple",
+      "size": 7253
+    },
+    {
+      "name": "p-locate",
+      "size": 7240
+    },
+    {
+      "name": "supports-color",
+      "size": 7035
+    },
+    {
+      "name": "locate-path",
+      "size": 7017
+    },
+    {
+      "name": "nano-pubsub",
+      "size": 6992
+    },
+    {
+      "name": "querystringify",
+      "size": 6959
+    },
+    {
+      "name": "strip-json-comments",
+      "size": 6959
+    },
+    {
+      "name": "balanced-match",
+      "size": 6939
+    },
+    {
+      "name": "isobject",
+      "size": 6932
+    },
+    {
+      "name": "use-isomorphic-layout-effect",
+      "size": 6902
+    },
+    {
+      "name": "xdg-basedir",
+      "size": 6813
+    },
+    {
+      "name": "ieee754",
+      "size": 6796
+    },
+    {
+      "name": "ansis",
+      "size": 6756
+    },
+    {
+      "name": "stream-each",
+      "size": 6744
+    },
+    {
+      "name": "ms",
+      "size": 6721
+    },
+    {
+      "name": "shallow-equals",
+      "size": 6718
+    },
+    {
+      "name": "character-entities-legacy",
+      "size": 6708
+    },
+    {
+      "name": "color-name",
+      "size": 6693
+    },
+    {
+      "name": "crc32-stream",
+      "size": 6598
+    },
+    {
+      "name": "strip-dirs",
+      "size": 6596
+    },
+    {
+      "name": "thenify-all",
+      "size": 6586
+    },
+    {
+      "name": "npm-run-path",
+      "size": 6583
+    },
+    {
+      "name": "run-parallel",
+      "size": 6563
+    },
+    {
+      "name": "decamelize-keys",
+      "size": 6554
+    },
+    {
+      "name": "mute-stream",
+      "size": 6498
+    },
+    {
+      "name": "css-color-keywords",
+      "size": 6485
+    },
+    {
+      "name": "xtend",
+      "size": 6465
+    },
+    {
+      "name": "decompress-targz",
+      "size": 6452
+    },
+    {
+      "name": "picocolors",
+      "size": 6373
+    },
+    {
+      "name": "clean-stack",
+      "size": 6372
+    },
+    {
+      "name": "comma-separated-tokens",
+      "size": 6354
+    },
+    {
+      "name": "callsites",
+      "size": 6332
+    },
+    {
+      "name": "end-of-stream",
+      "size": 6234
+    },
+    {
+      "name": "is-extglob",
+      "size": 6217
+    },
+    {
+      "name": "onetime",
+      "size": 6173
+    },
+    {
+      "name": "direction",
+      "size": 6156
+    },
+    {
+      "name": "yocto-queue",
+      "size": 6027
+    },
+    {
+      "name": "pify",
+      "size": 6020
+    },
+    {
+      "name": "pend",
+      "size": 6015
+    },
+    {
+      "name": "get-package-type",
+      "size": 6012
+    },
+    {
+      "name": "mimic-response",
+      "size": 6003
+    },
+    {
+      "name": "unicode-property-aliases-ecmascript",
+      "size": 5976
+    },
+    {
+      "name": "is-stream",
+      "size": 5927
+    },
+    {
+      "name": "loose-envify",
+      "size": 5814
+    },
+    {
+      "name": "is-natural-number",
+      "size": 5807
+    },
+    {
+      "name": "dlv",
+      "size": 5802
+    },
+    {
+      "name": "universal-user-agent",
+      "size": 5758
+    },
+    {
+      "name": "decompress-response",
+      "size": 5683
+    },
+    {
+      "name": "natural-compare",
+      "size": 5647
+    },
+    {
+      "name": "ansi-regex",
+      "size": 5609
+    },
+    {
+      "name": "stable-hash",
+      "size": 5596
+    },
+    {
+      "name": "space-separated-tokens",
+      "size": 5579
+    },
+    {
+      "name": "character-reference-invalid",
+      "size": 5545
+    },
+    {
+      "name": "object-assign",
+      "size": 5493
+    },
+    {
+      "name": "util-deprecate",
+      "size": 5481
+    },
+    {
+      "name": "dir-glob",
+      "size": 5417
+    },
+    {
+      "name": "parse-json",
+      "size": 5409
+    },
+    {
+      "name": "path-type",
+      "size": 5407
+    },
+    {
+      "name": "json-buffer",
+      "size": 5404
+    },
+    {
+      "name": "crelt",
+      "size": 5387
+    },
+    {
+      "name": "lines-and-columns",
+      "size": 5386
+    },
+    {
+      "name": "leven",
+      "size": 5342
+    },
+    {
+      "name": "humanize-list",
+      "size": 5306
+    },
+    {
+      "name": "oneline",
+      "size": 5224
+    },
+    {
+      "name": "hard-rejection",
+      "size": 5142
+    },
+    {
+      "name": "is-alphanumerical",
+      "size": 5114
+    },
+    {
+      "name": "fast-fifo",
+      "size": 5072
+    },
+    {
+      "name": "buffer-from",
+      "size": 5047
+    },
+    {
+      "name": "unicode-match-property-ecmascript",
+      "size": 5047
+    },
+    {
+      "name": "preferred-pm",
+      "size": 5039
+    },
+    {
+      "name": "binary-extensions",
+      "size": 5030
+    },
+    {
+      "name": "is-alphabetical",
+      "size": 5011
+    },
+    {
+      "name": "is-fullwidth-code-point",
+      "size": 4994
+    },
+    {
+      "name": "is-hexadecimal",
+      "size": 4987
+    },
+    {
+      "name": "pkg-dir",
+      "size": 4983
+    },
+    {
+      "name": "core-util-is",
+      "size": 4982
+    },
+    {
+      "name": "concat-map",
+      "size": 4861
+    },
+    {
+      "name": "eslint-config-next",
+      "size": 4849
+    },
+    {
+      "name": "unicode-canonical-property-names-ecmascript",
+      "size": 4817
+    },
+    {
+      "name": "universalify",
+      "size": 4787
+    },
+    {
+      "name": "commondir",
+      "size": 4786
+    },
+    {
+      "name": "cli-width",
+      "size": 4767
+    },
+    {
+      "name": "get-random-values",
+      "size": 4741
+    },
+    {
+      "name": "get-caller-file",
+      "size": 4719
+    },
+    {
+      "name": "import-fresh",
+      "size": 4693
+    },
+    {
+      "name": "is-decimal",
+      "size": 4679
+    },
+    {
+      "name": "resolve-from",
+      "size": 4641
+    },
+    {
+      "name": "is-interactive",
+      "size": 4619
+    },
+    {
+      "name": "path-key",
+      "size": 4553
+    },
+    {
+      "name": "path-parse",
+      "size": 4511
+    },
+    {
+      "name": "mkdirp-classic",
+      "size": 4498
+    },
+    {
+      "name": "stream-shift",
+      "size": 4465
+    },
+    {
+      "name": "mimic-fn",
+      "size": 4457
+    },
+    {
+      "name": "cyclist",
+      "size": 4449
+    },
+    {
+      "name": "define-lazy-prop",
+      "size": 4446
+    },
+    {
+      "name": "is-retry-allowed",
+      "size": 4425
+    },
+    {
+      "name": "has-flag",
+      "size": 4419
+    },
+    {
+      "name": "is-typedarray",
+      "size": 4407
+    },
+    {
+      "name": "indent-string",
+      "size": 4398
+    },
+    {
+      "name": "buffer-fill",
+      "size": 4390
+    },
+    {
+      "name": "cli-cursor",
+      "size": 4372
+    },
+    {
+      "name": "p-try",
+      "size": 4371
+    },
+    {
+      "name": "which-pm",
+      "size": 4337
+    },
+    {
+      "name": "merge-stream",
+      "size": 4306
+    },
+    {
+      "name": "get-random-values-esm",
+      "size": 4239
+    },
+    {
+      "name": "read-cache",
+      "size": 4218
+    },
+    {
+      "name": "is-path-inside",
+      "size": 4121
+    },
+    {
+      "name": "is-arrayish",
+      "size": 4053
+    },
+    {
+      "name": "camelcase-css",
+      "size": 4051
+    },
+    {
+      "name": "once",
+      "size": 4046
+    },
+    {
+      "name": "stdin-discarder",
+      "size": 4041
+    },
+    {
+      "name": "strip-ansi",
+      "size": 4029
+    },
+    {
+      "name": "strip-ansi-cjs",
+      "size": 4029
+    },
+    {
+      "name": "deprecation",
+      "size": 4006
+    },
+    {
+      "name": "inherits",
+      "size": 3958
+    },
+    {
+      "name": "crypto-random-string",
+      "size": 3929
+    },
+    {
+      "name": "parent-module",
+      "size": 3922
+    },
+    {
+      "name": "path-exists",
+      "size": 3919
+    },
+    {
+      "name": "is-potential-custom-element-name",
+      "size": 3918
+    },
+    {
+      "name": "trim-newlines",
+      "size": 3852
+    },
+    {
+      "name": "defaults",
+      "size": 3842
+    },
+    {
+      "name": "escape-string-regexp",
+      "size": 3790
+    },
+    {
+      "name": "inflight",
+      "size": 3762
+    },
+    {
+      "name": "is-wsl",
+      "size": 3757
+    },
+    {
+      "name": "parse-ms",
+      "size": 3677
+    },
+    {
+      "name": "path-is-absolute",
+      "size": 3616
+    },
+    {
+      "name": "@rtsao",
+      "size": 3611
+    },
+    {
+      "name": "redent",
+      "size": 3599
+    },
+    {
+      "name": "is-unicode-supported",
+      "size": 3535
+    },
+    {
+      "name": "slash",
+      "size": 3507
+    },
+    {
+      "name": "global",
+      "size": 3468
+    },
+    {
+      "name": "spdx-exceptions",
+      "size": 3468
+    },
+    {
+      "name": "unicorn-magic",
+      "size": 3450
+    },
+    {
+      "name": "isarray",
+      "size": 3430
+    },
+    {
+      "name": "require-from-string",
+      "size": 3422
+    },
+    {
+      "name": "p-finally",
+      "size": 3365
+    },
+    {
+      "name": "strip-indent",
+      "size": 3312
+    },
+    {
+      "name": "to-buffer",
+      "size": 3254
+    },
+    {
+      "name": "detect-node-es",
+      "size": 3210
+    },
+    {
+      "name": "file-url",
+      "size": 3189
+    },
+    {
+      "name": "arrify",
+      "size": 3185
+    },
+    {
+      "name": "process-nextick-args",
+      "size": 3175
+    },
+    {
+      "name": "array-union",
+      "size": 3169
+    },
+    {
+      "name": "void-elements",
+      "size": 3113
+    },
+    {
+      "name": "is-binary-path",
+      "size": 3078
+    },
+    {
+      "name": "os-tmpdir",
+      "size": 3056
+    },
+    {
+      "name": "strip-final-newline",
+      "size": 3046
+    },
+    {
+      "name": "is-docker",
+      "size": 3013
+    },
+    {
+      "name": "strip-bom",
+      "size": 3004
+    },
+    {
+      "name": "min-indent",
+      "size": 2969
+    },
+    {
+      "name": "wrappy",
+      "size": 2961
+    },
+    {
+      "name": "decamelize",
+      "size": 2940
+    },
+    {
+      "name": "unique-string",
+      "size": 2880
+    },
+    {
+      "name": "shebang-regex",
+      "size": 2828
+    },
+    {
+      "name": "is-obj",
+      "size": 2821
+    },
+    {
+      "name": "is-deflate",
+      "size": 2767
+    },
+    {
+      "name": "@nolyfill",
+      "size": 2706
+    },
+    {
+      "name": "builtins",
+      "size": 2696
+    },
+    {
+      "name": "dom-walk",
+      "size": 2658
+    },
+    {
+      "name": "is-plain-obj",
+      "size": 2615
+    },
+    {
+      "name": "pinkie-promise",
+      "size": 2576
+    },
+    {
+      "name": "shebang-command",
+      "size": 2556
+    },
+    {
+      "name": "buffer-alloc",
+      "size": 2274
+    },
+    {
+      "name": "fs-constants",
+      "size": 2223
+    },
+    {
+      "name": "buffer-alloc-unsafe",
+      "size": 1936
+    },
+    {
+      "name": "is-gzip",
+      "size": 1382
+    },
+    {
+      "name": "is-tar",
+      "size": 1341
+    },
+    {
+      "name": "boolbase",
+      "size": 1330
+    },
+    {
+      "name": "client-only",
+      "size": 611
+    },
+    {
+      "name": "@emnapi",
+      "size": 0
+    },
+    {
+      "name": "@napi-rs",
+      "size": 0
+    },
+    {
+      "name": "@tybys",
+      "size": 0
+    }
+  ]
+}

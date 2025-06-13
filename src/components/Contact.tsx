@@ -292,7 +292,7 @@ export default function Contact() {
                     !recaptchaValue ||
                     !process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
                   }
-                  className="w-full px-6 py-3 bg-primarygreen text-white font-medium rounded-lg shadow-md hover:bg-darkgreen transition-all duration-300 hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
+                                        className="w-full px-6 py-3 bg-greenbutton text-white font-medium rounded-lg shadow-md hover:bg-darkgreen transition-all duration-300 hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
                 </button>

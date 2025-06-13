@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-06-13T09:45:35.655Z",
+  "scores": {
+    "overall": 87,
+    "technical": 100,
+    "content": 67,
+    "localSEO": 100,
+    "structured": 80
+  },
+  "issues": [
+    {
+      "category": "Content SEO",
+      "severity": "HIGH",
+      "issue": "Structure heading manquante dans src/app/page.tsx",
+      "recommendation": "Ajouter une hiérarchie claire H1 > H2 > H3"
+    }
+  ],
+  "recommendations": [],
+  "achievements": [
+    "✅ URL de base pour les métadonnées configurée",
+    "✅ Titre principal du site configurée",
+    "✅ Meta description configurée",
+    "✅ Métadonnées Open Graph configurée",
+    "✅ Métadonnées Twitter Cards configurée",
+    "✅ Directives robots configurée",
+    "✅ URLs canoniques configurée",
+    "✅ robots.txt présent",
+    "✅ Sitemap déclaré dans robots.txt",
+    "✅ Sitemap configuré",
+    "✅ Structure H1/H2 dans src/app/mentions-legales/page.tsx",
+    "✅ Structure H1/H2 dans src/app/politique-confidentialite/page.tsx",
+    "✅ Toutes les images ont un attribut alt",
+    "✅ Adresse physique présent(e)",
+    "✅ Numéro de téléphone présent(e)",
+    "✅ Mots-clés locaux présent(e)",
+    "✅ Services de naturopathie présent(e)",
+    "✅ Call-to-action présent(e)",
+    "✅ Données structurées détectées"
+  ]
+}

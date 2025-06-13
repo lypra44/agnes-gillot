@@ -80,7 +80,7 @@ export const SectionPourquoi = () => {
             </h2>
           )}
           {pourquoiSectionData.body && (
-            <p className="mt-6 text-left leading-normal text-gray-700 dark:text-gray-300">
+            <p className="mt-6 text-left leading-normal text-gray-700">
               {pourquoiSectionData.body}
             </p>
           )}
@@ -98,7 +98,7 @@ export const SectionPourquoi = () => {
             style={{ backgroundImage: `url(/img/plantes-box-${index}.svg)` }}
           >
             {point.title && (
-              <h4 className="font-bold mb-4 text-darkgreen">{point.title}</h4>
+              <h3 className="font-bold mb-4 text-darkgreen">{point.title}</h3>
             )}
             <ul className="pl-6">
               {point.liste.map((item, itemIndex) => (

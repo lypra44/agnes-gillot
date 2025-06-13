@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-06-13T09:40:27.860Z",
+  "lighthouse": null,
+  "bundleSize": {
+    "total": 7464225,
+    "js": 0,
+    "css": 0,
+    "formatted": {
+      "total": "7.12 MB",
+      "js": "0 B",
+      "css": "0 B"
+    },
+    "passed": false
+  },
+  "webVitals": null,
+  "scores": {
+    "overall": 0,
+    "passed": 0,
+    "failed": 1,
+    "total": 1
+  }
+}

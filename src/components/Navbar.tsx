@@ -81,6 +81,7 @@ const Navbar = () => {
               <a
                 href={`#${menu.id}`}
                 className="inline-block p-2 font-sm no-underline font-medium transition-colors text-gray-800 hover:text-primarygreen"
+                tabIndex={open ? 0 : -1}
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection(menu.id);
@@ -153,7 +154,7 @@ const Navbar = () => {
           {/* CTA */}
           <a
             href="#contact"
-            className="hidden xl:flex px-6 py-2 font-medium text-center text-sm text-white bg-primarygreen rounded-md hover:bg-darkgreen"
+            className="hidden xl:flex px-6 py-2 font-medium text-center text-sm text-white bg-greenbutton rounded-md hover:bg-darkgreen"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("contact");

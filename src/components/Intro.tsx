@@ -5,7 +5,7 @@ import { client } from "@/sanity/lib/client";
 import { AnimatedElement } from "@/components/AnimatedElement";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import { Star } from "lucide-react";
+import { StarIcon } from "@heroicons/react/24/solid";
 
 // Définissons un type pour nos données
 interface SectionIntroData {
@@ -115,7 +115,7 @@ export function SectionIntro() {
     const stars = [];
     for (let i = 0; i < 5; i++) {
       stars.push(
-        <Star
+        <StarIcon
           key={i}
           className={`w-3 h-3 ${i < rating ? "fill-yellow-400 text-yellow-400" : "fill-gray-200 text-gray-200"}`}
         />
@@ -270,9 +270,9 @@ export function SectionIntro() {
                         {review.name.charAt(0)}
                       </div>
                       <div className="ml-3">
-                        <h4 className="font-title font-semibold">
+                        <p className="font-title font-semibold text-gray-900">
                           {review.name}
-                        </h4>
+                        </p>
                         <div className="flex items-center">
                           {renderStars(review.rating)}
                         </div>
@@ -374,7 +374,7 @@ export function SectionIntro() {
             <div className="flex flex-row justify-center gap-4">
               <button
                 onClick={handleReviewClick}
-                className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-md text-white bg-primarygreen hover:bg-darkgreen transition-all duration-300 lg:px-6 lg:py-3"
+                className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-md text-white bg-greenbutton hover:bg-darkgreen transition-all duration-300 lg:px-6 lg:py-3"
               >
                 {reviewButtonText}
               </button>
